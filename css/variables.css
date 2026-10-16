@@ -1,0 +1,141 @@
+/**
+ * Reflexology & Foot Massage Studio - Design System Variables
+ * Calming traditional wellness palette: Cream, Ivory, Sage Green, Sand, Earthy Brown
+ */
+
+:root {
+  /* Brand Primary: Sage Green */
+  --primary-rgb: 74, 107, 93;
+  --color-primary: #4a6b5d;
+  --color-primary-hover: #385348;
+  --color-primary-dark: #2c4238;
+  --color-primary-light: #6e9181;
+  --color-primary-soft: #eaf1ed;
+  --color-primary-softest: #f4f8f5;
+
+  /* Earth & Sand Tones */
+  --color-sand: #eae3d2;
+  --color-sand-light: #f6f3eb;
+  --color-sand-dark: #d5cbba;
+  --color-cream: #faf8f5;
+  --color-ivory: #fcfbfa;
+
+  /* Deep Earth & Text */
+  --color-earth-dark: #2d2621;
+  --color-earth-brown: #4a3b32;
+  --color-earth-muted: #7d6e64;
+  --color-earth-light: #ab9c92;
+
+  /* Warm Wellness Accents */
+  --color-terracotta: #c67d5a;
+  --color-terracotta-soft: #fcf1eb;
+  --color-gold: #c5a059;
+  --color-gold-soft: #f9f4ea;
+
+  /* Surface & Base */
+  --bg-body: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-soft: #f6f3eb;
+  --bg-surface-accent: #eaf1ed;
+  --border-color: #e8e2d8;
+  --border-color-light: #f0eae0;
+  --border-color-dark: #d6ccbe;
+
+  /* Typography Colors */
+  --text-main: #2d2621;
+  --text-secondary: #574c43;
+  --text-muted: #7d6e64;
+  --text-inverse: #ffffff;
+  --text-accent: #4a6b5d;
+
+  /* Status Colors */
+  --color-success: #3f7e5d;
+  --color-success-bg: #eaf4ee;
+  --color-warning: #b88629;
+  --color-warning-bg: #fcf6ea;
+  --color-danger: #b54a4a;
+  --color-danger-bg: #faeeee;
+  --color-info: #467389;
+  --color-info-bg: #eaf3f7;
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-accent: 'Cormorant Garamond', Georgia, serif;
+
+  /* Shadows (Organic & Soft) */
+  --shadow-xs: 0 1px 3px rgba(45, 38, 33, 0.04);
+  --shadow-sm: 0 3px 8px rgba(45, 38, 33, 0.06);
+  --shadow-md: 0 8px 24px rgba(45, 38, 33, 0.08);
+  --shadow-lg: 0 16px 40px rgba(45, 38, 33, 0.1);
+  --shadow-xl: 0 24px 60px rgba(45, 38, 33, 0.14);
+  --shadow-inner: inset 0 2px 4px rgba(45, 38, 33, 0.04);
+
+  /* Border Radii (Calm & Elegant) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Layout Spacing */
+  --container-max-width: 1240px;
+  --header-height: 84px;
+  --header-height-mobile: 72px;
+
+  /* Smooth Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Tokens */
+:root[data-theme="dark"],
+html[data-theme="dark"] {
+  --primary-rgb: 132, 172, 154;
+  --color-primary: #769e8d;
+  --color-primary-hover: #8cb2a2;
+  --color-primary-dark: #1b2621;
+  --color-primary-light: #98bea8;
+  --color-primary-soft: #1d2a23;
+  --color-primary-softest: #16201b;
+
+  --color-sand: #2a2520;
+  --color-sand-light: #201b17;
+  --color-sand-dark: #373029;
+  --color-cream: #141816;
+  --color-ivory: #181d1a;
+
+  --color-earth-dark: #f0eee9;
+  --color-earth-brown: #ded9cf;
+  --color-earth-muted: #a69e94;
+  --color-earth-light: #70685f;
+
+  --color-terracotta: #df9470;
+  --color-terracotta-soft: #2e2019;
+  --color-gold: #d8b776;
+  --color-gold-soft: #2e2617;
+
+  --bg-body: #121614;
+  --bg-surface: #1b221e;
+  --bg-surface-elevated: #242c27;
+  --bg-surface-soft: #161c18;
+  --bg-surface-accent: #1d2a23;
+  --border-color: #2b3530;
+  --border-color-light: #222b27;
+  --border-color-dark: #3c4942;
+
+  --text-main: #f2f0eb;
+  --text-secondary: #c9c4b9;
+  --text-muted: #949c95;
+  --text-inverse: #121614;
+  --text-accent: #8cb2a2;
+
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 3px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.65);
+}

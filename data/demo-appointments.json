@@ -1,0 +1,56 @@
+[
+  {
+    "referenceId": "REF-82914",
+    "serviceId": "foot-reflexology-classic",
+    "serviceName": "Classic Eastern Foot Reflexology",
+    "duration": 60,
+    "therapistId": "therapist-mei-ling",
+    "therapistName": "Master Mei-Ling Chen",
+    "date": "2026-10-20",
+    "timeSlot": "10:30 AM",
+    "status": "Confirmed",
+    "totalPrice": 75,
+    "client": {
+      "fullName": "Eleanor Vance",
+      "email": "eleanor.v@example.com",
+      "phone": "+1 (555) 349-8812",
+      "notes": "Prefers medium-firm pressure on inner arch."
+    }
+  },
+  {
+    "referenceId": "REF-73419",
+    "serviceId": "signature-duo-ritual",
+    "serviceName": "The Studio Signature Foot & Body Harmony",
+    "duration": 90,
+    "therapistId": "therapist-kai-tanaka",
+    "therapistName": "Kai Tanaka",
+    "date": "2026-10-21",
+    "timeSlot": "02:00 PM",
+    "status": "Confirmed",
+    "totalPrice": 125,
+    "client": {
+      "fullName": "Marcus Wright",
+      "email": "m.wright@example.com",
+      "phone": "+1 (555) 782-9014",
+      "notes": "First time receiving reflexology; gentle warm-up requested."
+    }
+  },
+  {
+    "referenceId": "REF-61208",
+    "serviceId": "relaxation-foot-massage",
+    "serviceName": "Botanical Herbal Foot Massage",
+    "duration": 60,
+    "therapistId": "therapist-anya-sharma",
+    "therapistName": "Anya Sharma",
+    "date": "2026-10-22",
+    "timeSlot": "04:30 PM",
+    "status": "Confirmed",
+    "totalPrice": 68,
+    "client": {
+      "fullName": "Sophia Martinez",
+      "email": "sophia.m@example.com",
+      "phone": "+1 (555) 412-6589",
+      "notes": "Allergic to eucalyptus; lavender and chamomile preferred."
+    }
+  }
+]

@@ -1,0 +1,571 @@
+/**
+ * Reflexology & Foot Massage Studio - Reusable UI Components
+ */
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn-wellness {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-wellness:hover {
+  transform: translateY(-2px);
+}
+
+.btn-wellness:active {
+  transform: translateY(0);
+}
+
+/* Primary Button (Sage Green) */
+.btn-primary-custom {
+  background-color: var(--color-primary);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(74, 107, 93, 0.25);
+}
+.btn-primary-custom:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 20px rgba(74, 107, 93, 0.35);
+  color: #ffffff !important;
+}
+
+/* Secondary Button (Sand / Light) */
+.btn-secondary-custom {
+  background-color: var(--bg-surface-soft);
+  color: var(--color-earth-brown) !important;
+  border: 1px solid var(--border-color);
+}
+.btn-secondary-custom:hover {
+  background-color: var(--color-sand);
+  color: var(--color-earth-dark) !important;
+  border-color: var(--border-color-dark);
+}
+
+/* Outline Button */
+.btn-outline-custom {
+  background-color: transparent;
+  color: var(--color-primary) !important;
+  border: 1.5px solid var(--color-primary);
+}
+.btn-outline-custom:hover {
+  background-color: var(--color-primary);
+  color: #ffffff !important;
+}
+
+/* Terracotta / Warm Accent */
+.btn-terracotta {
+  background-color: var(--color-terracotta);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(198, 125, 90, 0.25);
+}
+.btn-terracotta:hover {
+  background-color: #b36b48;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(198, 125, 90, 0.35);
+}
+
+/* Sizes */
+.btn-sm {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.85rem;
+}
+.btn-lg {
+  padding: 1.05rem 2.25rem;
+  font-size: 1.05rem;
+}
+.btn-icon-only {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card-wellness {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-wellness:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-color-dark);
+}
+
+.card-hover-scale {
+  overflow: hidden;
+}
+.card-hover-scale img {
+  transition: transform var(--transition-slow);
+}
+.card-hover-scale:hover img {
+  transform: scale(1.04);
+}
+
+/* Service Card */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
+.service-card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-surface-soft);
+}
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .service-card-image img {
+  transform: scale(1.05);
+}
+.service-card-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Therapist Profile Card Media & Photo Framing */
+.therapist-card-media {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+  background-color: var(--bg-surface-soft);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.therapist-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card-wellness:hover .therapist-card-photo {
+  transform: scale(1.03);
+}
+
+.therapist-card-media .badge-signature {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+[dir="rtl"] .therapist-card-media .badge-signature {
+  left: auto;
+  right: 0.85rem;
+}
+.service-card-footer {
+  padding: 1.25rem 1.75rem;
+  background-color: var(--bg-surface-soft);
+  border-top: 1px solid var(--border-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Badges & Chips */
+.badge-wellness {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.badge-signature {
+  background-color: var(--color-gold-soft);
+  color: var(--color-gold);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.badge-popular {
+  background-color: var(--color-terracotta-soft);
+  color: var(--color-terracotta);
+  border: 1px solid rgba(198, 125, 90, 0.3);
+}
+
+/* Rating Stars */
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #e5a93b;
+  font-size: 0.85rem;
+}
+
+/* Duration & Price Pill */
+.duration-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface-soft);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.price-display {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Breadcrumb
+   ========================================================================== */
+.breadcrumb-wellness {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.breadcrumb-wellness a {
+  color: var(--text-muted);
+}
+.breadcrumb-wellness a:hover {
+  color: var(--color-primary);
+}
+.breadcrumb-separator {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   Page Banner / Inner Header
+   ========================================================================== */
+.page-header-banner {
+  padding: 5rem 0 4rem;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+.page-header-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 248, 245, 0.95) 0%,
+    rgba(250, 248, 245, 0.90) 45%,
+    rgba(250, 248, 245, 0.72) 75%,
+    rgba(250, 248, 245, 0.48) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: background var(--transition-normal);
+}
+.page-header-banner .container-custom {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode banner overlay */
+[data-theme="dark"] .page-header-banner::before {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.91) 45%,
+    rgba(18, 22, 20, 0.76) 75%,
+    rgba(18, 22, 20, 0.52) 100%
+  );
+}
+
+/* Page-specific hero banner background classes */
+.page-header-about {
+  background-image: url('../assets/images/hero/about-hero.jpg');
+  background-position: center 35%;
+}
+.page-header-services {
+  background-image: url('../assets/images/hero/services-hero.jpg');
+  background-position: center 40%;
+}
+.page-header-service-details {
+  background-image: url('../assets/images/hero/service-details-hero.jpg');
+  background-position: center 45%;
+}
+.page-header-pricing {
+  background-image: url('../assets/images/hero/pricing-hero.jpg');
+  background-position: center 50%;
+}
+.page-header-benefits {
+  background-image: url('../assets/images/hero/benefits-hero.jpg');
+  background-position: center 40%;
+}
+.page-header-therapists {
+  background-image: url('../assets/images/hero/therapists-hero.jpg');
+  background-position: center 25%;
+}
+.page-header-booking {
+  background-image: url('../assets/images/hero/booking-hero.jpg');
+  background-position: center 45%;
+}
+.page-header-contact {
+  background-image: url('../assets/images/hero/contact-hero.jpg');
+  background-position: center 35%;
+}
+
+@media (max-width: 768px) {
+  .page-header-banner {
+    padding: 3.5rem 0 2.75rem;
+  }
+  .page-header-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 245, 0.95) 0%,
+      rgba(250, 248, 245, 0.88) 100%
+    );
+  }
+  [data-theme="dark"] .page-header-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 22, 20, 0.96) 0%,
+      rgba(18, 22, 20, 0.90) 100%
+    );
+  }
+}
+
+/* ==========================================================================
+   Accordion / FAQs
+   ========================================================================== */
+.wellness-accordion-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+.wellness-accordion-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+.wellness-accordion-header:hover {
+  color: var(--color-primary);
+}
+.wellness-accordion-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+.wellness-accordion-item.active {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+.wellness-accordion-item.active .wellness-accordion-icon {
+  transform: rotate(180deg);
+}
+.wellness-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.wellness-accordion-item.active .wellness-accordion-body {
+  max-height: 400px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* ==========================================================================
+   Toasts & Notification Messages
+   ========================================================================== */
+.toast-container-custom {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+  pointer-events: none;
+}
+.wellness-toast {
+  pointer-events: auto;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  animation: slideInToast 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all var(--transition-normal);
+}
+.wellness-toast.toast-success {
+  border-left: 4px solid var(--color-success);
+}
+.wellness-toast.toast-error {
+  border-left: 4px solid var(--color-danger);
+}
+.wellness-toast.toast-info {
+  border-left: 4px solid var(--color-primary);
+}
+.wellness-toast-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+}
+.toast-success .wellness-toast-icon { color: var(--color-success); }
+.toast-error .wellness-toast-icon { color: var(--color-danger); }
+.toast-info .wellness-toast-icon { color: var(--color-primary); }
+
+.wellness-toast-content {
+  flex-grow: 1;
+}
+.wellness-toast-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 0.2rem;
+}
+.wellness-toast-msg {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+.wellness-toast-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.wellness-toast-close:hover {
+  color: var(--text-main);
+}
+@keyframes slideInToast {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+.wellness-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 26, 23, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+.wellness-modal-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+.wellness-modal-dialog {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--transition-normal);
+}
+.wellness-modal-backdrop.show .wellness-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+.wellness-modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wellness-modal-body {
+  padding: 2rem;
+}
+.wellness-modal-footer {
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}

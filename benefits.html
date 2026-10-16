@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexology Benefits & Interactive Foot Map | Solace & Sole</title>
+  <meta name="description" content="Explore the physiological science of reflexology, inspect our interactive meridian foot chart, and learn how zone therapy restores balance across organ systems.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <style>
+    .foot-map-canvas-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .zone-interactive-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-body);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      margin-bottom: 0.65rem;
+    }
+    .zone-interactive-pill:hover,
+    .zone-interactive-pill.active {
+      border-color: var(--color-primary);
+      background: var(--color-primary-soft);
+      transform: translateX(4px);
+    }
+    [dir="rtl"] .zone-interactive-pill:hover,
+    [dir="rtl"] .zone-interactive-pill.active {
+      transform: translateX(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container-custom flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-4 text-xs">
+        <span class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Open Today: 9:00 AM – 9:00 PM
+        </span>
+        <span class="top-bar-divider md:block hidden"></span>
+        <span class="top-bar-item md:inline-flex hidden">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          482 Serenity Way, Suite 100
+        </span>
+        <span class="top-bar-divider md:block hidden"></span>
+        <span class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (555) 382-7653
+        </span>
+      </div>
+
+            <div class="md:flex hidden items-center gap-4 text-xs">
+        <a href="mailto:info@solaceandsole.com" class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          info@solaceandsole.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-custom header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v12"></path>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Solace & Sole</span>
+          <span class="logo-subtitle">Reflexology & Wellness Studio</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Main Navigation">
+        <div class="nav-dropdown">
+          <a href="index.html" class="nav-link-custom">
+            Home
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item-custom">Home 1 – Traditional Studio</a>
+            <a href="home-2.html" class="dropdown-item-custom">Home 2 – Luxury Wellness Sanctuary</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link-custom">About Us</a>
+        <a href="services.html" class="nav-link-custom">Services</a>
+        <a href="benefits.html" class="nav-link-custom active">Benefits & Map</a>
+        <a href="pricing.html" class="nav-link-custom">Pricing Menu</a>
+        <a href="therapists.html" class="nav-link-custom">Therapists</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <!-- Mode & Direction Controls (Compact Pill-Shaped Toggle Buttons) -->
+        <div class="header-mode-controls">
+          <button type="button" class="btn-header-icon btn-dir-toggle" title="Switch Layout Direction" aria-label="Switch Layout Direction">
+            <svg class="icon-dir-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 4l4 4-4 4"></path>
+              <path d="M21 8H3"></path>
+              <path d="M7 20l-4-4 4-4"></path>
+              <path d="M3 16h18"></path>
+            </svg>
+          </button>
+          <button type="button" class="btn-header-icon btn-theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+            <svg class="icon-sun-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="auth-link-slot">
+          <a href="login.html" class="header-auth-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Client Sign In</span>
+          </a>
+        </div>
+
+        <a href="booking.html" class="btn-wellness btn-primary-custom btn-sm header-book-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="header-book-text">Book Appointment</span>
+        </a>
+
+        <button type="button" class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <div class="flex items-center gap-2">
+          <div class="logo-icon w-8 h-8">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path></svg>
+          </div>
+          <span class="font-heading font-bold text-main" style="font-size: 1.15rem;">Solace & Sole</span>
+        </div>
+        <button type="button" class="mobile-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.75rem; cursor:pointer; color:var(--text-main);">&times;</button>
+      </div>
+
+      <div class="mobile-nav-links mb-6">
+        <a href="index.html" class="mobile-nav-item">Home 1 (Traditional)</a>
+        <a href="home-2.html" class="mobile-nav-item">Home 2 (Luxury Sanctuary)</a>
+        <a href="about.html" class="mobile-nav-item">About Studio</a>
+        <a href="services.html" class="mobile-nav-item">Services & Rituals</a>
+        <a href="benefits.html" class="mobile-nav-item active">Foot Reflexology Map</a>
+        <a href="pricing.html" class="mobile-nav-item">Pricing & Packages</a>
+        <a href="therapists.html" class="mobile-nav-item">Master Therapists</a>
+        <a href="contact.html" class="mobile-nav-item">Contact & Location</a>
+        <a href="login.html" class="mobile-nav-item">Client Sign In</a>
+      </div>
+
+      <!-- Mobile Theme & Direction Switcher -->
+      <div class="mobile-theme-dir-section">
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Appearance</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="light">
+            <span>☀️ Light</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="dark">
+            <span>🌙 Dark</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Layout Direction</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="ltr">
+            <span>↔️ LTR</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="rtl">
+            <span>🔁 RTL</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-4 border-t" style="border-color: var(--border-color);">
+        <a href="booking.html" class="btn-wellness btn-primary-custom w-full">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Header Banner -->
+    <section class="page-header-banner page-header-benefits" style="background-image: url('assets/images/hero/benefits-hero.jpg');">
+      <div class="container-custom">
+        <nav class="breadcrumb-wellness" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="text-main font-semibold">Reflexology Benefits & Map</span>
+        </nav>
+        <span class="section-tag">Interactive Anatomical Guide</span>
+        <h1 class="font-heading mb-2">The Science of Sole Reflexology</h1>
+        <p class="text-secondary max-w-2xl" style="font-size: 1.15rem; line-height: 1.7;">
+          Understand how precise pressure application upon 7,200 nerve endings directly stimulates circulation, calms the autonomic nervous system, and balances internal organs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Foot Reflexology Map Section -->
+    <section class="section-py bg-cream">
+      <div class="container-custom">
+        <div class="section-header-center">
+          <span class="section-tag section-tag-gold">Interactive Zone Explorer</span>
+          <h2 class="section-title">Explore the Reflex Zones of the Soles</h2>
+          <p class="section-desc">
+            Select any reflex meridian zone below to examine its anatomical position, corresponding internal organs, and clinical therapeutic benefits.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Zone Selection List (Left Column) -->
+          <div class="lg:col-span-5">
+            <div class="foot-map-canvas-card">
+              <h4 class="font-heading mb-4 text-main">Primary Reflex Zones</h4>
+              
+              <div class="zone-interactive-pill active" data-zone="brain">
+                <div>
+                  <strong class="text-sm block text-main">1. Head, Brain & Pineal Gland</strong>
+                  <span class="text-xs text-muted-custom">Tips of Big Toes & Phalanges</span>
+                </div>
+                <span class="badge-wellness" style="font-size: 0.7rem;">Cranial</span>
+              </div>
+
+              <div class="zone-interactive-pill" data-zone="solar">
+                <div>
+                  <strong class="text-sm block text-main">2. Solar Plexus & Diaphragm</strong>
+                  <span class="text-xs text-muted-custom">Center of Sole Beneath the Ball</span>
+                </div>
+                <span class="badge-wellness" style="font-size: 0.7rem;">Stress Reset</span>
+              </div>
+
+              <div class="zone-interactive-pill" data-zone="spine">
+                <div>
+                  <strong class="text-sm block text-main">3. Spinal Column Reflex Line</strong>
+                  <span class="text-xs text-muted-custom">Medial Edge (Heel to Big Toe)</span>
+                </div>
+                <span class="badge-wellness" style="font-size: 0.7rem;">Skeletal</span>
+              </div>
+
+              <div class="zone-interactive-pill" data-zone="digestive">
+                <div>
+                  <strong class="text-sm block text-main">4. Stomach, Liver & Intestines</strong>
+                  <span class="text-xs text-muted-custom">Hollow Midfoot Arch</span>
+                </div>
+                <span class="badge-wellness" style="font-size: 0.7rem;">Metabolic</span>
+              </div>
+
+              <div class="zone-interactive-pill" data-zone="pelvic">
+                <div>
+                  <strong class="text-sm block text-main">5. Pelvic, Hip & Sciatic Nerve</strong>
+                  <span class="text-xs text-muted-custom">Base of Heel & Calcaneus</span>
+                </div>
+                <span class="badge-wellness" style="font-size: 0.7rem;">Grounding</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Zone Deep Dive (Right Column) -->
+          <div class="lg:col-span-7">
+            <div class="card-wellness p-8" id="zone-display-card">
+              <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                <span class="badge-wellness badge-signature" id="zone-pill-tag">Cranial Meridian Zone</span>
+                <span class="text-xs text-muted-custom">Targeted in Eastern Reflexology</span>
+              </div>
+
+              <h2 class="font-heading mb-2 text-main" id="zone-pill-title" style="font-size: 1.85rem;">Head, Brain & Pituitary Gland Zone</h2>
+              <p class="text-primary-custom font-semibold text-sm mb-4" id="zone-pill-loc">Anatomical Location: Tips of Big Toes and Toes 2 through 5</p>
+
+              <div class="aspect-video rounded-xl overflow-hidden mb-6 border" style="border-color: var(--border-color);">
+                <img src="assets/images/reflexology/foot-reflexology-2.jpg" alt="Foot Sole Reflexology Focus" class="w-full h-full object-cover">
+              </div>
+
+              <h4 class="font-heading mb-2 text-main" style="font-size: 1.2rem;">Physiological Impact & Benefits:</h4>
+              <p class="text-secondary mb-6" id="zone-pill-desc" style="font-size: 1.05rem; line-height: 1.75;">
+                Releases mental stress, clarifies thought, alleviates tension headaches, and harmonizes melatonin sleep regulation cycles. By activating sensory receptors connected to cranial nerves, thumb-walking across the toes promotes immediate drop in high-frequency beta brainwaves.
+              </p>
+
+              <div class="p-4 rounded-xl flex items-center justify-between flex-wrap gap-4" style="background: var(--bg-surface-soft); border: 1px dashed var(--border-color-dark);">
+                <div>
+                  <span class="text-xs uppercase font-bold text-main block mb-1">Recommended Session:</span>
+                  <span class="text-sm text-secondary">Classic Eastern Foot Reflexology (60m)</span>
+                </div>
+                <a href="booking.html?service=foot-reflexology-classic" class="btn-wellness btn-primary-custom btn-sm">
+                  Book This Treatment
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: 5 Core Wellness Benefits Grid -->
+    <section class="section-py bg-sand-light">
+      <div class="container-custom">
+        <div class="section-header-center">
+          <span class="section-tag">Systemic Health</span>
+          <h2 class="section-title">How Reflexology Restores the Entire Body</h2>
+          <p class="section-desc">
+            Clinical research demonstrates that structured foot pressure therapies provide widespread systemic benefits far beyond the feet themselves.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card-wellness p-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-primary-soft); color: var(--color-primary);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <h4 class="font-heading mb-2">1. Microcirculation & Venous Flow</h4>
+            <p class="text-secondary text-sm mb-0">
+              The pumping motion of thumb-walking stimulates the pedal pump mechanism, accelerating venous blood return to the heart and delivering fresh oxygenated nutrients.
+            </p>
+          </div>
+
+          <div class="card-wellness p-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-gold-soft); color: var(--color-gold);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            </div>
+            <h4 class="font-heading mb-2">2. Sympathetic Nervous System Reset</h4>
+            <p class="text-secondary text-sm mb-0">
+              Down-regulates adrenaline and cortisol by over 30%, shifting the autonomic nervous system into the soothing "rest and digest" parasympathetic recovery state.
+            </p>
+          </div>
+
+          <div class="card-wellness p-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-terracotta-soft); color: var(--color-terracotta);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <h4 class="font-heading mb-2">3. Restorative Delta-Wave Sleep</h4>
+            <p class="text-secondary text-sm mb-0">
+              Stimulation of the pineal and pituitary reflex points on the big toe encourages natural melatonin release, allowing guests to overcome nocturnal insomnia.
+            </p>
+          </div>
+
+          <div class="card-wellness p-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--bg-surface-accent); color: var(--color-primary);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h4 class="font-heading mb-2">4. Plantar Fascia & Arch Elasticity</h4>
+            <p class="text-secondary text-sm mb-0">
+              Break down fibrous collagen cross-links in the plantar aponeurosis, alleviating severe morning heel pain and providing spring back into daily strides.
+            </p>
+          </div>
+
+          <div class="card-wellness p-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-primary-soft); color: var(--color-primary);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+            </div>
+            <h4 class="font-heading mb-2">5. Endorphin & Serotonin Boost</h4>
+            <p class="text-secondary text-sm mb-0">
+              Sustained, rhythmic pressure releases natural neuropeptides that act as systemic analgesics, elevating mood and relieving chronic low-grade pain.
+            </p>
+          </div>
+
+          <div class="card-wellness p-6" style="background: var(--color-primary-softest); border: 1px dashed var(--color-primary);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-primary); color: #fff;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h4 class="font-heading mb-2">6. Lymphatic Cleansing</h4>
+            <p class="text-secondary text-sm mb-0">
+              Flushes heavy metabolic residues and lactic crystals that settle in dependent lower limbs, giving feet a feeling of weightless buoyancy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before and After Experience Comparison Table -->
+    <section class="section-py bg-cream">
+      <div class="container-narrow">
+        <div class="section-header-center">
+          <span class="section-tag section-tag-gold">The Transformation</span>
+          <h2 class="section-title">Before vs. After a Reflexology Session</h2>
+        </div>
+
+        <div class="card-wellness p-0 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface-soft); border-bottom: 2px solid var(--border-color);">
+                  <th class="p-4 text-left font-heading text-base">State of Being</th>
+                  <th class="p-4 text-left font-heading text-base" style="color: var(--color-danger);">Before Treatment</th>
+                  <th class="p-4 text-left font-heading text-base" style="color: var(--color-success);">After Session & Tea</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b" style="border-color: var(--border-color-light);">
+                  <td class="p-4 font-semibold text-main">Lower Extremities</td>
+                  <td class="p-4 text-secondary">Heavy, cold ankles, arch tightness, rigid plantar fascia</td>
+                  <td class="p-4 text-main font-medium">Warm, flexible, weightless, decompressed arches</td>
+                </tr>
+                <tr class="border-b" style="border-color: var(--border-color-light);">
+                  <td class="p-4 font-semibold text-main">Nervous State</td>
+                  <td class="p-4 text-secondary">Racing thoughts, sympathetic cortisol spikes, screen fatigue</td>
+                  <td class="p-4 text-main font-medium">Calm parasympathetic clarity, grounded breathing</td>
+                </tr>
+                <tr class="border-b" style="border-color: var(--border-color-light);">
+                  <td class="p-4 font-semibold text-main">Sleep Quality</td>
+                  <td class="p-4 text-secondary">Restless tossing, shallow sleep, morning fatigue</td>
+                  <td class="p-4 text-main font-medium">Profound delta-wave rest, waking refreshed</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-semibold text-main">Spinal Posture</td>
+                  <td class="p-4 text-secondary">Slouched lumbar compression from tight foot foundation</td>
+                  <td class="p-4 text-main font-medium">Upright, natural spinal alignment from freed soles</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="booking.html" class="btn-wellness btn-primary-custom btn-lg">
+            Experience the Transformation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container-custom">
+      <div class="footer-top">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="logo-icon w-10 h-10">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path></svg>
+            </div>
+            <span class="font-heading font-bold text-main" style="font-size: 1.35rem;">Solace & Sole</span>
+          </div>
+          <p class="text-secondary text-sm mb-6" style="line-height: 1.7; max-width: 320px;">
+            A premier wellness sanctuary offering authentic foot reflexology, calming bodywork, and holistic sensory renewal.
+          </p>
+          <div class="flex items-center gap-3">
+            <span class="badge-wellness" style="background: var(--color-primary-soft);">Certified TCM Facility</span>
+            <span class="badge-wellness" style="background: var(--color-gold-soft); color: var(--color-gold);">100% Organic Oils</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Pages</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home 1 (Traditional Studio)</a></li>
+            <li><a href="home-2.html">Home 2 (Luxury Sanctuary)</a></li>
+            <li><a href="about.html">About Our Philosophy</a></li>
+            <li><a href="services.html">Treatment Services</a></li>
+            <li><a href="benefits.html">Reflexology Foot Map</a></li>
+            <li><a href="pricing.html">Pricing Menu & Packages</a></li>
+            <li><a href="therapists.html">Master Practitioners</a></li>
+            <li><a href="contact.html">Studio Location & Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Signature Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="service-details.html?id=foot-reflexology-classic">Classic Eastern Reflexology</a></li>
+            <li><a href="service-details.html?id=relaxation-foot-massage">Botanical Herbal Foot Massage</a></li>
+            <li><a href="service-details.html?id=hot-stone-reflexology">Basalt Hot Stone Therapy</a></li>
+            <li><a href="service-details.html?id=body-reflexology-acupressure">Body Meridian Acupressure</a></li>
+            <li><a href="service-details.html?id=full-body-relaxation-massage">Full-Body Relaxation Massage</a></li>
+            <li><a href="service-details.html?id=signature-duo-ritual">The Studio Foot & Body Duo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Hours</h4>
+          <table class="hours-table mb-4">
+            <tbody>
+              <tr><td>Monday – Friday</td><td>9:00 AM – 9:00 PM</td></tr>
+              <tr><td>Saturday</td><td>9:30 AM – 8:30 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 7:00 PM</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-secondary mb-2">
+            <strong>Address:</strong> 482 Serenity Way, Suite 100, Wellness District
+          </p>
+          <p class="text-xs text-secondary mb-0">
+            <strong>Telephone:</strong> (555) 382-7653
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © <span class="current-year">2026</span> Solace & Sole Reflexology Studio. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <a href="about.html" class="text-secondary">Hygiene Standards</a>
+          <a href="contact.html" class="text-secondary">Directions & Parking</a>
+          <a href="booking.html" class="text-secondary">Reserve Slot</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/notifications.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/authentication.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive Map Switcher Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.zone-interactive-pill');
+      const zTitle = document.getElementById('zone-pill-title');
+      const zTag = document.getElementById('zone-pill-tag');
+      const zLoc = document.getElementById('zone-pill-loc');
+      const zDesc = document.getElementById('zone-pill-desc');
+
+      const data = {
+        brain: {
+          title: "Head, Brain & Pituitary Gland Zone",
+          tag: "Cranial Meridian Zone",
+          loc: "Anatomical Location: Tips of Big Toes and Toes 2 through 5",
+          desc: "Releases mental stress, clarifies thought, alleviates tension headaches, and harmonizes melatonin sleep regulation cycles. By activating sensory receptors connected to cranial nerves, thumb-walking across the toes promotes immediate drop in high-frequency beta brainwaves."
+        },
+        solar: {
+          title: "Solar Plexus & Diaphragm Zone",
+          tag: "Emotional Calming Zone",
+          loc: "Anatomical Location: Center of Upper Sole directly below the Metatarsal Ball",
+          desc: "The primary somatic release point for emotional stress. Deepens diaphragmatic breathing volume, calms adrenal palpitation, dissipates acute anxiety, and harmonizes digestion."
+        },
+        spine: {
+          title: "Spinal Column Reflex Ridge",
+          tag: "Structural Skeletal Line",
+          loc: "Anatomical Location: Medial Inner Boundary of the Foot from Calcaneus to Hallux",
+          desc: "Precisely mirrors the 24 articulating vertebrae of the cervical, thoracic, and lumbar spine. Relieves lower back ache, releases sacroiliac tension, and encourages upright spinal posture."
+        },
+        digestive: {
+          title: "Stomach, Liver & Intestinal Zone",
+          tag: "Metabolic Equilibrium Zone",
+          loc: "Anatomical Location: Central Plantar Arch Cavity",
+          desc: "Stimulates peristaltic intestinal motility, eases abdominal bloating, assists hepatic detoxification, and restores healthy metabolic energy assimilation."
+        },
+        pelvic: {
+          title: "Pelvic, Hip & Sciatic Nerve Reflex",
+          tag: "Grounding Stability Zone",
+          loc: "Anatomical Location: Base of Heel Pad and Surrounding Calcaneus Rim",
+          desc: "Releases compressed sciatic nerve fibers, dissolves chronic piriformis tightness, relieves stubborn heel ache, and grounds circulating Qi firmly into the earth."
+        }
+      };
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const k = pill.getAttribute('data-zone');
+          const item = data[k];
+          if (item) {
+            zTitle.textContent = item.title;
+            zTag.textContent = item.tag;
+            zLoc.textContent = item.loc;
+            zDesc.textContent = item.desc;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

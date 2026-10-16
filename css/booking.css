@@ -1,0 +1,529 @@
+/**
+ * Reflexology & Foot Massage Studio - Interactive Booking & Confirmation Styles
+ */
+
+/* ==========================================================================
+   Multi-Step Booking Stepper
+   ========================================================================== */
+.booking-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.booking-stepper::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background-color: var(--border-color);
+  z-index: 1;
+}
+
+.stepper-step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-body);
+  padding: 0 0.5rem;
+}
+.stepper-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+.stepper-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  transition: color var(--transition-fast);
+}
+
+.stepper-step.active .stepper-circle {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+.stepper-step.active .stepper-title {
+  color: var(--color-primary);
+}
+
+.stepper-step.completed .stepper-circle {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Booking Layout Grid
+   ========================================================================== */
+.booking-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 992px) {
+  .booking-layout-grid {
+    grid-template-columns: 1.8fr 1.2fr;
+  }
+}
+
+.booking-step-pane {
+  display: none;
+}
+.booking-step-pane.active {
+  display: block;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Service Selection Cards */
+.booking-item-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  gap: 1.25rem;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+.booking-item-card:hover {
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.booking-item-card.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softest);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.booking-item-card .card-check-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+.booking-item-card.selected .card-check-badge {
+  display: flex;
+}
+[dir="rtl"] .booking-item-card .card-check-badge {
+  right: auto;
+  left: 1rem;
+}
+
+.booking-item-thumb {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Duration Select Pills */
+.duration-select-pill {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  line-height: 1;
+}
+.duration-select-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.duration-select-pill.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(74, 107, 93, 0.25);
+}
+
+/* Therapist Selection */
+.therapist-select-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .therapist-select-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.therapist-choice-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+.therapist-choice-card .card-check-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+.therapist-choice-card.selected .card-check-badge {
+  display: flex;
+}
+[dir="rtl"] .therapist-choice-card .card-check-badge {
+  right: auto;
+  left: 0.75rem;
+}
+.therapist-choice-card:hover {
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+.therapist-choice-card.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softest);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+.therapist-choice-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Date and Time Selector */
+.date-picker-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1rem;
+  scrollbar-width: thin;
+}
+.date-slot-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  min-width: 82px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.date-slot-card:hover {
+  border-color: var(--color-primary);
+}
+.date-slot-card.selected {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+.date-slot-card.selected .text-muted-custom {
+  color: #e2ede8 !important;
+}
+
+.time-slots-group {
+  margin-top: 1.5rem;
+}
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+@media (min-width: 640px) {
+  .time-slots-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.time-slot-pill {
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.time-slot-pill:hover {
+  border-color: var(--color-primary);
+}
+.time-slot-pill.selected {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+.time-slot-pill.booked {
+  background: var(--bg-surface-soft);
+  opacity: 0.45;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Booking Summary Card */
+.booking-summary-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+}
+.summary-line-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.9375rem;
+}
+.summary-line-item:last-child {
+  border-bottom: none;
+}
+.summary-total-line {
+  padding-top: 1rem;
+  border-top: 2px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Booking Confirmation Page
+   ========================================================================== */
+.confirmation-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.confirmation-header {
+  background: var(--color-primary-soft);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+.confirmation-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 20px rgba(74, 107, 93, 0.3);
+}
+.confirmation-body {
+  padding: 2.5rem;
+}
+.appointment-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* ==========================================================================
+   Review & Confirm Card (Step 5)
+   ========================================================================== */
+.review-section-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: all var(--transition-fast);
+}
+.review-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+.review-edit-btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.review-edit-btn:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Stepper clickable completed steps */
+.stepper-step.completed {
+  cursor: pointer;
+}
+.stepper-step.completed:hover .stepper-circle {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+.stepper-step.completed:hover .stepper-title {
+  color: var(--color-primary);
+}
+
+/* Disabled button state */
+.btn-wellness:disabled,
+.btn-wellness.disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Date and Time Disabled States */
+.date-slot-card.disabled,
+.date-slot-card[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--bg-surface-soft);
+  pointer-events: none;
+}
+.time-slot-pill.booked,
+.time-slot-pill:disabled {
+  background: var(--bg-surface-soft);
+  color: var(--text-muted);
+  opacity: 0.45;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  pointer-events: none;
+}
+
+/* Summary empty placeholder */
+.summary-empty-placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Dark Mode Styles for Booking */
+[data-theme="dark"] .booking-item-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .booking-item-card.selected {
+  background: rgba(74, 107, 93, 0.18);
+  border-color: var(--color-primary-light);
+}
+[data-theme="dark"] .duration-select-pill {
+  background: var(--bg-body);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+[data-theme="dark"] .duration-select-pill.active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+[data-theme="dark"] .therapist-choice-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .therapist-choice-card.selected {
+  background: rgba(74, 107, 93, 0.18);
+  border-color: var(--color-primary-light);
+}
+[data-theme="dark"] .date-slot-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .date-slot-card.selected {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+[data-theme="dark"] .time-slot-pill {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .time-slot-pill.selected {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+[data-theme="dark"] .booking-summary-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .review-section-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .confirmation-card {
+  background: var(--bg-surface-elevated);
+}
+[data-theme="dark"] .appointment-meta-grid {
+  background: var(--bg-surface-soft);
+}
+
+@media (max-width: 640px) {
+  .appointment-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .confirmation-body {
+    padding: 1.5rem;
+  }
+  .booking-item-thumb {
+    width: 75px;
+    height: 75px;
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "therapist-mei-ling",
+    "name": "Master Mei-Ling Chen",
+    "role": "Lead Reflexologist & Traditional Eastern Practitioner",
+    "experience": "16+ Years Experience",
+    "avatar": "assets/images/therapists/therapist-1.jpg",
+    "rating": 4.98,
+    "reviewsCount": 420,
+    "languages": ["English", "Mandarin", "Taiwanese"],
+    "qualifications": [
+      "International Institute of Reflexology (IIR) Certified",
+      "Traditional Chinese Medicine (TCM) Meridian Specialist Diploma",
+      "Certified Herbal Foot Bath Formulator",
+      "Member of Association of Reflexologists"
+    ],
+    "specialties": [
+      "Classic Eastern Foot Reflexology",
+      "Plantar Fascia & Arch Tension Relief",
+      "Systemic Digestive & Insomnia Balance",
+      "Herbal Foot Soak Infusions"
+    ],
+    "bio": "Trained in Taipei and London, Master Mei-Ling brings over sixteen years of dedicated reflexology wisdom. Her practice is grounded in the deep belief that the feet are the mirror of the entire human organism. Known for her intuitive diagnostic touch and serene bedside manner, she tailors every pressure point to each client's unique energetic constitution.",
+    "quote": "When we restore harmony to the soles, the mind quietens and the body naturally remembers how to heal.",
+    "availableDays": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"]
+  },
+  {
+    "id": "therapist-david-morales",
+    "name": "David Morales, LMT",
+    "role": "Senior Neuromuscular & Foot Care Specialist",
+    "experience": "11+ Years Experience",
+    "avatar": "assets/images/therapists/therapist-2.jpg",
+    "rating": 4.95,
+    "reviewsCount": 310,
+    "languages": ["English", "Spanish"],
+    "qualifications": [
+      "Licensed Massage Therapist (LMT State Board)",
+      "Advanced Thai Foot Reflexology Certification (Wat Pho)",
+      "Certified Sports & Runner Foot Recovery Specialist",
+      "Kinesiology & Biomechanics Fellow"
+    ],
+    "specialties": [
+      "Runner & Athletic Foot Recovery",
+      "Basalt Hot Stone Reflexology",
+      "Deep Calf & Achilles Tendon Decompression",
+      "Postural Alignment via Lower Extremities"
+    ],
+    "bio": "David has a background in athletic conditioning and sports rehabilitation before specializing in therapeutic foot massage and reflexology. Having studied traditional foot manipulation at the renowned Wat Pho temple in Bangkok, he excels at relieving persistent chronic heel tightness, calf cramps, and fatigue for active professionals and athletes.",
+    "quote": "Proper foot mechanics and reflex freedom are the true foundation of pain-free movement.",
+    "availableDays": ["Tuesday", "Wednesday", "Thursday", "Friday", "Sunday"]
+  },
+  {
+    "id": "therapist-anya-sharma",
+    "name": "Anya Sharma",
+    "role": "Holistic Bodywork & Acupressure Therapist",
+    "experience": "9+ Years Experience",
+    "avatar": "assets/images/therapists/therapist-3.jpg",
+    "rating": 4.92,
+    "reviewsCount": 265,
+    "languages": ["English", "Hindi"],
+    "qualifications": [
+      "Certified Acupressure & Meridian Practitioner",
+      "Holistic Aromatherapy Council Certified",
+      "Ayurvedic Pada Abhyanga Specialist",
+      "Reiki Master Practitioner"
+    ],
+    "specialties": [
+      "Targeted Body Reflexology & Acupressure",
+      "Neck, Shoulder & Occipital Tension",
+      "Aromatherapy Herbal Foot Bath",
+      "Stress & Anxiety Reduction"
+    ],
+    "bio": "Anya combines the precision of meridian acupoint therapy with the soothing flow of Ayurvedic botanical traditions. Her sessions are deeply meditative journeys that calm the sympathetic nervous system, relieve stubborn desk-worker tension in the neck and shoulders, and restore inner emotional calm.",
+    "quote": "True relaxation is not a luxury; it is the vital sanctuary where your nervous system resets.",
+    "availableDays": ["Monday", "Wednesday", "Thursday", "Saturday", "Sunday"]
+  },
+  {
+    "id": "therapist-kai-tanaka",
+    "name": "Kai Tanaka",
+    "role": "Zen Shiatsu & Relaxation Bodywork Practitioner",
+    "experience": "13+ Years Experience",
+    "avatar": "assets/images/therapists/therapist-4.jpg",
+    "rating": 4.97,
+    "reviewsCount": 380,
+    "languages": ["English", "Japanese"],
+    "qualifications": [
+      "Certified Zen Shiatsu Practitioner (Tokyo)",
+      "Licensed Bodywork & Myofascial Therapist",
+      "Foot Reflexology Master Instructor",
+      "Sound Healing & Breathwork Certified"
+    ],
+    "specialties": [
+      "Studio Signature Foot & Body Harmony",
+      "Holistic Full-Body Relaxation Massage",
+      "Zen Shiatsu Meridian Palpation",
+      "Bamboo Stylus Pressure Techniques"
+    ],
+    "bio": "Kai was raised in Kyoto and studied Zen Shiatsu and traditional Asian bodywork under master teachers. His practice focuses on breath-synchronized rhythm, firm yet non-invasive pressure, and deep presence. He is revered by clients for creating an immersive cocoon of serenity where time seems to stand still.",
+    "quote": "In stillness, every breath becomes medicine and every pressure point an invitation to let go.",
+    "availableDays": ["Monday", "Tuesday", "Thursday", "Friday", "Sunday"]
+  }
+]

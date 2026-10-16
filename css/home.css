@@ -1,0 +1,504 @@
+/**
+ * Reflexology & Foot Massage Studio - Homepage Styles (Home 1 & Home 2)
+ */
+
+/* ==========================================================================
+   Home 1: Traditional Reflexology Studio Hero
+   ========================================================================== */
+.hero-home-1 {
+  position: relative;
+  padding: 5rem 0 6rem;
+  background-image: url('../assets/images/hero/home-1-bg.jpg');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-home-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 248, 245, 0.96) 0%,
+    rgba(250, 248, 245, 0.92) 46%,
+    rgba(250, 248, 245, 0.76) 75%,
+    rgba(250, 248, 245, 0.52) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-home-1 .container-custom {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 991.98px) {
+  .hero-home-1 {
+    padding: 3.5rem 0 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-home-1::before {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 245, 0.96) 0%,
+      rgba(250, 248, 245, 0.90) 100%
+    );
+  }
+}
+
+/* Dark Mode Hero Overlay */
+[data-theme="dark"] .hero-home-1::before {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.93) 46%,
+    rgba(18, 22, 20, 0.80) 75%,
+    rgba(18, 22, 20, 0.55) 100%
+  );
+}
+@media (max-width: 768px) {
+  [data-theme="dark"] .hero-home-1::before {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 22, 20, 0.96) 0%,
+      rgba(18, 22, 20, 0.92) 100%
+    );
+  }
+}
+[data-theme="dark"] .hero-image-main {
+  border-color: var(--bg-surface-elevated);
+}
+
+.hero-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .hero-grid-1 {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+/* Hero Visual Container & Animations */
+.hero-image-wrapper {
+  position: relative;
+  max-width: 580px;
+  margin: 0 auto;
+  animation: heroWrapperEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Subtle decorative organic aura backdrop frame */
+.hero-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -14px -14px 14px 14px;
+  border-radius: calc(var(--radius-xl) + 8px);
+  border: 2px dashed rgba(74, 107, 93, 0.3);
+  background: radial-gradient(circle at center, rgba(74, 107, 93, 0.08) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
+  animation: zenAuraPulse 6s ease-in-out infinite alternate;
+}
+
+.hero-image-main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3.2;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  border: 5px solid var(--bg-surface);
+  box-shadow: 0 20px 45px -15px rgba(27, 34, 30, 0.2), 0 0 0 1px rgba(74, 107, 93, 0.1);
+  display: block;
+  animation: zenBreathFloat 6s ease-in-out infinite alternate;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Interactive lift on hover */
+.hero-image-wrapper:hover .hero-image-main {
+  transform: translateY(-8px) scale(1.018);
+  box-shadow: 0 32px 65px -15px rgba(74, 107, 93, 0.28), 0 0 28px rgba(199, 138, 99, 0.16);
+}
+
+.hero-image-wrapper:hover::before {
+  transform: translate(6px, -6px);
+  border-color: rgba(199, 138, 99, 0.5);
+}
+
+@keyframes heroWrapperEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes zenBreathFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes zenAuraPulse {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(3px, -3px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-wrapper,
+  .hero-image-main,
+  .hero-image-wrapper::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hero Treatment Thumbnails Strip */
+.hero-treatment-showcase {
+  margin-top: 2rem;
+  max-width: 580px;
+}
+.hero-treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 480px) {
+  .hero-treatment-grid {
+    gap: 0.5rem;
+  }
+}
+.hero-treatment-thumb {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  box-shadow: 0 4px 12px rgba(27, 34, 30, 0.06);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  display: block;
+  text-decoration: none;
+}
+.hero-treatment-thumb:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(74, 107, 93, 0.18);
+  border-color: var(--color-primary-light);
+}
+.hero-treatment-thumb-img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-treatment-thumb:hover .hero-treatment-thumb-img {
+  transform: scale(1.08);
+}
+.hero-treatment-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(27, 34, 30, 0.82) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.65rem 0.75rem;
+  pointer-events: none;
+}
+.hero-treatment-thumb-label {
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 480px) {
+  .hero-treatment-thumb-label {
+    font-size: 0.68rem;
+  }
+  .hero-treatment-thumb-overlay {
+    padding: 0.45rem 0.5rem;
+  }
+}
+
+/* Quick Features Row */
+.trust-metrics-strip {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  padding: 2.25rem 0;
+}
+.trust-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .trust-metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.trust-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.metric-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Home 2: Premium Foot Massage & Wellness Sanctuary Hero
+   ========================================================================== */
+.hero-home-2 {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 6rem 0;
+}
+.hero-home-2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(21, 27, 24, 0.9) 0%,
+    rgba(21, 27, 24, 0.72) 50%,
+    rgba(21, 27, 24, 0.4) 100%
+  );
+  z-index: 1;
+}
+.hero-home-2 .container-custom {
+  position: relative;
+  z-index: 2;
+}
+.hero-home-2 .hero-subtitle {
+  color: #d6e2dc;
+}
+
+.hero-2-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .hero-2-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.hero-2-glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--transition-normal);
+}
+.hero-2-glass-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   Home 2: Modern Lifestyle Section Styles
+   ========================================================================== */
+.lifestyle-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 640px) {
+  .lifestyle-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.lifestyle-gallery-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  box-shadow: 0 4px 16px rgba(27, 34, 30, 0.06);
+  aspect-ratio: 16 / 10;
+  display: block;
+  text-decoration: none;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+.lifestyle-gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(74, 107, 93, 0.18);
+  border-color: var(--color-primary-light);
+}
+.lifestyle-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lifestyle-gallery-card:hover .lifestyle-gallery-img {
+  transform: scale(1.06);
+}
+.lifestyle-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(27, 34, 30, 0.8) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  pointer-events: none;
+}
+.lifestyle-gallery-title {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.lifestyle-gallery-rating {
+  background: rgba(45, 38, 33, 0.85);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(6px);
+}
+
+.lifestyle-protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .lifestyle-protocol-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .lifestyle-protocol-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Foot Meridian Highlight Section
+   ========================================================================== */
+.meridian-interactive-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.meridian-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.meridian-point-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-body);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+.meridian-point-btn:hover,
+.meridian-point-btn.active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Atmosphere Gallery Grid
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(20, 27, 24, 0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}

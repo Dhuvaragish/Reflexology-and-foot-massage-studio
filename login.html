@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Sign In | Solace & Sole Reflexology Studio</title>
+  <meta name="description" content="Sign in to your Solace & Sole guest account for expedited appointment booking and saved foot pressure preferences.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container-custom flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-4 text-xs">
+        <span class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Open Today: 9:00 AM – 9:00 PM
+        </span>
+        <span class="top-bar-divider md:block hidden"></span>
+        <span class="top-bar-item md:inline-flex hidden">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          482 Serenity Way, Suite 100
+        </span>
+      </div>
+
+            <div class="md:flex hidden items-center gap-4 text-xs">
+        <a href="mailto:info@solaceandsole.com" class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          info@solaceandsole.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-custom header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v12"></path>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Solace & Sole</span>
+          <span class="logo-subtitle">Reflexology & Wellness Studio</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Main Navigation">
+        <div class="nav-dropdown">
+          <a href="index.html" class="nav-link-custom">
+            Home
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item-custom">Home 1 – Traditional Studio</a>
+            <a href="home-2.html" class="dropdown-item-custom">Home 2 – Luxury Wellness Sanctuary</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link-custom">About Us</a>
+        <a href="services.html" class="nav-link-custom">Services</a>
+        <a href="benefits.html" class="nav-link-custom">Benefits & Map</a>
+        <a href="pricing.html" class="nav-link-custom">Pricing Menu</a>
+        <a href="therapists.html" class="nav-link-custom">Therapists</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <!-- Mode & Direction Controls (Compact Pill-Shaped Toggle Buttons) -->
+        <div class="header-mode-controls">
+          <button type="button" class="btn-header-icon btn-dir-toggle" title="Switch Layout Direction" aria-label="Switch Layout Direction">
+            <svg class="icon-dir-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 4l4 4-4 4"></path>
+              <path d="M21 8H3"></path>
+              <path d="M7 20l-4-4 4-4"></path>
+              <path d="M3 16h18"></path>
+            </svg>
+          </button>
+          <button type="button" class="btn-header-icon btn-theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+            <svg class="icon-sun-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="auth-link-slot">
+          <a href="login.html" class="header-auth-link active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Client Sign In</span>
+          </a>
+        </div>
+
+        <a href="booking.html" class="btn-wellness btn-primary-custom btn-sm header-book-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="header-book-text">Book Appointment</span>
+        </a>
+
+        <button type="button" class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <span class="font-heading font-bold text-main" style="font-size: 1.15rem;">Solace & Sole</span>
+        <button type="button" class="mobile-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.75rem; cursor:pointer; color:var(--text-main);">&times;</button>
+      </div>
+      <div class="mobile-nav-links mb-6">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="about.html" class="mobile-nav-item">About Us</a>
+        <a href="services.html" class="mobile-nav-item">Services</a>
+        <a href="benefits.html" class="mobile-nav-item">Foot Reflexology Map</a>
+        <a href="pricing.html" class="mobile-nav-item">Pricing Menu</a>
+        <a href="therapists.html" class="mobile-nav-item">Therapists</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+        <a href="login.html" class="mobile-nav-item active">Client Sign In</a>
+      </div>
+
+      <!-- Mobile Theme & Direction Switcher -->
+      <div class="mobile-theme-dir-section">
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Appearance</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="light">
+            <span>☀️ Light</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="dark">
+            <span>🌙 Dark</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Layout Direction</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="ltr">
+            <span>↔️ LTR</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="rtl">
+            <span>🔁 RTL</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+      </div>
+      <div class="mt-auto pt-4 border-t" style="border-color: var(--border-color);">
+        <a href="booking.html" class="btn-wellness btn-primary-custom w-full">Book Appointment</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="auth-wrapper bg-sand-light">
+      <div class="auth-card">
+        
+        <div class="auth-header">
+          <div class="auth-icon-badge">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <h2 class="font-heading mb-1 text-main">Welcome Back</h2>
+          <p class="text-secondary text-sm">Sign in to your guest account for faster booking and saved preferences.</p>
+        </div>
+
+        <!-- In-Card Status Alert Box -->
+        <div id="auth-alert-box" class="auth-alert-message auth-alert-info" style="display: none;" role="status"></div>
+
+        <form id="login-form">
+          <!-- Email Address field -->
+          <div class="form-group">
+            <label class="form-label-custom" for="login-email">Email Address <span class="required-star">*</span></label>
+            <input type="email" id="login-email" class="form-control-custom" required placeholder="name@example.com" autocomplete="email">
+          </div>
+
+          <!-- Password field with show/hide password control -->
+          <div class="form-group">
+            <label class="form-label-custom" for="login-password">Password <span class="required-star">*</span></label>
+            <div class="password-input-wrap">
+              <input type="password" id="login-password" class="form-control-custom" required minlength="6" placeholder="Enter your password" autocomplete="current-password">
+              <button type="button" class="btn-password-toggle" id="toggle-password-btn" aria-label="Show password" title="Show password">
+                <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember my account checkbox and Forgot password link -->
+          <div class="flex items-center justify-between mb-6">
+            <label class="custom-checkbox-wrap" for="remember-me">
+              <input type="checkbox" id="remember-me" checked>
+              <span class="text-xs">Remember my account</span>
+            </label>
+            <a href="forgot-password.html" class="text-xs text-primary-custom hover:underline">Forgot password?</a>
+          </div>
+
+          <!-- Sign In & Continue Booking primary button -->
+          <button type="submit" class="btn-wellness btn-primary-custom w-full btn-lg mb-0" id="login-submit-btn">
+            Sign In & Continue Booking
+          </button>
+        </form>
+
+        <!-- Centered "Or continue with" divider -->
+        <div class="auth-divider">
+          <span>Or continue with</span>
+        </div>
+
+        <!-- Social Authentication Buttons -->
+        <div class="social-auth-stack">
+          <!-- Continue with Google -->
+          <button type="button" class="btn-social-auth btn-google-auth" id="google-signin-btn" aria-label="Continue with Google">
+            <svg class="social-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <!-- Continue with Apple -->
+          <button type="button" class="btn-social-auth btn-apple-auth" id="apple-signin-btn" aria-label="Continue with Apple">
+            <svg class="social-icon" width="18" height="18" viewBox="0 0 170 170" fill="currentColor" aria-hidden="true">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.05-7.62-7.85-11.77-14.41-6.41-10.23-11.47-21.72-15.17-34.46-3.7-12.75-5.56-24.51-5.56-35.29 0-14.35 3.48-26.29 10.45-35.84 6.96-9.54 15.77-14.44 26.42-14.7 4.9 0 10.19 1.25 15.86 3.75 5.66 2.5 9.48 3.79 11.45 3.86 1.74 0 5.66-1.35 11.76-4.04 6.1-2.7 11.59-3.9 16.48-3.62 12.86.65 23.09 5.39 30.68 14.23-11.33 6.86-16.89 16.27-16.69 28.23.22 9.36 3.81 17.18 10.77 23.46 6.97 6.27 15.34 9.87 25.13 10.79-2.18 6.54-4.8 13.06-7.84 19.57zM119.22 31.95c0-6.75 2.4-13.06 7.21-17.93 4.8-4.87 10.7-7.79 17.7-8.77.22 1.3.33 2.4.33 3.3 0 6.64-2.45 13.02-7.36 18.15-4.9 5.12-10.87 8.08-17.88 8.87z"/>
+            </svg>
+            <span>Continue with Apple</span>
+          </button>
+        </div>
+
+        <!-- Create Account Link -->
+        <div class="text-center mt-6">
+          <p class="text-sm text-secondary mb-0">
+            New to Solace & Sole? <a href="register.html" class="text-primary-custom font-semibold hover:underline">Create an account</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container-custom">
+      <div class="footer-bottom">
+        <div>
+          © <span class="current-year">2026</span> Solace & Sole Reflexology Studio. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <a href="about.html" class="text-secondary">Hygiene Standards</a>
+          <a href="contact.html" class="text-secondary">Directions & Parking</a>
+          <a href="index.html" class="text-secondary">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/notifications.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/authentication.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

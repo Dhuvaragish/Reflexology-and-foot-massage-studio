@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve an Appointment | Solace & Sole Reflexology Studio</title>
+  <meta name="description" content="Select your reflexology treatment, choose your preferred master practitioner, pick your date and time slot, and reserve with zero upfront card requirement.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container-custom flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-4 text-xs">
+        <span class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Open Today: 9:00 AM – 9:00 PM
+        </span>
+        <span class="top-bar-divider md:block hidden"></span>
+        <span class="top-bar-item md:inline-flex hidden">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          482 Serenity Way, Suite 100
+        </span>
+        <span class="top-bar-divider md:block hidden"></span>
+        <span class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (555) 382-7653
+        </span>
+      </div>
+
+            <div class="md:flex hidden items-center gap-4 text-xs">
+        <a href="mailto:info@solaceandsole.com" class="top-bar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          info@solaceandsole.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-custom header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v12"></path>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Solace & Sole</span>
+          <span class="logo-subtitle">Reflexology & Wellness Studio</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Main Navigation">
+        <div class="nav-dropdown">
+          <a href="index.html" class="nav-link-custom">
+            Home
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item-custom">Home 1 – Traditional Studio</a>
+            <a href="home-2.html" class="dropdown-item-custom">Home 2 – Luxury Wellness Sanctuary</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link-custom">About Us</a>
+        <a href="services.html" class="nav-link-custom">Services</a>
+        <a href="benefits.html" class="nav-link-custom">Benefits & Map</a>
+        <a href="pricing.html" class="nav-link-custom">Pricing Menu</a>
+        <a href="therapists.html" class="nav-link-custom">Therapists</a>
+        <a href="contact.html" class="nav-link-custom">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <!-- Mode & Direction Controls (Compact Pill-Shaped Toggle Buttons) -->
+        <div class="header-mode-controls">
+          <button type="button" class="btn-header-icon btn-dir-toggle" title="Switch Layout Direction" aria-label="Switch Layout Direction">
+            <svg class="icon-dir-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 4l4 4-4 4"></path>
+              <path d="M21 8H3"></path>
+              <path d="M7 20l-4-4 4-4"></path>
+              <path d="M3 16h18"></path>
+            </svg>
+          </button>
+          <button type="button" class="btn-header-icon btn-theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+            <svg class="icon-sun-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="auth-link-slot">
+          <a href="login.html" class="header-auth-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Client Sign In</span>
+          </a>
+        </div>
+
+        <a href="booking.html" class="btn-wellness btn-primary-custom btn-sm header-book-btn active" style="pointer-events:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="header-book-text">Book Appointment</span>
+        </a>
+
+        <button type="button" class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+        <div class="flex items-center gap-2">
+          <div class="logo-icon w-8 h-8">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path></svg>
+          </div>
+          <span class="font-heading font-bold text-main" style="font-size: 1.15rem;">Solace & Sole</span>
+        </div>
+        <button type="button" class="mobile-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.75rem; cursor:pointer; color:var(--text-main);">&times;</button>
+      </div>
+
+      <div class="mobile-nav-links mb-6">
+        <a href="index.html" class="mobile-nav-item">Home 1 (Traditional)</a>
+        <a href="home-2.html" class="mobile-nav-item">Home 2 (Luxury Sanctuary)</a>
+        <a href="about.html" class="mobile-nav-item">About Studio</a>
+        <a href="services.html" class="mobile-nav-item">Services & Rituals</a>
+        <a href="benefits.html" class="mobile-nav-item">Foot Reflexology Map</a>
+        <a href="pricing.html" class="mobile-nav-item">Pricing & Packages</a>
+        <a href="therapists.html" class="mobile-nav-item">Master Therapists</a>
+        <a href="contact.html" class="mobile-nav-item">Contact & Location</a>
+        <a href="login.html" class="mobile-nav-item">Client Sign In</a>
+      </div>
+
+      <!-- Mobile Theme & Direction Switcher -->
+      <div class="mobile-theme-dir-section">
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Appearance</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="light">
+            <span>☀️ Light</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn theme-select-btn" data-theme="dark">
+            <span>🌙 Dark</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+        <span class="dropdown-header-custom" style="padding-left:0; padding-right:0;">Layout Direction</span>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="ltr">
+            <span>↔️ LTR</span>
+            <span class="check-indicator">✓</span>
+          </button>
+          <button type="button" class="mobile-theme-dir-btn dir-select-btn" data-dir="rtl">
+            <span>🔁 RTL</span>
+            <span class="check-indicator">✓</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-4 border-t" style="border-color: var(--border-color);">
+        <a href="booking.html" class="btn-wellness btn-primary-custom w-full">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Header Banner -->
+    <section class="page-header-banner page-header-booking" style="background-image: url('assets/images/hero/booking-hero.jpg');">
+      <div class="container-custom">
+        <nav class="breadcrumb-wellness" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="text-main font-semibold">Appointment Booking</span>
+        </nav>
+        <span class="section-tag">Direct Studio Reservation</span>
+        <h1 class="font-heading mb-2">Book Your Reflexology Sanctuary</h1>
+        <p class="text-secondary max-w-2xl" style="font-size: 1.15rem; line-height: 1.7;">
+          Follow our 5-step interactive scheduler. No upfront charge required—pay upon completion of your session.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Booking Section -->
+    <section class="section-py bg-cream">
+      <div class="container-custom">
+        
+        <!-- Multi-Step Progress Indicator -->
+        <div class="booking-stepper">
+          <div class="stepper-step active" data-step="1">
+            <div class="stepper-circle">1</div>
+            <span class="stepper-title">Treatment</span>
+          </div>
+
+          <div class="stepper-step" data-step="2">
+            <div class="stepper-circle">2</div>
+            <span class="stepper-title">Specialist</span>
+          </div>
+
+          <div class="stepper-step" data-step="3">
+            <div class="stepper-circle">3</div>
+            <span class="stepper-title">Date & Time</span>
+          </div>
+
+          <div class="stepper-step" data-step="4">
+            <div class="stepper-circle">4</div>
+            <span class="stepper-title">Guest Details</span>
+          </div>
+
+          <div class="stepper-step" data-step="5">
+            <div class="stepper-circle">5</div>
+            <span class="stepper-title">Review & Confirm</span>
+          </div>
+        </div>
+
+        <!-- Booking Layout (Form & Summary Sidebar) -->
+        <div class="booking-layout-grid">
+          
+          <!-- Steps Form Container -->
+          <div class="booking-main-pane">
+
+            <!-- STEP 1: Select Treatment -->
+            <div class="booking-step-pane active" id="booking-step-1">
+              <div class="mb-4">
+                <h3 class="font-heading mb-1 text-main">Step 1: Choose Your Treatment & Duration</h3>
+                <p class="text-secondary text-sm">Select the ritual that meets your current physical and nervous needs.</p>
+              </div>
+
+              <div id="booking-services-list">
+                <!-- Dynamically loaded by booking.js -->
+              </div>
+
+              <div class="flex justify-end mt-6">
+                <button type="button" class="btn-wellness btn-primary-custom booking-next-step-btn" id="step-1-next-btn" disabled>
+                  Continue to Practitioner
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Choose Therapist -->
+            <div class="booking-step-pane" id="booking-step-2">
+              <div class="mb-4">
+                <h3 class="font-heading mb-1 text-main">Step 2: Choose Your Specialist</h3>
+                <p class="text-secondary text-sm">Pick a practitioner or select any available to see maximum available times.</p>
+              </div>
+
+              <div class="therapist-select-grid" id="booking-therapists-list">
+                <!-- Dynamically populated by booking.js -->
+              </div>
+
+              <div class="flex items-center justify-between mt-8">
+                <button type="button" class="btn-wellness btn-secondary-custom booking-prev-step-btn">
+                  Back to Treatments
+                </button>
+                <button type="button" class="btn-wellness btn-primary-custom booking-next-step-btn" id="step-2-next-btn">
+                  Continue to Schedule
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Choose Date & Time -->
+            <div class="booking-step-pane" id="booking-step-3">
+              <div class="mb-4">
+                <h3 class="font-heading mb-1 text-main">Step 3: Select Date & Time Slot</h3>
+                <p class="text-secondary text-sm">Scroll dates to choose your day, then pick an unhurried arrival time.</p>
+              </div>
+
+              <label class="form-label-custom mb-2">Select Preferred Date:</label>
+              <div class="date-picker-scroll mb-6" id="booking-date-scroll">
+                <!-- Injected by booking.js -->
+              </div>
+
+              <div class="time-slots-group">
+                <span class="text-xs uppercase font-bold text-muted-custom tracking-wider block mb-2">Morning Slots (9:00 AM – 12:00 PM)</span>
+                <div class="time-slots-grid mb-6" id="slots-morning"></div>
+
+                <span class="text-xs uppercase font-bold text-muted-custom tracking-wider block mb-2">Afternoon Slots (1:00 PM – 5:00 PM)</span>
+                <div class="time-slots-grid mb-6" id="slots-afternoon"></div>
+
+                <span class="text-xs uppercase font-bold text-muted-custom tracking-wider block mb-2">Evening Calm Slots (5:30 PM – 8:30 PM)</span>
+                <div class="time-slots-grid mb-6" id="slots-evening"></div>
+              </div>
+
+              <div class="flex items-center justify-between mt-8">
+                <button type="button" class="btn-wellness btn-secondary-custom booking-prev-step-btn">
+                  Back to Specialist
+                </button>
+                <button type="button" class="btn-wellness btn-primary-custom booking-next-step-btn" id="step-3-next-btn" disabled>
+                  Continue to Guest Info
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Guest Details & Preferences -->
+            <div class="booking-step-pane" id="booking-step-4">
+              <div class="mb-4">
+                <h3 class="font-heading mb-1 text-main">Step 4: Guest Information & Pressure Preferences</h3>
+                <p class="text-secondary text-sm">Help us tailor the session to your physical constitution and comfort.</p>
+              </div>
+
+              <form id="booking-client-form" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-group">
+                    <label class="form-label-custom" for="client-fullname">Full Name <span class="required-star">*</span></label>
+                    <input type="text" id="client-fullname" class="form-control-custom" placeholder="e.g. Eleanor Vance" required minlength="3">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label-custom" for="client-phone">Mobile Phone <span class="required-star">*</span></label>
+                    <input type="tel" id="client-phone" class="form-control-custom" placeholder="(555) 349-8812" required>
+                    <span class="form-hint">Used for confidential appointment confirmation SMS.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label-custom" for="client-email">Email Address <span class="required-star">*</span></label>
+                  <input type="email" id="client-email" class="form-control-custom" placeholder="eleanor@example.com" required>
+                  <span class="form-hint">Your booking receipt and calendar invite will be sent here.</span>
+                </div>
+
+                <!-- Desired Pressure Preferences -->
+                <div class="form-group mb-6">
+                  <label class="form-label-custom mb-2">Desired Reflexology Pressure Level:</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <label class="p-3 rounded-lg flex items-center gap-2 cursor-pointer border" style="background: var(--bg-body); border-color: var(--border-color);">
+                      <input type="radio" name="pressure_pref" value="Gentle & Soothing">
+                      <div>
+                        <strong class="text-sm block text-main">Gentle Soothing</strong>
+                        <span class="text-xs text-muted-custom">Soft, rhythmic relaxation</span>
+                      </div>
+                    </label>
+
+                    <label class="p-3 rounded-lg flex items-center gap-2 cursor-pointer border" style="background: var(--bg-body); border-color: var(--border-color);">
+                      <input type="radio" name="pressure_pref" value="Medium Balanced" checked>
+                      <div>
+                        <strong class="text-sm block text-main">Medium Balanced</strong>
+                        <span class="text-xs text-muted-custom">Ideal therapeutic standard</span>
+                      </div>
+                    </label>
+
+                    <label class="p-3 rounded-lg flex items-center gap-2 cursor-pointer border" style="background: var(--bg-body); border-color: var(--border-color);">
+                      <input type="radio" name="pressure_pref" value="Firm Deep Point">
+                      <div>
+                        <strong class="text-sm block text-main">Firm Deep Point</strong>
+                        <span class="text-xs text-muted-custom">For chronic tension & athletes</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label class="form-label-custom" for="client-notes">Foot Conditions, Sensitivities or Medical Notes (Optional)</label>
+                  <textarea id="client-notes" class="form-control-custom" placeholder="e.g. Mild plantar fasciitis on right heel, prefer extra warm herbal soak, avoid lavender scent..."></textarea>
+                </div>
+
+                <div class="form-group mb-0">
+                  <label class="custom-checkbox-wrap" for="client-consent">
+                    <input type="checkbox" id="client-consent" checked required>
+                    <span class="text-xs">I confirm I am free from acute contraindications (e.g. DVT, acute foot fractures) and agree to studio health policies. <span class="required-star">*</span></span>
+                  </label>
+                </div>
+              </form>
+
+              <div class="flex items-center justify-between mt-8">
+                <button type="button" class="btn-wellness btn-secondary-custom booking-prev-step-btn">
+                  Back to Date & Time
+                </button>
+                <button type="button" class="btn-wellness btn-primary-custom booking-next-step-btn" id="step-4-next-btn">
+                  Review Reservation
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 5: Review & Confirm -->
+            <div class="booking-step-pane" id="booking-step-5">
+              <div class="mb-4">
+                <h3 class="font-heading mb-1 text-main">Step 5: Review & Complete Your Reservation</h3>
+                <p class="text-secondary text-sm">Please verify your booking details below before final submission.</p>
+              </div>
+
+              <!-- Dynamically rendered review card -->
+              <div id="booking-review-box"></div>
+
+              <div class="custom-checkbox-wrap mb-6">
+                <input type="checkbox" id="terms-agree" checked required>
+                <label for="terms-agree" class="text-xs text-secondary">
+                  I acknowledge the studio's 24-hour cancellation policy and confirm I have reviewed the treatment contraindications. <span class="required-star">*</span>
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between mt-8">
+                <button type="button" class="btn-wellness btn-secondary-custom booking-prev-step-btn">
+                  Modify Information
+                </button>
+                <button type="button" class="btn-wellness btn-primary-custom btn-lg" id="complete-booking-final-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Confirm & Reserve Appointment</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sticky Summary Sidebar -->
+          <div class="booking-summary-pane">
+            <div class="booking-summary-card" id="booking-summary-sidebar">
+              <div class="flex items-center justify-between mb-4 pb-2 border-b" style="border-color: var(--border-color);">
+                <h4 class="font-heading text-main mb-0">Booking Summary</h4>
+                <span class="badge-wellness" id="sum-step-badge" style="font-size: 0.72rem;">Step 1 of 5</span>
+              </div>
+              
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Treatment:</span>
+                <strong class="text-main text-right" id="sum-service-name"><span class="summary-empty-placeholder">Not selected</span></strong>
+              </div>
+
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Duration:</span>
+                <span class="text-main font-semibold" id="sum-duration"><span class="summary-empty-placeholder">—</span></span>
+              </div>
+
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Specialist:</span>
+                <span class="text-main font-semibold" id="sum-therapist">Any Available Specialist</span>
+              </div>
+
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Date:</span>
+                <span class="text-main font-semibold" id="sum-date"><span class="summary-empty-placeholder">Not selected</span></span>
+              </div>
+
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Time Slot:</span>
+                <span class="text-main font-semibold" id="sum-time"><span class="summary-empty-placeholder">Not selected</span></span>
+              </div>
+
+              <div class="summary-line-item mt-4 pt-3 border-t" style="border-color: var(--border-color);">
+                <span class="text-muted-custom">Treatment Fee:</span>
+                <span class="text-main font-semibold" id="sum-price">$0.00</span>
+              </div>
+
+              <div class="summary-line-item">
+                <span class="text-muted-custom">Studio Wellness Tax (8%):</span>
+                <span class="text-muted-custom" id="sum-tax">$0.00</span>
+              </div>
+
+              <div class="summary-total-line">
+                <span>Total Due in Studio:</span>
+                <span id="sum-total">$0.00</span>
+              </div>
+
+              <div class="p-3 rounded-lg mt-4 text-xs text-secondary" style="background: var(--bg-surface-soft); border: 1px dashed var(--border-color);">
+                <div class="flex items-center gap-1.5 font-semibold text-main mb-0.5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Complimentary Amenities
+                </div>
+                Herbal foot soak, hot towels, organic tea ceremony & private suite included with every booking.
+              </div>
+
+              <div class="mt-4 pt-3 border-t text-xs text-muted-custom flex items-center gap-1.5" style="border-color: var(--border-color);">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>No upfront charge. Pay after treatment.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container-custom">
+      <div class="footer-top">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="logo-icon w-10 h-10">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path></svg>
+            </div>
+            <span class="font-heading font-bold text-main" style="font-size: 1.35rem;">Solace & Sole</span>
+          </div>
+          <p class="text-secondary text-sm mb-6" style="line-height: 1.7; max-width: 320px;">
+            A premier wellness sanctuary offering authentic foot reflexology, calming bodywork, and holistic sensory renewal.
+          </p>
+          <div class="flex items-center gap-3">
+            <span class="badge-wellness" style="background: var(--color-primary-soft);">Certified TCM Facility</span>
+            <span class="badge-wellness" style="background: var(--color-gold-soft); color: var(--color-gold);">100% Organic Oils</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Pages</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home 1 (Traditional Studio)</a></li>
+            <li><a href="home-2.html">Home 2 (Luxury Sanctuary)</a></li>
+            <li><a href="about.html">About Our Philosophy</a></li>
+            <li><a href="services.html">Treatment Services</a></li>
+            <li><a href="benefits.html">Reflexology Foot Map</a></li>
+            <li><a href="pricing.html">Pricing Menu & Packages</a></li>
+            <li><a href="therapists.html">Master Practitioners</a></li>
+            <li><a href="contact.html">Studio Location & Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Signature Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="service-details.html?id=foot-reflexology-classic">Classic Eastern Reflexology</a></li>
+            <li><a href="service-details.html?id=relaxation-foot-massage">Botanical Herbal Foot Massage</a></li>
+            <li><a href="service-details.html?id=hot-stone-reflexology">Basalt Hot Stone Therapy</a></li>
+            <li><a href="service-details.html?id=body-reflexology-acupressure">Body Meridian Acupressure</a></li>
+            <li><a href="service-details.html?id=full-body-relaxation-massage">Full-Body Relaxation Massage</a></li>
+            <li><a href="service-details.html?id=signature-duo-ritual">The Studio Foot & Body Duo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Hours</h4>
+          <table class="hours-table mb-4">
+            <tbody>
+              <tr><td>Monday – Friday</td><td>9:00 AM – 9:00 PM</td></tr>
+              <tr><td>Saturday</td><td>9:30 AM – 8:30 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 7:00 PM</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-secondary mb-2">
+            <strong>Address:</strong> 482 Serenity Way, Suite 100, Wellness District
+          </p>
+          <p class="text-xs text-secondary mb-0">
+            <strong>Telephone:</strong> (555) 382-7653
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © <span class="current-year">2026</span> Solace & Sole Reflexology Studio. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <a href="about.html" class="text-secondary">Hygiene Standards</a>
+          <a href="contact.html" class="text-secondary">Directions & Parking</a>
+          <a href="booking.html" class="text-secondary">Reserve Slot</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/notifications.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/authentication.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

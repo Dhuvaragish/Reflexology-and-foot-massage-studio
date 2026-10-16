@@ -1,0 +1,157 @@
+/**
+ * Reflexology & Foot Massage Studio - Global Styles
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color-dark);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-body);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+[data-theme="dark"] ::selection {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+}
+
+/* Images & Media */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Unstyled Lists */
+ul, ol {
+  list-style: none;
+}
+
+/* Accessible Focus States */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Sections & Dividers */
+.section-py {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.section-py-sm {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+.section-py-lg {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.bg-sand-light {
+  background-color: var(--bg-surface-soft);
+}
+.bg-cream {
+  background-color: var(--bg-body);
+}
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+.bg-sage-soft {
+  background-color: var(--bg-surface-accent);
+}
+
+/* Zen Leaf / Flower Accent Pattern */
+.zen-pattern {
+  background-image: radial-gradient(var(--border-color) 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+/* Subtle Organic Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Skip to content accessibility link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}

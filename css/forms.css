@@ -1,0 +1,341 @@
+/**
+ * Reflexology & Foot Massage Studio - Forms, Inputs & Auth Styles
+ */
+
+/* ==========================================================================
+   Form Controls
+   ========================================================================== */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-label-custom {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.form-label-custom .required-star {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.form-control-custom,
+.form-select-custom {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-control-custom:focus,
+.form-select-custom:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(74, 107, 93, 0.15);
+}
+
+textarea.form-control-custom {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Validation States */
+.form-control-custom.is-invalid,
+.form-select-custom.is-invalid {
+  border-color: var(--color-danger) !important;
+  background-color: var(--color-danger-bg);
+}
+.invalid-feedback {
+  display: none;
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  margin-top: 0.35rem;
+}
+.form-control-custom.is-invalid ~ .invalid-feedback,
+.form-select-custom.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.form-hint {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+/* Custom Checkbox and Radio */
+.custom-checkbox-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.custom-checkbox-wrap input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Client Authentication Cards (Login, Register, Forgot Password)
+   Strictly NO Dashboard redirection!
+   ========================================================================== */
+.auth-wrapper {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-xl);
+}
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.auth-icon-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 1.75rem 0 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+.auth-divider span {
+  padding: 0 0.85rem;
+}
+
+/* ==========================================================================
+   Password Input with Show/Hide Toggle Control
+   ========================================================================== */
+.password-input-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.password-input-wrap .form-control-custom {
+  padding-right: 2.75rem;
+}
+[dir="rtl"] .password-input-wrap .form-control-custom {
+  padding-right: 1.15rem;
+  padding-left: 2.75rem;
+}
+.btn-password-toggle {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xs);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  z-index: 2;
+  line-height: 1;
+}
+[dir="rtl"] .btn-password-toggle {
+  right: auto;
+  left: 0.85rem;
+}
+.btn-password-toggle:hover {
+  color: var(--color-primary);
+}
+.btn-password-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+.btn-password-toggle svg {
+  display: block;
+}
+
+/* ==========================================================================
+   Social Authentication Buttons (Google & Apple)
+   ========================================================================== */
+.social-auth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-social-auth {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  text-decoration: none;
+  user-select: none;
+  position: relative;
+  padding: 0 1.25rem;
+  line-height: 1;
+}
+
+.btn-social-auth .social-icon {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Google Sign-In Button */
+.btn-google-auth {
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1.5px solid #dadce0;
+  box-shadow: 0 1px 3px rgba(45, 38, 33, 0.05);
+}
+.btn-google-auth:hover {
+  background-color: #f8fafc;
+  border-color: #c7cbd1;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  color: #111827;
+}
+.btn-google-auth:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.btn-google-auth:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}
+
+/* Apple Sign-In Button */
+.btn-apple-auth {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1.5px solid #000000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.btn-apple-auth:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+.btn-apple-auth:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.btn-apple-auth:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Dark Mode Social Buttons */
+[data-theme="dark"] .btn-google-auth {
+  background-color: #ffffff;
+  color: #1f2937;
+  border-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+[data-theme="dark"] .btn-google-auth:hover {
+  background-color: #f1f3f4;
+  border-color: #f1f3f4;
+}
+
+[data-theme="dark"] .btn-apple-auth {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+[data-theme="dark"] .btn-apple-auth:hover {
+  background-color: #f1f3f4;
+  border-color: #f1f3f4;
+  color: #000000;
+}
+[data-theme="dark"] .btn-apple-auth:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* In-Card Status Alert */
+.auth-alert-message {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+.auth-alert-info {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+  border: 1px solid rgba(70, 115, 137, 0.25);
+}
+.auth-alert-danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(181, 74, 74, 0.25);
+}
+
+/* Responsive auth card adjustments */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2.25rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+  .auth-header {
+    margin-bottom: 1.5rem;
+  }
+  .btn-social-auth {
+    height: 46px;
+    font-size: 0.875rem;
+  }
+}

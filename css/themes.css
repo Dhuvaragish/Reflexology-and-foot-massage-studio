@@ -1,0 +1,59 @@
+/**
+ * Reflexology & Foot Massage Studio - Theme Switching (Light & Dark Mode)
+ */
+
+[data-theme="dark"] body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .site-header {
+  background-color: var(--bg-surface);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .card-wellness,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .booking-item-card,
+[data-theme="dark"] .therapist-choice-card,
+[data-theme="dark"] .date-slot-card,
+[data-theme="dark"] .time-slot-pill,
+[data-theme="dark"] .booking-summary-card,
+[data-theme="dark"] .auth-card,
+[data-theme="dark"] .confirmation-card,
+[data-theme="dark"] .wellness-accordion-item {
+  background-color: var(--bg-surface);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .service-card-footer,
+[data-theme="dark"] .wellness-modal-footer,
+[data-theme="dark"] .site-footer {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-control-custom,
+[data-theme="dark"] .form-select-custom,
+[data-theme="dark"] .search-input-field {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .form-control-custom:focus,
+[data-theme="dark"] .form-select-custom:focus,
+[data-theme="dark"] .search-input-field:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .btn-secondary-custom {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+  color: var(--text-main) !important;
+}
+[data-theme="dark"] .btn-secondary-custom:hover {
+  background-color: var(--border-color);
+}
+

@@ -1,0 +1,88 @@
+/**
+ * Reflexology & Foot Massage Studio - Responsive Breakpoints & Device Adaptations
+ */
+
+@media (max-width: 991.98px) {
+  .section-py {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .section-py-lg {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .sticky-booking-sidebar,
+  .booking-summary-card {
+    position: static;
+    margin-top: 2rem;
+  }
+
+  .hero-home-1 {
+    padding: 3.5rem 0 4rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .booking-stepper::before {
+    display: none;
+  }
+  .booking-stepper {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .stepper-step {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .stepper-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
+  }
+  .stepper-title {
+    font-size: 0.75rem;
+  }
+
+  .appointment-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .header-actions .btn-wellness {
+    display: none !important;
+  }
+
+  .confirmation-header {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  .confirmation-body {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .trust-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-item-card {
+    flex-direction: column;
+  }
+  .booking-item-thumb {
+    width: 100%;
+    height: 160px;
+  }
+}

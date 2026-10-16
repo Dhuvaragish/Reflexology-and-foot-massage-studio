@@ -1,0 +1,237 @@
+/**
+ * Reflexology & Foot Massage Studio - RTL (Right to Left) Layout Support
+ * Complete support for Arabic and RTL languages
+ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+/* Nav & Header: Preserved in LTR alignment even in RTL mode */
+[dir="rtl"] .top-bar,
+[dir="rtl"] .top-bar .container-custom,
+[dir="rtl"] .top-bar-item,
+[dir="rtl"] .site-header,
+[dir="rtl"] .header-inner,
+[dir="rtl"] .site-logo,
+[dir="rtl"] .logo-text-wrap,
+[dir="rtl"] .nav-menu-desktop,
+[dir="rtl"] .nav-link-custom,
+[dir="rtl"] .nav-dropdown,
+[dir="rtl"] .nav-dropdown-menu,
+[dir="rtl"] .dropdown-item-custom,
+[dir="rtl"] .header-mode-controls,
+[dir="rtl"] .header-actions,
+[dir="rtl"] .auth-link-slot,
+[dir="rtl"] .header-auth-link,
+[dir="rtl"] .header-book-btn {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] .header-inner {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+
+[dir="rtl"] .site-logo {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+[dir="rtl"] .nav-link-custom::after {
+  left: 0.2rem !important;
+  right: 0.2rem !important;
+}
+
+[dir="rtl"] .nav-dropdown-menu {
+  left: 0 !important;
+  right: auto !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+[dir="rtl"] .nav-dropdown-menu.dropdown-align-right {
+  left: auto !important;
+  right: 0 !important;
+}
+
+[dir="rtl"] .top-bar-item {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .top-bar .container-custom {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+
+/* RTL Hero Gradient Overlays */
+[dir="rtl"] .hero-home-1::before {
+  background: linear-gradient(
+    270deg,
+    rgba(250, 248, 245, 0.96) 0%,
+    rgba(250, 248, 245, 0.92) 46%,
+    rgba(250, 248, 245, 0.76) 75%,
+    rgba(250, 248, 245, 0.52) 100%
+  );
+}
+[dir="rtl"][data-theme="dark"] .hero-home-1::before {
+  background: linear-gradient(
+    270deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.93) 46%,
+    rgba(18, 22, 20, 0.80) 75%,
+    rgba(18, 22, 20, 0.55) 100%
+  );
+}
+
+[dir="rtl"] .mobile-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+[dir="rtl"] .mobile-drawer-backdrop.open .mobile-drawer {
+  transform: translateX(0);
+}
+
+/* Search input icon */
+[dir="rtl"] .search-icon-inside {
+  left: auto;
+  right: 1rem;
+}
+[dir="rtl"] .search-input-field {
+  padding: 0.7rem 2.6rem 0.7rem 1rem;
+}
+
+/* Treatment timeline */
+[dir="rtl"] .treatment-steps-timeline {
+  border-left: none;
+  border-right: 2px dashed var(--border-color-dark);
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+[dir="rtl"] .treatment-step-dot {
+  left: auto;
+  right: -2.05rem;
+}
+
+/* Alerts */
+[dir="rtl"] .alert-contraindications {
+  border-left: none;
+  border-right: 4px solid var(--color-warning);
+}
+[dir="rtl"] .wellness-toast.toast-success {
+  border-left: none;
+  border-right: 4px solid var(--color-success);
+}
+[dir="rtl"] .wellness-toast.toast-error {
+  border-left: none;
+  border-right: 4px solid var(--color-danger);
+}
+[dir="rtl"] .wellness-toast.toast-info {
+  border-left: none;
+  border-right: 4px solid var(--color-primary);
+}
+
+/* Toast container position */
+[dir="rtl"] .toast-container-custom {
+  right: auto;
+  left: 2rem;
+}
+
+/* Floating Badges */
+[dir="rtl"] .floating-badge-bottom {
+  left: auto;
+  right: -1.5rem;
+}
+[dir="rtl"] .floating-badge-top {
+  right: auto;
+  left: -1.5rem;
+}
+
+/* Footer title accent */
+[dir="rtl"] .footer-col-title::after {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .footer-links-list a:hover {
+  transform: translateX(-4px);
+}
+[dir="rtl"] .hours-table td:last-child {
+  text-align: left;
+}
+
+/* Accordion */
+[dir="rtl"] .wellness-accordion-header {
+  text-align: right;
+}
+
+/* Stepper */
+[dir="rtl"] .stepper-title {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Hero & Page Banners RTL Overlays
+   ========================================================================== */
+[dir="rtl"] .hero-home-1::before {
+  background: linear-gradient(
+    -90deg,
+    rgba(250, 248, 245, 0.96) 0%,
+    rgba(250, 248, 245, 0.92) 46%,
+    rgba(250, 248, 245, 0.76) 75%,
+    rgba(250, 248, 245, 0.52) 100%
+  );
+}
+
+[dir="rtl"] .hero-home-2::before {
+  background: linear-gradient(
+    -90deg,
+    rgba(21, 27, 24, 0.9) 0%,
+    rgba(21, 27, 24, 0.72) 50%,
+    rgba(21, 27, 24, 0.4) 100%
+  );
+}
+
+[dir="rtl"] .page-header-banner::before {
+  background: linear-gradient(
+    -90deg,
+    rgba(250, 248, 245, 0.95) 0%,
+    rgba(250, 248, 245, 0.90) 45%,
+    rgba(250, 248, 245, 0.72) 75%,
+    rgba(250, 248, 245, 0.48) 100%
+  );
+}
+
+[dir="rtl"][data-theme="dark"] .page-header-banner::before,
+[data-theme="dark"] [dir="rtl"] .page-header-banner::before {
+  background: linear-gradient(
+    -90deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.91) 45%,
+    rgba(18, 22, 20, 0.76) 75%,
+    rgba(18, 22, 20, 0.52) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .page-header-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 245, 0.95) 0%,
+      rgba(250, 248, 245, 0.88) 100%
+    );
+  }
+  [dir="rtl"][data-theme="dark"] .page-header-banner::before,
+  [data-theme="dark"] [dir="rtl"] .page-header-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 22, 20, 0.96) 0%,
+      rgba(18, 22, 20, 0.90) 100%
+    );
+  }
+}
