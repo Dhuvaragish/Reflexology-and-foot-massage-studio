@@ -1,14 +1,16 @@
 /**
- * Reflexology & Foot Massage Studio - Client Authentication
- * Note: Demonstration authentication strictly decoupled from any dashboard!
+ * SOLE HARMONY - Client & Staff Authentication System
+ * Handles guest account sign-in, user dashboard access routing, and admin authentication prototype.
  */
 
 const AuthManager = {
-  STORAGE_KEY: 'wellness_client_session',
+  CLIENT_STORAGE_KEY: 'wellness_client_session',
+  ADMIN_STORAGE_KEY: 'wellness_admin_session',
 
+  // --- CLIENT AUTHENTICATION ---
   getCurrentUser() {
     try {
-      const data = localStorage.getItem(this.STORAGE_KEY);
+      const data = localStorage.getItem(this.CLIENT_STORAGE_KEY);
       return data ? JSON.parse(data) : null;
     } catch (e) {
       return null;
@@ -16,46 +18,111 @@ const AuthManager = {
   },
 
   setCurrentUser(user) {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
+    try {
+      localStorage.setItem(this.CLIENT_STORAGE_KEY, JSON.stringify(user));
+    } catch (e) {}
     this.updateHeaderAuthUI();
   },
 
   logout() {
-    localStorage.removeItem(this.STORAGE_KEY);
+    try {
+      localStorage.removeItem(this.CLIENT_STORAGE_KEY);
+    } catch (e) {}
     this.updateHeaderAuthUI();
     if (window.Notifications) {
-      Notifications.show('Signed Out', 'You have been safely signed out.', 'info');
+      Notifications.show('Signed Out', 'You have been safely signed out of your account.', 'info');
     }
     setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 800);
+      // If currently on user dashboard, redirect to home
+      if (window.location.pathname.includes('/user/') || window.location.pathname.endsWith('dashboard.html')) {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = 'index.html';
+      }
+    }, 700);
   },
 
+  // --- ADMIN AUTHENTICATION ---
+  getCurrentAdmin() {
+    try {
+      const data = sessionStorage.getItem(this.ADMIN_STORAGE_KEY);
+      return data ? JSON.parse(data) : null;
+    } catch (e) {
+      return null;
+    }
+  },
+
+  setAdminSession(admin) {
+    try {
+      sessionStorage.setItem(this.ADMIN_STORAGE_KEY, JSON.stringify(admin));
+    } catch (e) {}
+  },
+
+  logoutAdmin() {
+    try {
+      sessionStorage.removeItem(this.ADMIN_STORAGE_KEY);
+    } catch (e) {}
+    if (window.Notifications) {
+      Notifications.show('Staff Signed Out', 'Admin session terminated safely.', 'info');
+    }
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 600);
+  },
+
+  // --- HEADER AUTH UI (Public Navigation) ---
   updateHeaderAuthUI() {
     const user = this.getCurrentUser();
     const authLinks = document.querySelectorAll('.auth-link-slot');
+    const isInSubdir = window.location.pathname.includes('/user/') || window.location.pathname.includes('/admin/');
+    const basePath = isInSubdir ? '../' : '';
 
     authLinks.forEach(slot => {
       if (user) {
+        const firstName = user.name ? user.name.split(' ')[0] : 'Account';
         slot.innerHTML = `
-          <div class="inline-flex items-center gap-2" style="height:38px;">
-            <span class="badge-wellness" style="background-color: var(--color-primary-soft); display:inline-flex; align-items:center; gap:0.35rem; height:32px;">
+          <div class="nav-dropdown" style="display:inline-block;">
+            <button type="button" class="btn-wellness btn-secondary-custom btn-sm inline-flex items-center gap-1.5 py-1 px-3" style="height:36px; font-size:0.8125rem;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              ${user.name.split(' ')[0]}
-            </span>
-            <button type="button" class="btn-wellness btn-secondary-custom btn-sm py-1 px-2" id="client-signout-btn" style="font-size:0.75rem; height:32px;">Sign Out</button>
+              <span>${firstName}</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu dropdown-align-right" style="min-width: 190px;">
+              <div class="px-3 py-2 border-b text-xs text-secondary" style="border-color: var(--border-color);">
+                <div class="font-semibold text-main truncate">${user.name || 'Valued Guest'}</div>
+                <div class="text-muted-custom truncate">${user.email}</div>
+              </div>
+              <a href="${basePath}user/dashboard.html" class="dropdown-item-custom flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>My Dashboard</span>
+              </a>
+              <a href="${basePath}user/dashboard.html#appointments" class="dropdown-item-custom flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>My Appointments</span>
+              </a>
+              <a href="${basePath}user/dashboard.html#profile" class="dropdown-item-custom flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile & Preferences</span>
+              </a>
+              <div class="border-t my-1" style="border-color: var(--border-color);"></div>
+              <button type="button" class="dropdown-item-custom flex items-center gap-2 w-full text-left" id="header-logout-action-btn" style="color: var(--color-danger); border:none; background:none; cursor:pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Sign Out</span>
+              </button>
+            </div>
           </div>
         `;
-        const signoutBtn = slot.querySelector('#client-signout-btn');
-        if (signoutBtn) {
-          signoutBtn.addEventListener('click', (e) => {
+
+        const logoutBtn = slot.querySelector('#header-logout-action-btn');
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             this.logout();
           });
         }
       } else {
         slot.innerHTML = `
-          <a href="login.html" class="header-auth-link">
+          <a href="${basePath}login.html" class="header-auth-link" data-i18n="nav_signin">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span>Client Sign In</span>
           </a>
@@ -64,8 +131,9 @@ const AuthManager = {
     });
   },
 
+  // --- FORM HANDLERS (Login & Register) ---
   initForms() {
-    // Login form
+    // 1. Client Login Form
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
       if (window.FormValidator) FormValidator.attach(loginForm);
@@ -76,25 +144,24 @@ const AuthManager = {
         const email = document.getElementById('login-email').value.trim();
         const mockUser = {
           email: email,
-          name: email.split('@')[0].replace('.', ' '),
+          name: email === 'guest@wellness.com' ? 'Eleanor Vance' : email.split('@')[0].replace('.', ' '),
           signedInAt: new Date().toISOString()
         };
 
         this.setCurrentUser(mockUser);
         if (window.Notifications) {
-          Notifications.show('Welcome Back', 'Successfully signed in to your studio guest account.', 'success');
+          Notifications.show('Welcome Back', 'Successfully signed in to your sanctuary guest portal.', 'success');
         }
 
-        // Redirect to booking or home - STRICTLY NO DASHBOARD
         setTimeout(() => {
           const urlParams = new URLSearchParams(window.location.search);
-          const redirect = urlParams.get('redirect') || 'booking.html';
+          const redirect = urlParams.get('redirect') || 'user/dashboard.html';
           window.location.href = redirect;
-        }, 1200);
+        }, 800);
       });
     }
 
-    // Register form
+    // 2. Client Register Form
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
       if (window.FormValidator) FormValidator.attach(registerForm);
@@ -102,134 +169,82 @@ const AuthManager = {
         e.preventDefault();
         if (window.FormValidator && !FormValidator.validateForm(registerForm)) return;
 
-        const name = document.getElementById('register-name').value.trim();
-        const email = document.getElementById('register-email').value.trim();
-        const mockUser = {
+        const name = document.getElementById('reg-name').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const phone = document.getElementById('reg-phone') ? document.getElementById('reg-phone').value.trim() : '';
+
+        const newUser = {
           name: name,
           email: email,
-          signedInAt: new Date().toISOString()
+          phone: phone,
+          registeredAt: new Date().toISOString()
         };
 
-        this.setCurrentUser(mockUser);
+        this.setCurrentUser(newUser);
         if (window.Notifications) {
-          Notifications.show('Registration Complete', 'Your studio account is ready for instant booking.', 'success');
+          Notifications.show('Account Created', 'Welcome to Sole Harmony sanctuary.', 'success');
         }
 
         setTimeout(() => {
-          window.location.href = 'booking.html';
-        }, 1200);
+          window.location.href = 'user/dashboard.html';
+        }, 900);
       });
     }
 
-    // Forgot password form
-    const forgotForm = document.getElementById('forgot-password-form');
-    if (forgotForm) {
-      if (window.FormValidator) FormValidator.attach(forgotForm);
-      forgotForm.addEventListener('submit', (e) => {
+    // 3. Admin Login Form (admin/login.html)
+    const adminLoginForm = document.getElementById('admin-login-form');
+    if (adminLoginForm) {
+      adminLoginForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (window.FormValidator && !FormValidator.validateForm(forgotForm)) return;
+        const userField = document.getElementById('admin-username');
+        const passField = document.getElementById('admin-password');
+        const errorAlert = document.getElementById('admin-login-error');
 
-        const email = document.getElementById('forgot-email').value.trim();
-        if (window.Notifications) {
-          Notifications.show(
-            'Recovery Link Dispatched',
-            `A confidential password reset email was sent to ${email}.`,
-            'success',
-            6000
-          );
-        }
-        forgotForm.reset();
-      });
-    }
+        const username = userField ? userField.value.trim() : '';
+        const password = passField ? passField.value.trim() : '';
 
-    // Password Show/Hide Toggle Control
-    this.initPasswordToggle();
+        // Safe prototype verification with demo credentials
+        if ((username === 'admin' || username === 'manager@soleharmony.com' || username === 'manager@serenity.com') && (password === 'soleharmony2026' || password === 'serenity2026')) {
+          if (errorAlert) errorAlert.classList.add('hidden');
+          const adminSession = {
+            username: username,
+            role: 'Lead Studio Administrator',
+            signedInAt: new Date().toISOString()
+          };
+          this.setAdminSession(adminSession);
 
-    // Social Authentication (Google & Apple)
-    this.initSocialAuth();
-  },
+          if (window.Notifications) {
+            Notifications.show('Staff Access Granted', 'Welcome to Sole Harmony Studio Administration Portal.', 'success');
+          }
 
-  initPasswordToggle() {
-    const toggleBtn = document.getElementById('toggle-password-btn');
-    const passwordInput = document.getElementById('login-password');
-    if (!toggleBtn || !passwordInput) return;
-
-    const eyeIcon = toggleBtn.querySelector('.icon-eye');
-    const eyeOffIcon = toggleBtn.querySelector('.icon-eye-off');
-
-    toggleBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isPassword = passwordInput.getAttribute('type') === 'password';
-      passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-
-      if (eyeIcon) eyeIcon.style.display = isPassword ? 'none' : 'block';
-      if (eyeOffIcon) eyeOffIcon.style.display = isPassword ? 'block' : 'none';
-
-      const label = isPassword ? 'Hide password' : 'Show password';
-      toggleBtn.setAttribute('aria-label', label);
-      toggleBtn.setAttribute('title', label);
-    });
-  },
-
-  initSocialAuth() {
-    const handleSocialAuth = (provider) => {
-      const providerName = provider === 'google' ? 'Google' : 'Apple';
-      
-      // In this client-side studio site, external OAuth providers (Google Identity / Apple ID) 
-      // are not configured with a backend authentication endpoint.
-      const isProviderConfigured = false;
-
-      if (!isProviderConfigured) {
-        const message = `${providerName} sign-in is not configured yet.`;
-        
-        if (window.Notifications) {
-          Notifications.show(`${providerName} Sign-In`, message, 'info');
-        }
-
-        const alertBox = document.getElementById('auth-alert-box');
-        if (alertBox) {
-          alertBox.textContent = message;
-          alertBox.className = 'auth-alert-message auth-alert-info';
-          alertBox.style.display = 'block';
-        }
-      }
-    };
-
-    const googleBtn = document.getElementById('google-signin-btn');
-    if (googleBtn) {
-      googleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleSocialAuth('google');
-      });
-    }
-
-    const appleBtn = document.getElementById('apple-signin-btn');
-    if (appleBtn) {
-      appleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleSocialAuth('apple');
-      });
-    }
-
-    // Dismiss alert box on user input
-    const loginEmail = document.getElementById('login-email');
-    const loginPass = document.getElementById('login-password');
-    const alertBox = document.getElementById('auth-alert-box');
-    if (alertBox) {
-      [loginEmail, loginPass].forEach(input => {
-        if (input) {
-          input.addEventListener('input', () => {
-            alertBox.style.display = 'none';
-          });
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 800);
+        } else {
+          if (errorAlert) {
+            errorAlert.classList.remove('hidden');
+            errorAlert.textContent = 'Invalid administrator credentials. For prototype demo, use: admin / soleharmony2026';
+          }
         }
       });
     }
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  AuthManager.updateHeaderAuthUI();
-  AuthManager.initForms();
-});
+// Initialize on DOM load
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      AuthManager.updateHeaderAuthUI();
+      AuthManager.initForms();
+    });
+  } else {
+    AuthManager.updateHeaderAuthUI();
+    AuthManager.initForms();
+  }
+}
 
-window.AuthManager = AuthManager;
+// Global export
+if (typeof window !== 'undefined') {
+  window.AuthManager = AuthManager;
+}

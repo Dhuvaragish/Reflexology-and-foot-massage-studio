@@ -1,6 +1,218 @@
 /**
- * Reflexology & Foot Massage Studio - Services & Service Details Logic
+ * SOLE HARMONY - Services & Service Details Logic
  */
+
+const FALLBACK_SERVICES = [
+  {
+    id: "traditional-foot-reflexology",
+    name: "Traditional Foot Reflexology",
+    category: "foot-reflexology",
+    badge: "Signature Treatment",
+    featured: true,
+    rating: 4.95,
+    reviewsCount: 248,
+    shortDescription: "Traditional acupressure targeting meridian reflex zones on the soles, relieving systemic stress and restoring organ equilibrium.",
+    fullDescription: "Our signature Eastern Foot Reflexology begins with a warm herbal salt foot bath infused with lemongrass and ginger. Your certified reflexologist uses precise finger, thumb, and wooden stylus pressure techniques along your foot's 7,200 nerve endings. By stimulating specific reflex zones corresponding to vital organs, glands, and the musculoskeletal system, this treatment triggers endorphin release, stimulates lymph drainage, and fosters profound whole-body homeostasis.",
+    image: "assets/images/experience/foot-reflexology-experience.jpg",
+    heroImage: "assets/images/experience/foot-reflexology-experience.jpg",
+    durations: [
+      { minutes: 30, price: 45, label: "Express Sole Relief (30m)" },
+      { minutes: 45, price: 60, label: "Classic Harmony (45m)" },
+      { minutes: 60, price: 75, label: "Full Meridian Balance (60m)", popular: true },
+      { minutes: 90, price: 105, label: "Deep Therapeutic (90m)" }
+    ],
+    benefits: [
+      "Alleviates plantar fascia tightness and arch discomfort",
+      "Stimulates blood circulation and lymphatic drainage",
+      "Promotes deep delta-wave sleep and reduces nocturnal restlessness",
+      "Balances sympathetic and parasympathetic nervous systems",
+      "Assists natural digestive equilibrium and tension release"
+    ],
+    preparation: "Please arrive 10-15 minutes prior to your session to enjoy a warm organic herbal tea. Wear comfortable, loose-fitting trousers that can be gently rolled up to the knee.",
+    aftercare: "Drink 2 to 3 glasses of warm mineral water over the next few hours to flush metabolic byproducts. Avoid strenuous high-impact workouts for the rest of the day.",
+    contraindications: "First trimester of pregnancy, acute deep vein thrombosis (DVT), severe foot fractures or contagious fungal conditions.",
+    includedSteps: [
+      "Floral foot wash & ginger-salts soak (10m)",
+      "Reflex zone pressure map analysis & tactile warm-up",
+      "Targeted meridian thumb-walking and pressure-point balancing",
+      "Calf & lower leg lymphatic drainage stroking",
+      "Warm herbal towel wrap and finishing peppermint spritz"
+    ]
+  },
+  {
+    id: "relaxing-foot-massage",
+    name: "Relaxing Foot Massage",
+    category: "relaxation-foot",
+    badge: "Deep Relaxation",
+    featured: true,
+    rating: 4.88,
+    reviewsCount: 192,
+    shortDescription: "A soothing, rhythmic massage blending nourishing botanical oils with warm towels, gentle stretches, and calming tension strokes.",
+    fullDescription: "Designed specifically for weary feet, travelers, and individuals standing for long hours. This treatment blends Swedish effleurage strokes with traditional Thai stretching techniques. We use heated organic sweet almond oil scented with lavender, chamomile, and cedarwood. The therapy concentrates on the calves, Achilles tendon, ankle rotation, and the sole arches to melt away accumulated fatigue.",
+    image: "assets/images/foot-massage/relaxing-foot-massage.jpg",
+    heroImage: "assets/images/foot-massage/relaxing-foot-massage.jpg",
+    durations: [
+      { minutes: 30, price: 40, label: "Express Revival (30m)" },
+      { minutes: 45, price: 52, label: "Soothing Session (45m)" },
+      { minutes: 60, price: 68, label: "Nourishing Care (60m)", popular: true },
+      { minutes: 90, price: 95, label: "Extended Bliss (90m)" }
+    ],
+    benefits: [
+      "Relieves heavy leg syndrome and standing fatigue",
+      "Intensely hydrates dry heels and softens skin texture",
+      "Enhances ankle flexibility and joint mobility",
+      "Lowers elevated cortisol levels and encourages tranquil calm"
+    ],
+    preparation: "Wear loose attire. Remove ankle jewelry and watches. Please notify your therapist of any skin sensitivities or nut allergies.",
+    aftercare: "Allow the nourishing botanical oils to absorb for at least 2 hours before bathing. Hydrate with room-temperature herbal infusions.",
+    contraindications: "Severe varicose veins, open lesions or cuts on the lower leg.",
+    includedSteps: [
+      "Eucalyptus and Himalayan crystal foot bath",
+      "Exfoliating bamboo rice buff for heels and soles",
+      "Rhythmic heated almond oil kneading through calf and ankle",
+      "Steamed lavender towel compress",
+      "Cooling aloe and arnica restorative balm application"
+    ]
+  },
+  {
+    id: "full-body-reflexology",
+    name: "Full-Body Reflexology",
+    category: "body-reflexology",
+    badge: "Meridian Harmony",
+    featured: true,
+    rating: 4.92,
+    reviewsCount: 210,
+    shortDescription: "Comprehensive acupressure across spine, neck, shoulders, and plantar meridians to dissolve deep muscular tension.",
+    fullDescription: "Full-body reflexology views the human body as an integrated network of energy channels. In this treatment, certified practitioners apply precise thumb pressure and palm kneading along the Bladder meridian of the back, the Gallbladder points along the neck and shoulders, and key reflex points on the palms, feet, and skull.",
+    image: "assets/images/body-massage/full-body-reflexology.jpg",
+    heroImage: "assets/images/body-massage/full-body-reflexology.jpg",
+    durations: [
+      { minutes: 45, price: 65, label: "Targeted Upper Body (45m)" },
+      { minutes: 60, price: 85, label: "Full Spinal Meridian (60m)", popular: true },
+      { minutes: 90, price: 115, label: "Comprehensive Acupressure (90m)" }
+    ],
+    benefits: [
+      "Dissolves tension headaches and occipital tightness",
+      "Restores shoulder blade glide and spinal mobility",
+      "Balances Qi flow through primary meridian pathways",
+      "Reduces repetitive strain discomfort from computer use"
+    ],
+    preparation: "Wear loose, breathable cotton clothing. Can be performed clothed or with natural botanical oils according to your comfort.",
+    aftercare: "Gentle stretching and warm water hydration to encourage waste elimination.",
+    contraindications: "Acute spinal herniation, unmanaged severe hypertension, recent neck trauma.",
+    includedSteps: [
+      "Postural and tension check consultation",
+      "Cervical spine and trapezius pressure release",
+      "Meridian thumb-walking along dorsal spine",
+      "Hand, palm, and plantar reflex zone stimulation",
+      "Invigorating scalp acupressure finish"
+    ]
+  },
+  {
+    id: "head-neck-shoulder-massage",
+    name: "Head, Neck & Shoulder Massage",
+    category: "body-reflexology",
+    badge: "Desk Worker Rescue",
+    featured: true,
+    rating: 4.89,
+    reviewsCount: 178,
+    shortDescription: "Focused relief for upper-body strain, cervical compression, and tension headaches caused by modern desk work.",
+    fullDescription: "A concentrated therapeutic session addressing the primary pain points of the modern lifestyle: the occipital ridge, levator scapulae, upper trapezius, and deltoids. Heated botanical compresses soften hardened myofascial tissue before deep finger and thumb pressure releases stubborn trigger points.",
+    image: "assets/images/body-massage/neck-shoulder.jpg",
+    heroImage: "assets/images/body-massage/neck-shoulder.jpg",
+    durations: [
+      { minutes: 30, price: 42, label: "Quick Express Release (30m)" },
+      { minutes: 45, price: 58, label: "Standard Realignment (45m)", popular: true },
+      { minutes: 60, price: 75, label: "Deep Therapeutic Reset (60m)" }
+    ],
+    benefits: [
+      "Directly relieves tension headaches and eye strain",
+      "Unlocks restricted neck rotation and shoulder tightness",
+      "Improves blood circulation to the brain for mental clarity",
+      "Promotes ergonomic posture recovery"
+    ],
+    preparation: "Comfortable upper attire. Please tie long hair back loosely.",
+    aftercare: "Perform gentle neck roll stretches throughout the evening.",
+    contraindications: "Acute cervical whiplash within 72 hours, unhealed shoulder fractures.",
+    includedSteps: [
+      "Warm lavender shoulder wrap application",
+      "Cervical traction and occipital pressure",
+      "Trapezius muscle kneading with warm jojoba oil",
+      "Scapular release and upper back thumb-walking",
+      "Temple and scalp soothing acupressure"
+    ]
+  },
+  {
+    id: "relaxation-massage",
+    name: "Relaxation Massage",
+    category: "full-body",
+    badge: "Holistic Renewal",
+    featured: true,
+    rating: 4.96,
+    reviewsCount: 310,
+    shortDescription: "A restorative head-to-toe session integrating long flowing strokes, warm towels, and balancing botanical aromas.",
+    fullDescription: "Surrender to an uninterrupted wellness sanctuary. This treatment combines gentle Swedish gliding strokes, passive stretching, and warm organic jojoba oil infused with your choice of bergamot, ylang-ylang, or cypress. Every muscle group from your neck, back, legs, down to your feet receives mindful, rhythmic attention in our private, temperature-controlled suites.",
+    image: "assets/images/experience/spa-treatment-room.jpg",
+    heroImage: "assets/images/experience/spa-treatment-room.jpg",
+    durations: [
+      { minutes: 60, price: 85, label: "Essential Harmony (60m)" },
+      { minutes: 90, price: 120, label: "Full Sanctuary (90m)", popular: true },
+      { minutes: 120, price: 155, label: "Ultimate Transcendence (120m)" }
+    ],
+    benefits: [
+      "Lowers heart rate and stimulates parasympathetic recovery",
+      "Eases overall muscle fatigue and stiffness",
+      "Nourishes dry skin with cold-pressed botanical oils",
+      "Encourages restorative delta sleep patterns"
+    ],
+    preparation: "Arrive 15 minutes prior. Disrobe to your comfort level; professional modesty draping is strictly observed throughout.",
+    aftercare: "Hydrate well and rest quietly after treatment. Avoid heavy meals for 2 hours.",
+    contraindications: "Active infectious fever, severe varicose veins, first trimester of pregnancy.",
+    includedSteps: [
+      "Aromatherapy inhalation with wild lavender",
+      "Full posterior body kneading from soles to neck",
+      "Warm botanical towel compress on spine and feet",
+      "Gentle limb stretches and joint decompression",
+      "Calming facial and temple touch finish"
+    ]
+  },
+  {
+    id: "custom-wellness-session",
+    name: "Custom Wellness Session",
+    category: "signature-packages",
+    badge: "Personalized Care",
+    featured: true,
+    rating: 4.98,
+    reviewsCount: 265,
+    shortDescription: "A tailored consultation and treatment combining foot zone reflexology with focused muscular release.",
+    fullDescription: "Our most adaptable and bespoke therapy. Your session begins with a personalized diagnostic consultation where your therapist examines tension patterns, posture habits, and stress points. We then custom-blend the ideal duration ratio between traditional foot reflexology, heated basalt stones, and upper body meridian acupressure.",
+    image: "assets/images/services/custom-wellness-session.jpg",
+    heroImage: "assets/images/hero/service-details-hero.jpg",
+    durations: [
+      { minutes: 60, price: 90, label: "Custom Focus (60m)" },
+      { minutes: 90, price: 125, label: "Comprehensive Bespoke (90m)", popular: true },
+      { minutes: 120, price: 160, label: "Master Tailored Ritual (120m)" }
+    ],
+    benefits: [
+      "Addresses your exact personal bodily fatigue priorities",
+      "Combines foot reflexology with customized back and neck care",
+      "Includes complimentary customized botanical oil blend",
+      "Includes personal posture and aftercare guidance"
+    ],
+    preparation: "Share any specific areas of discomfort during your check-in consultation.",
+    aftercare: "Relax in our tea lounge for 10-15 minutes after the session.",
+    contraindications: "Please notify therapist of any medical conditions or surgeries.",
+    includedSteps: [
+      "Pre-session intake & pressure preference discussion",
+      "Herbal foot soak & sole reflex zone examination",
+      "Customized blend of foot reflexology & body acupressure",
+      "Basalt heated stone or warm towel integration",
+      "Therapist recommendations for daily posture & hydration"
+    ]
+  }
+];
+
+window.FALLBACK_SERVICES = FALLBACK_SERVICES;
 
 const ServicesModule = {
   services: [],
@@ -155,10 +367,17 @@ const ServicesModule = {
     if (!service) return;
 
     // Update Page Title
-    document.title = `${service.name} | Solace & Sole Reflexology`;
+    document.title = `${service.name} | SOLE HARMONY`;
 
     const breadcrumbName = document.getElementById('details-breadcrumb-name');
     if (breadcrumbName) breadcrumbName.textContent = service.name;
+
+    // Dynamically update Hero Banner Background Image to match the treatment
+    const bannerEl = document.getElementById('service-details-banner') || document.querySelector('.page-header-service-details');
+    if (bannerEl) {
+      const bannerBg = service.heroImage || service.image || 'assets/images/hero/service-details-hero.jpg';
+      bannerEl.style.backgroundImage = `url('${bannerBg}')`;
+    }
 
     const defaultDuration = service.durations.find(d => d.popular) || service.durations[0];
     let selectedDuration = defaultDuration;

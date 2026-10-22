@@ -184,3 +184,154 @@
   display: flex;
   gap: 1rem;
 }
+
+/* ==========================================================================
+   Treatment Details Hero Banner (Sole Harmony Redesign)
+   ========================================================================== */
+.page-header-banner.page-header-service-details {
+  min-height: clamp(460px, 52vh, 540px);
+  display: flex;
+  align-items: center;
+  padding: 5.5rem 0 4rem;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Clear, vibrant photograph on the right, soft warm ivory gradient on the left behind text */
+.page-header-banner.page-header-service-details::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 249, 245, 0.95) 0%,
+    rgba(250, 249, 245, 0.90) 28%,
+    rgba(250, 249, 245, 0.65) 45%,
+    rgba(250, 249, 245, 0.20) 60%,
+    rgba(250, 249, 245, 0.0) 75%,
+    transparent 100%
+  ) !important;
+  z-index: 1;
+  pointer-events: none;
+  transition: background var(--transition-normal);
+}
+
+[data-theme="dark"] .page-header-banner.page-header-service-details::before {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.90) 30%,
+    rgba(18, 22, 20, 0.60) 48%,
+    rgba(18, 22, 20, 0.15) 62%,
+    transparent 78%
+  ) !important;
+}
+
+/* Service Details Hero Banner Layout */
+.service-details-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .service-details-hero-grid {
+    grid-template-columns: minmax(520px, 660px) 1fr;
+    gap: 3rem;
+  }
+}
+
+.service-details-hero-content {
+  max-width: 640px;
+  text-align: left;
+}
+
+.service-details-hero-content .breadcrumb-wellness {
+  margin-bottom: 1.15rem;
+}
+
+.service-details-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: rgba(135, 155, 122, 0.24);
+  color: var(--color-primary, #315B43);
+  border: 1px solid rgba(49, 91, 67, 0.18);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
+}
+
+[data-theme="dark"] .service-details-hero-badge {
+  background: rgba(135, 155, 122, 0.18);
+  color: #A3C9A8;
+  border-color: rgba(163, 201, 168, 0.25);
+}
+
+.service-details-hero-heading {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--color-deep-green, #203D2C);
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .service-details-hero-heading {
+  color: var(--color-sand, #F7F4EE);
+}
+
+.service-details-hero-desc {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--color-text-secondary, #4A5568);
+  margin-bottom: 0;
+  max-width: 580px;
+}
+
+[data-theme="dark"] .service-details-hero-desc {
+  color: #C5CEBE;
+}
+
+
+@media (max-width: 991px) {
+  .page-header-banner.page-header-service-details {
+    min-height: 420px;
+    padding: 5rem 0 3.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-header-banner.page-header-service-details {
+    min-height: 380px;
+    padding: 4.5rem 0 3rem;
+    background-position: center center;
+  }
+  .page-header-banner.page-header-service-details::before {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 249, 245, 0.96) 0%,
+      rgba(250, 249, 245, 0.92) 55%,
+      rgba(250, 249, 245, 0.82) 100%
+    ) !important;
+  }
+  [data-theme="dark"] .page-header-banner.page-header-service-details::before {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 22, 20, 0.96) 0%,
+      rgba(18, 22, 20, 0.92) 55%,
+      rgba(18, 22, 20, 0.84) 100%
+    ) !important;
+  }
+}

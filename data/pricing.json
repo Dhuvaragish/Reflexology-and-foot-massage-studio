@@ -6,33 +6,26 @@
       "category": "Foot Reflexology & Care",
       "items": [
         {
-          "name": "Classic Eastern Foot Reflexology",
-          "serviceId": "foot-reflexology-classic",
+          "name": "Traditional Foot Reflexology",
+          "serviceId": "traditional-foot-reflexology",
           "durations": [
-            { "time": "45 Min", "price": 55 },
+            { "time": "30 Min", "price": 45 },
+            { "time": "45 Min", "price": 60 },
             { "time": "60 Min", "price": 75, "popular": true },
             { "time": "90 Min", "price": 105 }
           ],
           "description": "Herbal salt soak, reflex meridian analysis, precision thumb walking, warm towel wrap."
         },
         {
-          "name": "Botanical Herbal Foot Massage",
-          "serviceId": "relaxation-foot-massage",
+          "name": "Relaxing Foot Massage",
+          "serviceId": "relaxing-foot-massage",
           "durations": [
-            { "time": "45 Min", "price": 50 },
+            { "time": "30 Min", "price": 40 },
+            { "time": "45 Min", "price": 52 },
             { "time": "60 Min", "price": 68, "popular": true },
-            { "time": "75 Min", "price": 82 }
+            { "time": "90 Min", "price": 95 }
           ],
           "description": "Bamboo foot scrub, heated sweet almond oil, rhythmic calf & sole kneading."
-        },
-        {
-          "name": "Basalt Hot Stone Foot Reflexology",
-          "serviceId": "hot-stone-reflexology",
-          "durations": [
-            { "time": "60 Min", "price": 85 },
-            { "time": "90 Min", "price": 115, "popular": true }
-          ],
-          "description": "Smooth volcanic river stones, infrared heat penetration, deep arch release."
         }
       ]
     },
@@ -40,18 +33,28 @@
       "category": "Body Reflexology & Massage",
       "items": [
         {
-          "name": "Targeted Body Reflexology & Acupressure",
-          "serviceId": "body-reflexology-acupressure",
+          "name": "Full-Body Reflexology",
+          "serviceId": "full-body-reflexology",
           "durations": [
-            { "time": "45 Min", "price": 58 },
-            { "time": "60 Min", "price": 78, "popular": true },
-            { "time": "90 Min", "price": 110 }
+            { "time": "45 Min", "price": 65 },
+            { "time": "60 Min", "price": 85, "popular": true },
+            { "time": "90 Min", "price": 115 }
           ],
-          "description": "Upper back, shoulder blade, cervical spine, palms, and scalp meridian therapy."
+          "description": "Upper back, shoulder blade, cervical spine, palms, and sole meridian therapy."
         },
         {
-          "name": "Holistic Full-Body Relaxation Massage",
-          "serviceId": "full-body-relaxation-massage",
+          "name": "Head, Neck & Shoulder Massage",
+          "serviceId": "head-neck-shoulder-massage",
+          "durations": [
+            { "time": "30 Min", "price": 42 },
+            { "time": "45 Min", "price": 58, "popular": true },
+            { "time": "60 Min", "price": 75 }
+          ],
+          "description": "Targeted relief for upper-body tension, computer posture strain, and occipital headaches."
+        },
+        {
+          "name": "Relaxation Massage",
+          "serviceId": "relaxation-massage",
           "durations": [
             { "time": "60 Min", "price": 85 },
             { "time": "90 Min", "price": 120, "popular": true },
@@ -62,92 +65,68 @@
       ]
     },
     {
-      "category": "Signature Combined Rituals",
+      "category": "Custom & Combined Sanctuary Sessions",
       "items": [
         {
-          "name": "The Studio Signature Foot & Body Harmony",
-          "serviceId": "signature-duo-ritual",
+          "name": "Custom Wellness Session",
+          "serviceId": "custom-wellness-session",
           "durations": [
+            { "time": "60 Min", "price": 90 },
             { "time": "90 Min", "price": 125, "popular": true },
             { "time": "120 Min", "price": 160 }
           ],
-          "description": "45m Eastern foot reflexology + 45m upper body acupressure with herbal compresses."
+          "description": "Bespoke diagnostic intake with tailored blend of foot reflexology and deep muscular release."
         }
       ]
     }
   ],
   "packages": [
     {
-      "id": "package-grounding-series",
-      "name": "The Grounding Series (5 Sessions)",
-      "badge": "Save 15%",
+      "id": "package-3-session-reset",
+      "name": "3-Session Restorative Reset",
+      "badge": "Entry Series",
+      "price": 200,
+      "originalPrice": 225,
+      "description": "Recommended for individuals experiencing acute fatigue or recovering from travel.",
+      "features": [
+        "Three 60-Minute Traditional Reflexology or Massage sessions",
+        "Complimentary floral foot soak with every appointment",
+        "Flexible scheduling valid for 6 months",
+        "Transferable to family or partners"
+      ]
+    },
+    {
+      "id": "package-5-session-journey",
+      "name": "5-Session Meridian Journey",
+      "badge": "Most Popular",
+      "popular": true,
       "price": 320,
       "originalPrice": 375,
-      "description": "Ideal for chronic foot fatigue and ongoing nervous system recalibration.",
+      "description": "Ideal for ongoing stress regulation, desk workers, and long-term sleep wellness.",
       "features": [
-        "Five 60-Minute Classic Foot Reflexology sessions",
-        "Complimentary artisanal herbal foot bath with every visit",
-        "Priority weekend slot reservation",
-        "Valid for 12 months with flexible scheduling",
-        "Transferable to family or friends"
+        "Five 60-Minute Traditional Reflexology or Massage sessions",
+        "Complimentary choice of basalt stone or botanical scrub add-on",
+        "Priority weekend and evening slot access",
+        "Valid for 12 months with flexible cancellation"
       ]
     },
     {
-      "id": "package-couples-escape",
-      "name": "Couples / Duo Sanctuary Ritual",
-      "badge": "Most Romantic",
-      "popular": true,
-      "price": 240,
-      "originalPrice": 280,
-      "description": "Side-by-side relaxation in our private VIP double suite with soft candle lanterns.",
+      "id": "package-10-session-holistic",
+      "name": "10-Session Holistic Care",
+      "badge": "Best Value",
+      "price": 600,
+      "originalPrice": 750,
+      "description": "Our most complete holistic investment for monthly restorative equilibrium.",
       "features": [
-        "Two 90-Minute Signature Foot & Body Harmony rituals",
-        "Private VIP couple suite with ambient music selection",
-        "Warm lavender paraffin heel mask for both guests",
-        "Organic artisan floral tea flight & fresh fruit skewers",
-        "Take-home botanical foot balm tin (50ml)"
-      ]
-    },
-    {
-      "id": "package-monthly-pass",
-      "name": "Monthly Wellness Ritual Pass",
-      "badge": "Holistic Lifestyle",
-      "price": 139,
-      "period": "per month",
-      "description": "Cultivate a monthly commitment to preventative vitality and stress relief.",
-      "features": [
-        "Two 60-Minute treatments of your choice per month",
-        "15% off any additional sessions or gift vouchers",
-        "Free herbal steam add-on on your birthday month",
-        "Complimentary guest pass after 6 months of membership",
-        "Pause or cancel anytime with zero lock-in fee"
+        "Ten 60-Minute sessions across any service in our catalog",
+        "Personalized pressure and therapist preference profile locked in",
+        "Complimentary organic herbal tea flight to take home",
+        "Valid for 18 months, zero penalty rescheduling"
       ]
     }
   ],
-  "addons": [
-    {
-      "name": "Warm Herbal Mugwort Foot Steam",
-      "duration": "+15 Min",
-      "price": 18,
-      "description": "Traditional barrel steam releasing aromatic botanicals deep into the skin."
-    },
-    {
-      "name": "Botanical Paraffin Heel Hydration",
-      "duration": "+15 Min",
-      "price": 20,
-      "description": "Warm melted natural wax sealing in moisture for cracked and rough heels."
-    },
-    {
-      "name": "Custom Essential Oil Aromatherapy",
-      "duration": "Integrated",
-      "price": 12,
-      "description": "Therapist-formulated synergy blend: Calming Lavender, Grounding Sandalwood, or Uplifting Citrus."
-    },
-    {
-      "name": "Acupoint Cooling Herbal Eye Mask",
-      "duration": "Integrated",
-      "price": 10,
-      "description": "Silk herbal compress over the eyes to soothe digital screen strain during your foot session."
-    }
-  ]
+  "policies": {
+    "cancellation": "Cancellations or rescheduling require at least 24 hours advance notice. Cancellations under 24 hours may incur a 50% session fee.",
+    "deposit": "Zero advance deposit required. We accept all major cards, Apple Pay, and cash at studio check-out."
+  }
 }

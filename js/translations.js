@@ -1,0 +1,313 @@
+/**
+ * SOLE HARMONY - Single Source of Truth English Dictionary
+ * All website content is displayed exclusively in English in both LTR and RTL modes.
+ */
+
+window.StudioTranslations = (function() {
+  const enTranslations = {
+    // Brand & Common
+    brand_name: "SOLE HARMONY",
+    brand_subtitle: "Traditional Reflexology & Holistic Wellness",
+    tagline: "Harmony Begins at Your Feet",
+    top_open: "Open Today: 9:00 AM – 9:00 PM",
+    top_address: "482 Harmony Way, Suite 100",
+    top_phone: "(555) 382-7653",
+    
+    // Navigation
+    nav_home: "Home",
+    nav_home_1: "Home 1 — Serenity",
+    nav_home_1_desc: "A calming, traditional reflexology experience",
+    nav_home_2: "Home 2 — Wellness",
+    nav_home_2_desc: "Discover treatments, benefits, and personalized care",
+    nav_about: "About Us",
+    nav_services: "Services",
+    nav_pricing: "Pricing Menu",
+    nav_benefits: "Benefits & Map",
+    nav_therapists: "Therapists",
+    nav_contact: "Contact",
+    nav_book: "Book Appointment",
+    nav_signin: "Client Sign In",
+    nav_my_dashboard: "My Dashboard",
+    nav_my_appointments: "My Appointments",
+    nav_signout: "Sign Out",
+    nav_admin: "Admin Portal",
+    
+    // Breadcrumbs
+    breadcrumb_home: "Home",
+    breadcrumb_about: "About Us",
+    breadcrumb_services: "Services",
+    breadcrumb_pricing: "Pricing Menu",
+    breadcrumb_contact: "Contact",
+
+    // About Us Philosophy & Stats Section
+    stat_guests_num: "12,000+",
+    stat_guests_label: "Guests Restored",
+    stat_years_num: "16+",
+    stat_years_label: "Years TCM Wisdom",
+    stat_specialists_num: "100%",
+    stat_specialists_label: "Certified Specialists",
+    stat_hygiene_num: "Clinical",
+    stat_hygiene_label: "Hospital-Grade Hygiene",
+    philosophy_eyebrow: "OUR PHILOSOPHY",
+    philosophy_heading_1: "A Thoughtful Approach to",
+    philosophy_heading_2: "Rest and Renewal",
+    philosophy_desc: "At Sole Harmony, we believe that meaningful wellness begins with time, attention, and a peaceful environment. Our reflexology and foot massage experiences are designed to offer a calming pause from everyday routines, with personalized care and a welcoming atmosphere.",
+    phil_feat_1_title: "Traditional Reflexology",
+    phil_feat_1_desc: "Explore foot-focused treatments inspired by traditional reflexology practices and delivered with attentive care.",
+    phil_feat_2_title: "Personalized Attention",
+    phil_feat_2_desc: "Every visit begins with an understanding of your preferences and comfort, helping create a more personal treatment experience.",
+    phil_feat_3_title: "A Peaceful Sanctuary",
+    phil_feat_3_desc: "Relax in a tranquil environment with natural textures, soft lighting, and thoughtful details designed to make your visit welcoming.",
+    btn_discover_treatments: "Discover Our Treatments",
+
+    // About Page Hero Section
+    about_hero_eyebrow: "OUR LINEAGE & VISION",
+    about_hero_title_lead: "Where Ancient Healing",
+    about_hero_title_accent: "Meets Sensory Tranquility",
+    about_hero_desc: "Founded with a devotion to preserving classical Eastern reflex zone traditions, SOLE HARMONY provides an unhurried haven away from city overwhelm.",
+
+    // Services Page Hero Section
+    services_hero_title_lead: "Our Reflexology &",
+    services_hero_title_accent: "Massage Rituals",
+    services_hero_desc: "Every therapy begins with a soothing herbal foot bath and finishes with an artisanal medicinal tea ceremony in our serene lounge.",
+
+    // Pricing Page Hero Section
+    pricing_hero_title_lead: "Transparent",
+    pricing_hero_title_accent: "Wellness Pricing",
+    pricing_hero_desc: "Honest, all-inclusive rates with zero hidden charges and no advance card deposit.",
+
+    // Contact Page Hero Section
+    contact_hero_title_lead: "Contact Our",
+    contact_hero_title_accent: "Sanctuary",
+    contact_hero_desc: "Have questions about our treatments or wish to arrange a private wellness consultation? Our reception team is at your service.",
+
+    // Hero Section - Home 1
+    hero_eyebrow: "TRADITIONAL REFLEXOLOGY & HOLISTIC WELLNESS",
+    hero_title: "Find Your Balance with Sole Harmony",
+    hero_title_lead: "Find Your Balance with",
+    hero_brand_name: "Sole Harmony",
+    hero_desc: "Experience the art of traditional reflexology and soothing foot massage in a peaceful space designed for relaxation and wellbeing.",
+    hero_cta_book: "Book an Appointment",
+    hero_cta_explore: "Explore Our Treatments",
+
+    // Hero Section - Home 2
+    home2_hero_eyebrow: "WELLNESS & RESTORATION JOURNEY",
+    home2_hero_title: "Your Journey to Relaxation Begins Here",
+    home2_hero_desc: "Explore personalized reflexology and foot massage treatments designed to help you unwind and enjoy a more balanced wellness routine.",
+    home2_cta_book: "Book Your Session",
+    home2_cta_pricing: "View Pricing",
+    home2_feature1_title: "Comfortable Recliners",
+    home2_feature1_desc: "Relax in thoughtfully designed reclining seats that support a comfortable foot reflexology session.",
+    home2_feature2_title: "Botanical Foot Soaks",
+    home2_feature2_desc: "Begin your wellness experience with a soothing foot soak and carefully selected botanical ingredients.",
+    home2_feature3_title: "Couples Wellness Sessions",
+    home2_feature3_desc: "Enjoy a relaxing wellness experience together in a calm, welcoming environment.",
+
+    // Trust Highlights
+    trust_therapists_title: "Verified Master Therapists",
+    trust_therapists_desc: "100% certified practitioners with specialized clinical training.",
+    trust_hygiene_title: "Hospital-Grade Hygiene",
+    trust_hygiene_desc: "UV-C sanitized private suites and strictly single-use organic linens.",
+    trust_personalized_title: "Personalized Pressure",
+    trust_personalized_desc: "Customized pressure targeting your unique bodily fatigue patterns.",
+    trust_natural_title: "100% Organic Botanicals",
+    trust_natural_desc: "Pure cold-pressed sesame, sweet almond, and wild herbal oils.",
+
+    // The Sole Harmony Experience Section
+    experience_eyebrow: "THE SOLE HARMONY EXPERIENCE",
+    experience_heading_1: "A Moment of Calm,",
+    experience_heading_2: "Crafted Around You",
+    experience_desc: "At Sole Harmony, every visit is an invitation to slow down, unwind, and reconnect with yourself. Experience traditional reflexology and soothing foot massage in a peaceful setting inspired by natural wellness and thoughtful care.",
+    exp_feat_1_title: "Traditional Reflexology",
+    exp_feat_1_desc: "Explore a traditional foot-focused treatment delivered with attentive, personalized care.",
+    exp_feat_2_title: "Restorative Foot Massage",
+    exp_feat_2_desc: "Enjoy a soothing massage experience designed to encourage relaxation and comfort.",
+    exp_feat_3_title: "A Peaceful Wellness Ritual",
+    exp_feat_3_desc: "Relax in a tranquil environment with thoughtful touches, calming surroundings, and a welcoming atmosphere.",
+    btn_explore_treatments: "Explore Our Treatments",
+
+    // Section Titles
+    sec_what_is: "What is Reflexology?",
+    sec_what_is_sub: "An Ancient Science of Whole-Body Equilibrium",
+    sec_featured: "Featured Treatments",
+    sec_featured_sub: "Curated therapies for profound mental and bodily restoration",
+    sec_how_it_works: "How Your Visit Works",
+    sec_how_it_works_sub: "A seamless, stress-free path to deep bodily restoration",
+    sec_benefits: "Natural Health Benefits",
+    sec_benefits_sub: "Gentle stimulation of nerve pathways for systemic harmony",
+    sec_gallery: "Studio Sanctuary Gallery",
+    sec_testimonials: "Genuine Client Experiences",
+    sec_faq: "Frequently Asked Questions",
+    sec_final_cta_title: "Ready to Restore Your Harmony?",
+    sec_final_cta_sub: "Reserve your restorative session today. Zero advance card required.",
+
+    // How It Works Steps
+    step1_title: "1. Choose a Treatment",
+    step1_desc: "Browse our traditional foot and body reflexology menus and select the therapy that aligns with your wellness goals.",
+    step2_title: "2. Reserve Your Time",
+    step2_desc: "Pick your preferred master practitioner, date, and quiet time slot through our instant 5-step booking scheduler.",
+    step3_title: "3. Enjoy Sanctuary Care",
+    step3_desc: "Arrive at our serene studio, sip warm botanical tea, and sink into restorative relaxation.",
+
+    // Core Services
+    service_1_name: "Traditional Foot Reflexology",
+    service_1_desc: "Traditional acupressure targeting meridian reflex zones on the soles, relieving systemic stress and restoring organ equilibrium.",
+    service_2_name: "Relaxing Foot Massage",
+    service_2_desc: "A soothing, rhythmic massage blending nourishing botanical oils with warm towels, gentle stretches, and calming tension strokes.",
+    service_3_name: "Full-Body Reflexology",
+    service_3_desc: "Comprehensive acupressure across spine, neck, shoulders, and plantar meridians to dissolve deep muscular tension.",
+    service_4_name: "Head, Neck & Shoulder Massage",
+    service_4_desc: "Focused relief for upper-body strain, cervical compression, and tension headaches caused by modern desk work.",
+    service_5_name: "Relaxation Massage",
+    service_5_desc: "A restorative head-to-toe session integrating long flowing strokes, warm towels, and balancing botanical aromas.",
+    service_6_name: "Custom Wellness Session",
+    service_6_desc: "A tailored consultation and treatment combining foot zone reflexology with focused muscular release.",
+
+    // Service Actions & Labels
+    starting_from: "Starting from",
+    btn_view_details: "View Details",
+    btn_book_service: "Book This Service",
+    badge_signature: "Signature Treatment",
+    badge_popular: "Most Popular",
+    badge_proposed: "Proposed Offering",
+    proposed_notice: "Proposed service catalog — Subject to business confirmation before launch.",
+
+    // Pricing Page
+    pricing_title: "Transparent Wellness Pricing",
+    pricing_sub: "Honest, all-inclusive rates with zero hidden charges and no advance card deposit.",
+    pricing_eyebrow_alacarte: "A La Carte Menu",
+    pricing_eyebrow_rates: "OUR TREATMENTS & RATES",
+    pricing_rates_title: "Find Your Perfect Moment of Calm",
+    pricing_rates_desc: "Explore our traditional reflexology and massage experiences, with transparent pricing and flexible session durations to suit your wellness routine.",
+    badge_signature_ritual: "Signature Ritual",
+    badge_herbal_botanical: "Herbal & Botanical",
+    badge_comprehensive_balance: "Comprehensive Balance",
+    badge_targeted_relief: "Targeted Relief",
+    badge_restorative_flow: "Restorative Flow",
+    badge_bespoke_consultation: "Bespoke Consultation",
+    most_popular_session: "Most Popular Session",
+    rate_selected_label: "Selected Rate:",
+    rate_duration_suffix: "session",
+    choose_duration_label: "Choose Duration & Rate:",
+    pill_popular_badge: "Popular",
+    btn_book_service: "Book This Service",
+    pricing_steps_tag: "EFFORTLESS WELLNESS",
+    pricing_steps_title: "Your Visit, Made Simple",
+    pricing_steps_desc: "A seamless, tranquil journey from reservation to your first soothing herbal foot bath.",
+    pricing_step_1_title: "Choose Your Treatment",
+    pricing_step_1_desc: "Select from our traditional foot reflexology, rhythmic massages, or targeted neck & shoulder therapies.",
+    pricing_step_2_title: "Select Preferred Duration",
+    pricing_step_2_desc: "Choose from 30 to 120-minute sessions tailored to your schedule, bodily fatigue, and wellness goals.",
+    pricing_step_3_title: "Book Your Appointment",
+    pricing_step_3_desc: "Reserve your private sanctuary suite online with instant confirmation and zero advance card deposit.",
+    pricing_transparency_note: "Clear pricing, no hidden treatment charges. Please confirm appointment availability when booking.",
+
+    pricing_menu_title: "Sanctuary Service Menu & Durations",
+    pricing_eyebrow_packages: "Continuous Restoration",
+    th_service: "Therapy & Description",
+    th_duration: "Duration",
+    th_price: "Price",
+    th_action: "Reservation",
+    pricing_packages_title: "Multi-Session Wellness Packages",
+    pricing_packages_sub: "Save when investing in continuous holistic health",
+    pkg_3_title: "3-Session Restorative Reset",
+    pkg_5_title: "5-Session Meridian Journey",
+    pkg_10_title: "10-Session Holistic Care",
+    policy_cancellation_title: "Cancellation Policy",
+    policy_deposit_title: "Payment Policy",
+
+    // Contact Page
+    contact_title: "Contact Our Sanctuary",
+    contact_sub: "Have questions about our treatments or wish to arrange a private wellness consultation? Our reception team is at your service.",
+    contact_form_eyebrow: "Personalized Inquiry",
+    form_name: "Full Name",
+    form_email: "Email Address",
+    form_phone: "Phone Number",
+    form_service_pref: "Service Preference",
+    form_date: "Preferred Date",
+    form_time: "Preferred Time",
+    form_message: "Your Message or Health Inquiries",
+    form_submit: "Send Studio Enquiry",
+    form_submitting: "Submitting Enquiry...",
+    form_success_title: "Enquiry Received with Gratitude",
+    form_success_msg: "Thank you for reaching out to Sole Harmony. Our concierge will review your message and reply within 2-4 business hours.",
+
+    // Booking Wizard
+    book_step_1: "1. Service",
+    book_step_2: "2. Date & Time",
+    book_step_3: "3. Guest Details",
+    book_step_4: "4. Review",
+    book_step_5: "5. Confirmed",
+    btn_next_step: "Next Step",
+    btn_prev_step: "Back",
+    btn_confirm_booking: "Complete Booking",
+    lbl_select_specialist: "Select Master Practitioner",
+    lbl_any_specialist: "First Available Practitioner",
+    lbl_morning: "Morning (9am - 12pm)",
+    lbl_afternoon: "Afternoon (12pm - 5pm)",
+    lbl_evening: "Evening (5pm - 9pm)",
+    lbl_pressure: "Preferred Pressure",
+    pressure_gentle: "Gentle (Light & Soothing)",
+    pressure_medium: "Medium (Balanced Harmony)",
+    pressure_firm: "Firm (Deep Therapeutic)",
+    lbl_health_notes: "Health or Tension Notes (Optional)",
+
+    // Confirmation & Dashboard
+    conf_title: "Your Healing Session is Reserved",
+    conf_subtitle: "We have registered your appointment in our sanctuary booking registry.",
+    conf_ref: "Booking Reference:",
+    btn_print: "Print Summary",
+    btn_add_cal: "Add to Calendar (.ics)",
+    btn_view_dashboard: "View in My Dashboard",
+    
+    // User Dashboard
+    dash_welcome: "Welcome to Your Wellness Sanctuary,",
+    dash_upcoming: "Upcoming Appointments",
+    dash_past: "Past Treatment History",
+    dash_profile: "Personal Profile",
+    dash_preferences: "Contact Preferences",
+    dash_no_upcoming: "No upcoming appointments scheduled.",
+    dash_book_new: "Schedule a New Session",
+    status_pending: "Pending",
+    status_confirmed: "Confirmed",
+    status_completed: "Completed",
+    status_cancelled: "Cancelled",
+    btn_cancel_appt: "Cancel Appointment",
+    btn_reschedule: "Reschedule",
+    btn_save_profile: "Save Profile",
+
+    // Admin Dashboard
+    admin_title: "Sanctuary Administration Portal",
+    admin_prototype_notice: "Demonstration Prototype — Mock data isolated in browser localStorage. Real database and backend auth required before live production deployment.",
+    kpi_total_bookings: "Total Bookings",
+    kpi_today_appointments: "Today's Appointments",
+    kpi_upcoming: "Upcoming Sessions",
+    kpi_active_services: "Active Services",
+    kpi_enquiries: "Customer Enquiries",
+    tab_overview: "Dashboard Overview",
+    tab_bookings: "Bookings Management",
+    tab_services: "Services & Pricing",
+    tab_enquiries: "Customer Enquiries",
+    tab_settings: "Studio Settings",
+    btn_add_service: "Add New Service",
+    btn_export_data: "Export JSON",
+    btn_reset_data: "Reset Demo Data",
+
+    // Footer
+    footer_desc: "A premier sanctuary offering traditional foot reflexology, calming meridian bodywork, and holistic sensory renewal.",
+    footer_quick_links: "Quick Links",
+    footer_treatments: "Wellness Treatments",
+    footer_hours: "Opening Hours",
+    footer_contact_info: "Studio Contact",
+    footer_staff_portal: "Staff & Admin Portal",
+    footer_rights: "All rights reserved. Dedicated to authentic natural wellness.",
+    footer_privacy: "Privacy Policy",
+    footer_terms: "Terms of Service"
+
+  };
+
+  return {
+    en: enTranslations,
+    ar: enTranslations // Strictly mapped to English to guarantee 100% English in all modes
+  };
+})();

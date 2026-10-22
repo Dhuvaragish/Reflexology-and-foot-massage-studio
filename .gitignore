@@ -15,3 +15,7 @@ $RECYCLE.BIN/
 
 # Test / Temporary screenshots
 hero_test.png
+scratch/
+*.pyc
+__pycache__/
+

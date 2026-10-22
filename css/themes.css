@@ -1,5 +1,6 @@
 /**
- * Reflexology & Foot Massage Studio - Theme Switching (Light & Dark Mode)
+ * SOLE HARMONY - Theme Switching (Light & Dark Mode)
+ * Ensures consistent, accessible contrast across all components, forms, tables, modals, and dashboards.
  */
 
 [data-theme="dark"] body {
@@ -7,9 +8,16 @@
   color: var(--text-main);
 }
 
-[data-theme="dark"] .site-header {
-  background-color: var(--bg-surface);
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .dashboard-header {
+  background-color: rgba(34, 39, 33, 0.95);
   border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .top-bar {
+  background-color: #121512;
+  border-bottom-color: var(--border-color);
+  color: var(--text-muted);
 }
 
 [data-theme="dark"] .card-wellness,
@@ -21,21 +29,30 @@
 [data-theme="dark"] .booking-summary-card,
 [data-theme="dark"] .auth-card,
 [data-theme="dark"] .confirmation-card,
-[data-theme="dark"] .wellness-accordion-item {
+[data-theme="dark"] .wellness-accordion-item,
+[data-theme="dark"] .dashboard-card,
+[data-theme="dark"] .dashboard-sidebar,
+[data-theme="dark"] .nav-dropdown-menu,
+[data-theme="dark"] .mobile-drawer {
   background-color: var(--bg-surface);
   border-color: var(--border-color);
+  color: var(--text-main);
 }
 
 [data-theme="dark"] .service-card-footer,
 [data-theme="dark"] .wellness-modal-footer,
-[data-theme="dark"] .site-footer {
+[data-theme="dark"] .site-footer,
+[data-theme="dark"] .dashboard-footer {
   background-color: var(--bg-surface-soft);
   border-color: var(--border-color);
 }
 
+/* Forms & Inputs */
 [data-theme="dark"] .form-control-custom,
 [data-theme="dark"] .form-select-custom,
-[data-theme="dark"] .search-input-field {
+[data-theme="dark"] .search-input-field,
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
   background-color: var(--bg-surface-soft);
   border-color: var(--border-color);
   color: var(--text-main);
@@ -43,17 +60,119 @@
 
 [data-theme="dark"] .form-control-custom:focus,
 [data-theme="dark"] .form-select-custom:focus,
-[data-theme="dark"] .search-input-field:focus {
+[data-theme="dark"] .search-input-field:focus,
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
   background-color: var(--bg-surface);
   border-color: var(--color-primary);
+  color: var(--text-main);
 }
 
+/* Tables & Data */
+[data-theme="dark"] .table-wellness,
+[data-theme="dark"] .table,
+[data-theme="dark"] .pricing-table,
+[data-theme="dark"] .dashboard-table {
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .table-wellness th,
+[data-theme="dark"] .table th,
+[data-theme="dark"] .pricing-table th,
+[data-theme="dark"] .dashboard-table th {
+  background-color: var(--bg-surface-soft);
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .table-wellness td,
+[data-theme="dark"] .table td,
+[data-theme="dark"] .pricing-table td,
+[data-theme="dark"] .dashboard-table td {
+  border-bottom-color: var(--border-color-light);
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover,
+[data-theme="dark"] .pricing-table tbody tr:hover,
+[data-theme="dark"] .dashboard-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .pricing-service-title a {
+  color: var(--color-sage);
+}
+[data-theme="dark"] .pricing-service-title a:hover {
+  color: #cde0d5;
+}
+
+[data-theme="dark"] .duration-badge-group {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .price-chip {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+[data-theme="dark"] .price-chip strong {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .price-chip.popular {
+  background-color: rgba(49, 91, 67, 0.35);
+  border-color: var(--color-sage);
+  color: #cde0d5;
+}
+[data-theme="dark"] .price-chip.popular strong {
+  color: #ffffff;
+}
+
+/* Buttons */
 [data-theme="dark"] .btn-secondary-custom {
   background-color: var(--bg-surface-soft);
   border-color: var(--border-color);
   color: var(--text-main) !important;
 }
+
 [data-theme="dark"] .btn-secondary-custom:hover {
   background-color: var(--border-color);
+  color: #FFFFFF !important;
 }
 
+[data-theme="dark"] .btn-outline-custom {
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .btn-outline-custom:hover {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--color-primary);
+}
+
+/* Badges & Chips */
+[data-theme="dark"] .badge-wellness {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .duration-chip {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .hours-table td {
+  border-bottom-color: var(--border-color);
+}
+
+/* Dropdown items */
+[data-theme="dark"] .dropdown-item-custom {
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .dropdown-item-custom:hover {
+  background-color: var(--bg-surface-soft);
+  color: var(--color-primary-light);
+}

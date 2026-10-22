@@ -1,179 +1,246 @@
-# Solace & Sole — Reflexology & Foot Massage Studio Website
+# SOLE HARMONY — Premium Reflexology & Foot Massage Studio Website
 
-A responsive, multipurpose HTML5 website template designed for a professional reflexology and foot massage studio. Featuring a calming traditional wellness aesthetic, realistic treatment photography, interactive 5-step appointment booking, an interactive foot meridian zone explorer, and a complete light/dark and RTL/LTR system.
+A complete, premium, responsive website for **SOLE HARMONY**, a traditional Reflexology & Foot Massage Studio. Built using strictly **HTML5**, **CSS3**, **Vanilla JavaScript**, **Bootstrap 5** (for responsive grid layouts, forms, and modals), and selected **Tailwind CSS utility classes**.
 
-> **Important Note:** This website is focused entirely on the public-facing studio experience, services discovery, therapist profiles, and appointment booking. In strict adherence to project specifications, **no Client Dashboard or Admin Dashboard** is included.
+The website communicates relaxation, natural wellness, traditional therapeutic practices, hospital-grade hygiene, trust, and premium hospitality.
 
 ---
 
-## 🌿 Design System & Aesthetic
+## 🌿 Brand Identity & Design System
 
-- **Color Palette:**
-  - **Sage Green:** `#4A6B5D`, `#2C4238`, `#EAF1ED`
-  - **Warm Sand & Cream:** `#FAF8F5` (Base Ivory), `#F6F3EB` (Soft Sand), `#EAE3D2`
-  - **Earth & Bark Brown:** `#2D2621`, `#4A3B32`, `#7D6E64`
-  - **Accents:** Terracotta (`#C67D5A`) and Muted Luxury Gold (`#C5A059`)
+- **Brand Name:** `Sole Harmony` (centralized in `js/config.js` for instant updates across all pages, titles, and headers)
+- **Tagline:** *Harmony Begins at Your Feet*
+- **Business Category:** *Traditional Reflexology & Holistic Wellness*
+- **Brand Style:** Elegant, premium, calming, natural, and professional
+- **Official Brand Color Palette:**
+  - **Forest Green:** `#315B43` (Primary brand accent, botanical highlights, badges)
+  - **Deep Green:** `#203D2C` (Deep luxury headers, dark mode surfaces, contrast elements)
+  - **Sage Green:** `#879B7A` (Muted organic accents, hover states, secondary badges)
+  - **Terracotta:** `#C47A45` (Warm accent, botanical leaf highlight, CTA buttons, borders)
+  - **Warm Ivory:** `#FAF9F5` (Primary background canvas for natural serenity)
+  - **Champagne Gold:** `#C9AD70` (Refined accents, star ratings, borders, decorative arcs)
 - **Typography:**
-  - Headings: *Playfair Display* & *Cormorant Garamond* (Serene, elegant serif)
-  - Body: *Plus Jakarta Sans* (Clean, highly legible, modern sans-serif)
-- **Imagery:** High-resolution, royalty-free wellness photography covering authentic foot reflexology, herbal cedar foot basins, basalt hot stones, massage suites, tea lounge, and master practitioners.
+  - Headings: *Playfair Display* & *Cormorant Garamond* (Serene, classical serif)
+  - Body: *Plus Jakarta Sans* (Clean, highly legible sans-serif for optimal readability)
+  - Arabic (RTL): *Cairo* font integration with proportional baseline and numerals
+- **Imagery & Iconography:** 
+  - Official brand symbol featuring the organic green footprint, cupping botanical leaves, and terracotta accent leaf.
+  - Multi-resolution favicons (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png`).
+  - High-resolution, photorealistic wellness photography covering traditional Eastern foot reflexology, soothing herbal foot basins, basalt hot stones, calm private suites, reception, and certified practitioners.
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Architecture
 
 ```
-reflexology-studio/
+Reflexology & Foot Massage Studio/
 │
-├── index.html                   # Home Page 1 – Traditional Reflexology Studio Landing Page
-├── home-2.html                  # Home Page 2 – Premium Foot Massage & Wellness Landing Page
-├── about.html                   # About Us – Studio Story, Philosophy, Hygiene Standards
-├── services.html                # Services Catalog with live search & category filtering
-├── service-details.html         # Service Details with dynamic duration selector & price calc
-├── pricing.html                 # Pricing Menu – Single sessions, packages & add-on menu
-├── benefits.html                # Benefits & Interactive Foot Reflexology Meridian Map
-├── therapists.html              # Therapist Profiles, Certifications & Bio Modals
-├── booking.html                 # 5-Step Interactive Appointment Scheduler
-├── booking-confirmation.html    # Booking Confirmation Card, Print & Calendar (.ics) export
-├── contact.html                 # Contact Details, Opening Hours & Validated Inquiry Form
-├── login.html                   # Client Sign In with demo credentials (No Dashboard)
-├── register.html                # Client Registration form (No Dashboard)
-├── forgot-password.html         # Password recovery form with notification feedback
+├── index.html                   # Homepage – Traditional Reflexology & Holistic Wellness (Full Section 4.A)
+├── home-2.html                  # Homepage 2 – Luxury Wellness Sanctuary Variation
+├── about.html                   # About Studio – Story, Lineage, Environment & Hygiene Standards
+├── services.html                # Services Catalog – 6 Configured Proposed Therapies with Filter & Details
+├── service-details.html         # Service Detail View – Steps, Benefits, Precautions & Dynamic Duration Selector
+├── pricing.html                 # Pricing Menu – Responsive table (desktop) & stacked cards (mobile) + packages
+├── benefits.html                # Benefits & Interactive Foot Reflexology Meridian Map (Zone Explorer)
+├── therapists.html              # Certified Master Practitioners – Verified Qualifications & Bio Modals
+├── contact.html                 # Contact Page – Working enquiry form, inline confirmation, WhatsApp & Map
+├── booking.html                 # 5-Step Multi-Step Booking Interface with preselection & validation
+├── booking-confirmation.html    # Booking Confirmation Card – Reference code, summary, print & .ics export
+├── login.html                   # Client Sign In – Redirects to Customer Portal (user/dashboard.html)
+├── register.html                # Guest Registration – Instant account creation and dashboard entry
+├── forgot-password.html         # Password Reset interface with notifications
+│
+├── user/
+│   └── dashboard.html           # Customer Sanctuary Portal – Upcoming sessions, treatment history,
+│                                # booking details modal, reschedule modal, cancel modal, and profile
+│
+├── admin/
+│   ├── login.html               # Staff & Admin Login – Isolated prototype authentication with disclaimer
+│   └── dashboard.html           # Admin Operational Dashboard – Live KPIs, appointment status manager,
+│                                # service catalog CRUD, customer enquiries review, studio settings, JSON export
 │
 ├── assets/
-│   ├── images/
-│   │   ├── hero/               # home-1-hero.jpg, home-2-hero.jpg
-│   │   ├── reflexology/        # Traditional thumb pressure & point treatments
-│   │   ├── foot-massage/       # Thai foot massage, herbal baths, hot stone
-│   │   ├── body-massage/       # Acupressure, neck & shoulder, full-body
-│   │   ├── therapists/         # Practitioner portraits
-│   │   ├── spa-interior/       # Lounge, suites, tea corner, reception
-│   │   └── gallery/            # Botanical oils, herbal salts, candle atmosphere
-│   ├── icons/                  # Scalable SVG wellness icons
-│   └── fonts/                  # Web font references
+│   ├── icons/                   # Scalable SVG wellness icons & Sole Harmony official brand assets
+│   │   ├── favicon.ico          # Multi-size ICO (16x16, 32x32, 48x48)
+│   │   ├── favicon-16x16.png    # 16x16 browser tab icon
+│   │   ├── favicon-32x32.png    # 32x32 standard icon
+│   │   ├── apple-touch-icon.png # 180x180 iOS home screen icon
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── sole-harmony-symbol.png      # Standalone footprint & leaf symbol (light bg)
+│   │   ├── sole-harmony-symbol-dark.png # Standalone symbol (dark bg)
+│   │   ├── sole-harmony-logo.png        # Full horizontal wordmark (light bg)
+│   │   └── sole-harmony-logo-dark.png   # Full horizontal wordmark (dark bg)
+│   │
+│   └── images/
+│       ├── hero/                # home-1-hero.jpg, home-2-hero.jpg, about-hero.jpg, etc.
+│       ├── reflexology/         # Foot reflexology thumb walking, pressure points
+│       ├── foot-massage/        # Thai foot massage, herbal foot soaks, hot stone
+│       ├── body-massage/        # Full body reflexology, neck & shoulder acupressure
+│       ├── spa-interior/        # Reception desk, private suites, zen lounge, tea station
+│       ├── therapists/          # Master practitioner portraits
+│       └── gallery/             # Botanical oils, herbal salts, candlelit treatment rooms
 │
 ├── css/
-│   ├── bootstrap.min.css       # Bootstrap 5 responsive layout grid
-│   ├── bootstrap.rtl.min.css   # Bootstrap 5 RTL layout stylesheet
-│   ├── tailwind.css            # Tailwind-compatible utility classes
-│   ├── variables.css           # CSS design tokens, colors, shadows & radii
-│   ├── global.css              # Reset, typography baselines, accessible focus states
-│   ├── typography.css          # Serif/sans-serif hierarchy and eyebrow tags
-│   ├── components.css          # Buttons, cards, toasts, accordions, badges & modals
-│   ├── header-footer.css       # Sticky header, top-bar utility, drawer & footer
-│   ├── home.css                # Home 1 & Home 2 hero variations & meridian styling
-│   ├── services.css            # Live search input, category pills, sticky booking card
-│   ├── booking.css             # Multi-step stepper, date scroll, time slot pills
-│   ├── forms.css               # Input fields, validation states & auth cards
-│   ├── responsive.css          # Breakpoints for mobile, tablet, and desktop
-│   ├── themes.css              # Light & Dark mode color tokens & transitions
-│   └── rtl.css                 # RTL (Right-to-Left) layout mirroring for Arabic
+│   ├── bootstrap.min.css        # Bootstrap 5 responsive layout grid and utilities
+│   ├── tailwind.css             # Tailwind utility classes (margins, padding, flexbox, grid)
+│   ├── variables.css            # Central CSS custom properties with exact official hex palette
+│   ├── global.css               # Base resets, focus rings, and accessibility standards
+│   ├── typography.css           # Type scale, serif headings, and line-height hierarchy
+│   ├── components.css           # Buttons, cards, badges, chips, accordions, and toasts
+│   ├── header-footer.css        # Sticky navigation, utility top-bar, mobile drawer, footer
+│   ├── home.css                 # Hero sections, trust metrics strip, and meridian card
+│   ├── services.css             # Service card layout, category pills, duration chips
+│   ├── booking.css              # Multi-step progress bar, calendar grid, time pills
+│   ├── forms.css                # Accessible inputs, floating labels, validation states
+│   ├── dashboard.css            # User and Admin dashboard responsive layouts, sidebars, stats
+│   ├── responsive.css           # Breakpoints for mobile (<768px), tablet, and desktop
+│   ├── themes.css               # Light & Dark theme color variables and card styles
+│   └── rtl.css                  # Right-to-Left (RTL) mirroring, Arabic typography & logical margins
 │
 ├── js/
-│   ├── main.js                 # Global coordinator, year updater, smooth scrolling
-│   ├── navigation.js           # Sticky header, active links & mobile off-canvas drawer
-│   ├── theme.js                # Light/Dark mode switcher with localStorage persistence
-│   ├── language.js             # LTR/RTL switcher with [dir="rtl"] and notification
-│   ├── home.js                 # Interactive meridian map & quick booking bar handler
-│   ├── services.js             # Service catalog filtering, search & details renderer
-│   ├── pricing.js              # Pricing tables, packages and add-on generator
-│   ├── therapists.js           # Therapist showcase & interactive bio modal
-│   ├── booking.js              # 5-step booking engine, date picker, slot calculation
-│   ├── validation.js           # Client-side form validation with accessible feedback
-│   ├── authentication.js       # Demo sign in/register (strictly no dashboard)
-│   └── notifications.js        # Reusable toast notification system
+│   ├── config.js                # Central studio brand configuration (StudioConfig)
+│   ├── translations.js          # Bilingual translation dictionary (English & Arabic)
+│   ├── language.js              # Live bilingual translation and RTL switcher
+│   ├── theme.js                 # Light/Dark mode switcher with localStorage persistence
+│   ├── navigation.js            # Sticky navbar and mobile off-canvas drawer
+│   ├── validation.js            # Client-side form validation with accessible error cues
+│   ├── authentication.js        # Client & Admin session manager (localStorage / sessionStorage)
+│   ├── user-dashboard.js        # Powers Customer Sanctuary Portal logic and cancellations
+│   ├── admin-dashboard.js       # Powers Admin Operations, live KPIs, status updates, and service CRUD
+│   ├── services.js              # Services catalog search, category filter, and dynamic details
+│   ├── booking.js               # 5-step booking flow, duration recalculation, and appointment saving
+│   ├── home.js                  # Interactive foot meridian map and zone preview logic
+│   ├── therapists.js            # Practitioner directory and modal profile showcase
+│   ├── notifications.js         # Non-intrusive floating toast notification component
+│   └── main.js                  # Global coordinator, year updater, config DOM binder
 │
+├── favicon.ico                  # Root multi-resolution favicon
+├── site.webmanifest             # Progressive web app manifest (Sole Harmony)
 └── data/
-    ├── services.json           # Comprehensive treatment database
-    ├── therapists.json         # Certified practitioner profiles & specialties
-    ├── pricing.json            # Categorized treatment menus & package rates
-    └── demo-appointments.json  # Demonstration appointment slots & bookings
+    ├── services.json            # 6 core proposed service categories with durations & benefits
+    ├── pricing.json             # Pricing tiers (30/45/60/90m), packages (3/5/10), and studio policies
+    ├── therapists.json          # Master practitioner bios, qualifications, and specialties
+    └── demo-appointments.json   # Seed appointment records for user and admin dashboards
 ```
 
 ---
 
-## 🌟 Key Features
+## 🌟 Key Functionality & Modules
 
-### 1. Two Complete Homepage Variations
-- **Home Page 1 (`index.html`):** Traditional Eastern Reflexology Studio focusing on meridian pathways, cedar basin herbal foot soaks, 4 holistic pillars, and TCM master lineage.
-- **Home Page 2 (`home-2.html`):** Premium Modern Foot Massage Sanctuary focusing on zero-gravity recliners, sensory relaxation, couples VIP suites, and relief for modern desk workers & runners.
+### 1. Central Configuration (`js/config.js`)
+All studio details are managed from a single file:
+- Studio Brand Name: `Sole Harmony`
+- Subtitle & Tagline: `Harmony Begins at Your Feet`
+- Business Category: `Traditional Reflexology & Holistic Wellness`
+- Contact: `(555) 382-7653`, `appointments@soleharmony.com`
+- Location: `482 Harmony Way, Suite 100, San Francisco, CA 94102`
+- Opening Hours: Mon–Fri 9am–9pm, Sat 9:30am–8:30pm, Sun 10am–7pm
+- Central DOM binding helper (`StudioConfig.bindToDOM()`) automatically binds `data-config` attributes across all pages.
 
-### 2. Interactive 5-Step Appointment Booking Engine (`booking.html`)
-- **Step 1:** Select Treatment & Duration (dynamic price preview).
-- **Step 2:** Select Specialist (or choose "Any Available Specialist").
-- **Step 3:** Interactive Date & Time Picker (Morning, Afternoon, Evening slots).
-- **Step 4:** Guest Details & Pressure Preference (Gentle, Medium, Firm) with medical notes.
-- **Step 5:** Itemized Review & Confirmation.
-- Generates a unique booking reference code (e.g., `REF-84912`), triggers a success toast, and redirects to `booking-confirmation.html`.
-- Confirmation page includes:
-  - Complete printable summary card.
-  - One-click `.ics` Calendar event download.
-  - Payment upon arrival notice (no credit card barrier).
-  - **Zero dashboard redirection.**
+### 2. Dual Language & RTL Support (`js/language.js` & `js/translations.js`)
+- Full bilingual English (`en`) and Arabic (`ar` — *سول هارموني | الانسجام يبدأ من قدميك*) support.
+- One-click language button in the header switches between English (LTR) and Arabic (RTL).
+- Automatically updates `html[dir="rtl"]`, `html[lang="ar"]`, and translates all `[data-i18n]` and `[data-i18n-placeholder]` elements.
+- Direction-aware CSS in `css/rtl.css` mirrors navigations, cards, badges, and icons while preserving phone numbers and numeric prices.
 
-### 3. Interactive Foot Reflexology Map (`benefits.html`)
-- Click through 5 primary foot meridian reflex zones:
-  1. *Head, Brain & Pituitary Gland* (Toes)
-  2. *Solar Plexus & Diaphragm* (Upper Sole)
-  3. *Spinal Column Ridge* (Medial Arch)
-  4. *Digestive & Abdominal Organs* (Midfoot Hollow)
-  5. *Pelvic & Sciatic Nerve* (Heel Pad)
-- Dynamically displays physiological effects, corresponding organs, and recommended studio treatments.
+### 3. Light & Dark Wellness Themes (`css/themes.css` & `js/theme.js`)
+- Default Light Mode: Warm Ivory (`#FAF9F5`), Forest Green (`#315B43`), Terracotta (`#C47A45`), and Soft White (`#FFFFFF`).
+- Calming Dark Mode: Deep Forest Green (`#203D2C` / `#16281D`) with champagne gold and sage accents for evening browsing.
+- Theme preference is saved in `localStorage` and respected across all public and portal pages.
+- Responsive brand logos automatically switch between light and dark versions (`.logo-symbol-light` / `.logo-symbol-dark`).
 
-### 4. Services Discovery & Dynamic Details
-- **`services.html`:** Real-time search query matching and instant category filtering (All, Foot Reflexology, Relaxation Foot, Body Reflexology, Full Body, Signature Combined).
-- **`service-details.html`:** In-depth treatment journey steps, clinical benefits, preparation guidance, aftercare instructions, health contraindications, and an interactive duration toggle that updates price on the fly.
+### 4. Interactive 5-Step Booking Engine (`booking.html` & `js/booking.js`)
+- **Step 1: Select Service & Duration** — Dynamic price recalculation based on 30, 45, 60, or 90 minutes. Supports incoming URL preselection (`booking.html?service=traditional-foot-reflexology`).
+- **Step 2: Choose Specialist** — Select a preferred practitioner or choose "Any Available Specialist".
+- **Step 3: Choose Date & Time** — Interactive date selector and time slot pills (Morning, Afternoon, Evening).
+- **Step 4: Customer Details & Preferences** — Name, email, phone, pressure preference (Gentle, Medium, Firm), and wellness notes.
+- **Step 5: Review & Confirm** — Itemized fee breakdown ($0 advance card deposit required).
+- Generates a persistent booking record in `localStorage.getItem('wellness_studio_bookings')` and forwards to `booking-confirmation.html` with printable summary card and `.ics` calendar export.
 
-### 5. Multi-Language & RTL Layout Support
-- Includes full **RTL (Right-to-Left)** support for languages such as Arabic.
-- Clicking the language button toggles `dir="rtl"` / `dir="ltr"` on the root document, activates `css/rtl.css`, mirrors layouts, navigations, sidebars, and input icons seamlessly.
-- Remembers user choice in `localStorage`.
+### 5. Customer Sanctuary Portal (`user/dashboard.html` & `js/user-dashboard.js`)
+- Accessible from the header account dropdown or `user/dashboard.html`.
+- **Overview:** Active appointment highlight, personal stats (upcoming sessions, completed visits, preferred pressure).
+- **Upcoming Sessions:** Detailed appointment cards with practitioner, room, and status badges (`Confirmed`, `Pending`).
+- **Actions:**
+  - **View Booking Details Modal**
+  - **Reschedule Appointment Modal** (updates date and time directly in `localStorage`)
+  - **Cancel Appointment Modal** (updates status to `Cancelled` subject to 24-hour studio policy)
+- **Treatment History:** Past session logs and therapist notes.
+- **Profile & Preferences:** Update contact details, preferred pressure, room aromatherapy, and reminder preferences.
 
-### 6. Light Mode & Dark Mode Themes
-- Built-in theme switcher (`css/themes.css` & `js/theme.js`).
-- Light theme features a calming cream and ivory palette with sage accents.
-- Dark theme features a soothing deep forest pine/charcoal palette (`#121614` / `#1B221E`) designed to minimize eye strain.
-- Remembers preference across page visits.
+### 6. Admin Operational Dashboard (`admin/dashboard.html` & `js/admin-dashboard.js`)
+- Dedicated staff portal accessed via `admin/login.html` (demo credentials: `admin` / `soleharmony2026`).
+- **Live Dynamic KPIs:** Total Bookings, Today's Appointments, Active Service Offerings, and New Customer Inquiries (calculated live from real data).
+- **Today's Sanctuary Schedule:** Real-time timetable of today's appointments.
+- **All Bookings Management:** Filterable, searchable data table with live status changer (`Pending`, `Confirmed`, `Completed`, `Cancelled`).
+- **Service Catalog Management:** Add new treatments, edit prices and durations, or toggle service active/inactive status.
+- **Customer Enquiries:** View messages submitted via `contact.html`, inspect details, and mark as replied.
+- **Studio Configuration:** Update operating hours, booking lead times, and cancellation policies.
+- **Data Export:** Instant JSON export of all studio records (`sole-harmony-backup.json`).
 
-### 7. Client Authentication (Without Dashboard)
-- Includes clean `login.html`, `register.html`, and `forgot-password.html`.
-- Demo credentials provided: `guest@wellness.com` / `peace123`.
-- After sign-in, the user's name is saved in `localStorage`, displayed in the top header, and user is redirected directly to `booking.html` for instant checkout.
-- **Strictly decoupled from any dashboard or analytics portal.**
+### 7. Proposed 6 Core Service Offerings (`data/services.json`)
+1. **Traditional Foot Reflexology** — From $45 (30m) / $75 (60m)
+2. **Relaxing Foot Massage** — From $40 (30m) / $68 (60m)
+3. **Full-Body Reflexology** — From $65 (45m) / $85 (60m)
+4. **Head, Neck & Shoulder Massage** — From $38 (30m) / $55 (45m)
+5. **Relaxation Massage** — From $70 (60m) / $100 (90m)
+6. **Custom Wellness Session** — From $85 (60m) / $120 (90m)
 
 ---
 
-## 🚀 How to Run the Website
+## 🔒 Security & Prototype Disclosure
 
-### Option 1: Direct File Opening
-Double-click `index.html` (or any other `.html` file) in your file explorer to open it directly in your web browser (`Chrome`, `Edge`, `Safari`, `Firefox`). The template includes embedded fallback data to ensure full functionality even under local `file:///` restrictions.
+> [!IMPORTANT]
+> The Client Portal (`user/dashboard.html`) and Administrative Portal (`admin/dashboard.html`) are delivered as **frontend prototypes** utilizing browser `localStorage` and `sessionStorage` for cross-component state.
+> 
+> In a live production environment:
+> 1. Frontend JavaScript cannot guarantee administrative authorization.
+> 2. Admin credentials must be verified on a secure server using hashed passwords and HTTP-only JWTs/session cookies.
+> 3. Booking records, customer enquiries, and service pricing must be stored in a production database (e.g., PostgreSQL, Cloud Firestore).
+> 4. Emails and SMS reminders must be dispatched via transactional mail services (e.g., SendGrid, Postmark, Twilio).
 
-### Option 2: Local HTTP Server (Recommended)
-Using Python (pre-installed on most systems):
-```bash
-# Navigate to the project directory
-cd "c:\Users\Dhuvaragish\Desktop\Reflexology & Foot Massage Studio"
+---
 
-# Start a local HTTP server
+## 🚀 How to Run the Website Locally
+
+### Option 1: Using Python Built-in HTTP Server (Recommended)
+Open PowerShell or Terminal in the project root folder:
+```powershell
 python -m http.server 8000
 ```
-Then open your browser at:
+Open your browser at:
+`http://localhost:8000`
+
+### Option 2: Using Node.js `serve` / `http-server`
+```bash
+npx serve .
 ```
-http://localhost:8000/index.html
-```
+
+### Option 3: Direct File Opening
+Double-click `index.html` to open directly in Google Chrome, Microsoft Edge, Firefox, or Safari. All scripts include built-in fallback data arrays to ensure complete functionality even over the local `file:///` protocol.
 
 ---
 
-## 🔒 Hygiene & Sanitation Compliance
-Highlighted extensively throughout `about.html` and `services.html`:
-- Hospital-grade autoclave and UV sterilization for tools and basalt stones.
-- Biodegradable single-use basin liners for all foot soaks.
-- High-temperature laundry sanitization (75°C / 167°F) with organic detergents.
-- True HEPA-13 air filtration in all private treatment suites.
+## 🔑 Demo Prototype Credentials
+
+- **Client Portal:**
+  - Login URL: `login.html`
+  - Demo Email: `guest@wellness.com`
+  - Demo Password: `peace123` (or any email with 6+ character password)
+  - Post-login destination: `user/dashboard.html`
+
+- **Staff / Admin Portal:**
+  - Login URL: `admin/login.html`
+  - Username: `admin` (or `manager@soleharmony.com`)
+  - Password: `soleharmony2026`
+  - Post-login destination: `admin/dashboard.html`
 
 ---
 
-## 📄 License & Credits
-- **Frameworks:** Bootstrap 5, Tailwind CSS utilities.
-- **Icons:** Inline SVG feather/lucide inspired icons.
-- **Photography:** Curated royalty-free imagery from Unsplash.
+## 📋 Compliance & Accessibility
+- WCAG AA color contrast ratios across light and dark modes.
+- Accessible focus rings and `:focus-visible` styling.
+- Responsive design tested from 360px (mobile) to 1440px (desktop).
+- Semantic HTML5 landmark structure (`<header>`, `<main>`, `<section>`, `<nav>`, `<footer>`).
+- No modern JS framework dependencies (pure HTML5, CSS3, Vanilla JS, Bootstrap 5 & Tailwind utilities).

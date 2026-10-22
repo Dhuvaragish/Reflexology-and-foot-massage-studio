@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking Confirmed | Solace & Sole Reflexology Studio</title>
+  <title>Booking Confirmed | SOLE HARMONY</title>
   <meta name="description" content="Your appointment reservation is confirmed. Review your session summary, add to your calendar, and view arrival instructions.">
+
+    <!-- Favicon & Application Icons -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#203D2C">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,74 +31,66 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Utility Bar -->
-  <div class="top-bar">
-    <div class="container-custom flex items-center justify-between flex-wrap gap-2">
-      <div class="flex items-center gap-4 text-xs">
-        <span class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Open Today: 9:00 AM – 9:00 PM
-        </span>
-        <span class="top-bar-divider md:block hidden"></span>
-        <span class="top-bar-item md:inline-flex hidden">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          482 Serenity Way, Suite 100
-        </span>
-        <span class="top-bar-divider md:block hidden"></span>
-        <span class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          (555) 382-7653
-        </span>
-      </div>
-
-            <div class="md:flex hidden items-center gap-4 text-xs">
-        <a href="mailto:info@solaceandsole.com" class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          info@solaceandsole.com
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="site-header">
     <div class="container-custom header-inner">
-      <a href="index.html" class="site-logo">
+            <!-- Logo -->
+      <a href="index.html" class="site-logo" aria-label="Sole Harmony — Reflexology &amp; Foot Wellness">
         <div class="logo-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v12"></path>
-          </svg>
+          <img src="assets/icons/sole-harmony-symbol.png" alt="Sole Harmony — Reflexology &amp; Foot Wellness" class="logo-symbol-light">
+          <img src="assets/icons/sole-harmony-symbol-dark.png" alt="Sole Harmony — Reflexology &amp; Foot Wellness" class="logo-symbol-dark">
         </div>
         <div class="logo-text-wrap">
-          <span class="logo-title">Solace & Sole</span>
-          <span class="logo-subtitle">Reflexology & Wellness Studio</span>
+          <span class="logo-title" data-config="brandName">SOLE HARMONY</span>
+          <span class="logo-subtitle" data-config="brandSubtitle">Traditional Reflexology &amp; Holistic Wellness</span>
         </div>
       </a>
 
       <nav class="nav-menu-desktop" aria-label="Main Navigation">
-        <div class="nav-dropdown">
-          <a href="index.html" class="nav-link-custom">
-            Home
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <div class="nav-dropdown home-nav-dropdown">
+          <a href="index.html" class="nav-link-custom" data-i18n="nav_home" aria-haspopup="true" aria-expanded="false">
+            <span>Home</span>
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
-          <div class="nav-dropdown-menu">
-            <a href="index.html" class="dropdown-item-custom">Home 1 – Traditional Studio</a>
-            <a href="home-2.html" class="dropdown-item-custom">Home 2 – Luxury Wellness Sanctuary</a>
+          <div class="home-dropdown-menu" role="menu">
+            <a href="index.html" class="home-menu-card" role="menuitem">
+              <div class="home-menu-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <div class="home-menu-info">
+                <span class="home-menu-title" data-i18n="nav_home_1">Home 1 — Serenity</span>
+                <span class="home-menu-desc" data-i18n="nav_home_1_desc">A calming, traditional reflexology experience</span>
+              </div>
+            </a>
+            <a href="home-2.html" class="home-menu-card" role="menuitem">
+              <div class="home-menu-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 16v-2.38C4 11.5 7 11 9 11s5 .5 5 2.62V16c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3Z"></path>
+                  <path d="M20 20v-1.5c0-1.5-2-2-3.5-2s-3.5.5-3.5 2V20c0 1.1.9 2 2 2h3c1.1 0 2-.9 2-2Z"></path>
+                  <circle cx="6" cy="7" r="1.5"></circle>
+                  <circle cx="10" cy="5.5" r="1.5"></circle>
+                  <circle cx="14" cy="6.5" r="1.5"></circle>
+                </svg>
+              </div>
+              <div class="home-menu-info">
+                <span class="home-menu-title" data-i18n="nav_home_2">Home 2 — Wellness</span>
+                <span class="home-menu-desc" data-i18n="nav_home_2_desc">Discover treatments, benefits, and personalized care</span>
+              </div>
+            </a>
           </div>
         </div>
-
-        <a href="about.html" class="nav-link-custom">About Us</a>
-        <a href="services.html" class="nav-link-custom">Services</a>
-        <a href="benefits.html" class="nav-link-custom">Benefits & Map</a>
-        <a href="pricing.html" class="nav-link-custom">Pricing Menu</a>
-        <a href="therapists.html" class="nav-link-custom">Therapists</a>
-        <a href="contact.html" class="nav-link-custom">Contact</a>
+        <a href="about.html" class="nav-link-custom" data-i18n="nav_about">About Us</a>
+        <a href="services.html" class="nav-link-custom" data-i18n="nav_services">Services</a>
+        <a href="pricing.html" class="nav-link-custom" data-i18n="nav_pricing">Pricing Menu</a>
+        <a href="contact.html" class="nav-link-custom" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <div class="header-actions">
-
-        <!-- Mode & Direction Controls (Compact Pill-Shaped Toggle Buttons) -->
+        <!-- Theme & Direction Controls -->
         <div class="header-mode-controls">
           <button type="button" class="btn-header-icon btn-dir-toggle" title="Switch Layout Direction" aria-label="Switch Layout Direction">
             <svg class="icon-dir-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -101,33 +101,14 @@
             </svg>
           </button>
           <button type="button" class="btn-header-icon btn-theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
-            <svg class="icon-sun-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="icon-moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
+            <svg class="icon-sun-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon-moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           </button>
-        </div>
-
-        <div class="auth-link-slot">
-          <a href="login.html" class="header-auth-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span>Client Sign In</span>
-          </a>
         </div>
 
         <a href="booking.html" class="btn-wellness btn-primary-custom btn-sm header-book-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          <span class="header-book-text">Book Another</span>
+          <span class="header-book-text" data-i18n="nav_book">Book Appointment</span>
         </a>
 
         <button type="button" class="mobile-nav-toggle" aria-label="Open mobile menu">
@@ -137,33 +118,90 @@
     </div>
   </header>
 
-  <main id="main-content" class="section-py bg-cream">
-    <div class="container-custom">
-      
-      <!-- Confirmation Summary Card -->
-      <div class="confirmation-card">
-        <div class="confirmation-header">
-          <div class="confirmation-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="mobile-drawer-header">
+                <div class="flex items-center gap-2">
+          <div class="logo-icon w-8 h-8">
+            <img src="assets/icons/sole-harmony-symbol.png" alt="Sole Harmony" class="logo-symbol-light">
+            <img src="assets/icons/sole-harmony-symbol-dark.png" alt="Sole Harmony" class="logo-symbol-dark">
           </div>
-          <span class="badge-wellness mb-2" style="background: rgba(255,255,255,0.6); color: var(--color-primary-dark);">Reservation Successful</span>
-          <h1 class="font-heading mb-2" style="font-size: clamp(1.85rem, 3.5vw, 2.5rem);">Your Healing Session is Reserved</h1>
-          <p class="text-secondary text-sm max-w-md mx-auto mb-0">
-            We have confirmed your appointment and sent a confirmation receipt to your email address.
+          <span class="font-heading font-bold text-main" style="font-size: 1.15rem;" data-config="brandName">SOLE HARMONY</span>
+        </div>
+        <button type="button" class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+      </div>
+
+      <div class="mobile-nav-links mb-6">
+        <div class="mobile-nav-heading">Home Variations</div>
+        <a href="index.html" class="mobile-home-card">
+          <div class="mobile-home-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+          </div>
+          <div class="mobile-home-info">
+            <span class="mobile-home-title" data-i18n="nav_home_1">Home 1 — Serenity</span>
+            <span class="mobile-home-desc" data-i18n="nav_home_1_desc">A calming, traditional reflexology experience</span>
+          </div>
+        </a>
+        <a href="home-2.html" class="mobile-home-card">
+          <div class="mobile-home-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 16v-2.38C4 11.5 7 11 9 11s5 .5 5 2.62V16c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3Z"></path>
+              <path d="M20 20v-1.5c0-1.5-2-2-3.5-2s-3.5.5-3.5 2V20c0 1.1.9 2 2 2h3c1.1 0 2-.9 2-2Z"></path>
+              <circle cx="6" cy="7" r="1.5"></circle>
+              <circle cx="10" cy="5.5" r="1.5"></circle>
+              <circle cx="14" cy="6.5" r="1.5"></circle>
+            </svg>
+          </div>
+          <div class="mobile-home-info">
+            <span class="mobile-home-title" data-i18n="nav_home_2">Home 2 — Wellness</span>
+            <span class="mobile-home-desc" data-i18n="nav_home_2_desc">Discover treatments, benefits, and personalized care</span>
+          </div>
+        </a>
+        <div class="mobile-nav-divider"></div>
+        <a href="about.html" class="mobile-nav-item" data-i18n="nav_about">About Studio</a>
+        <a href="services.html" class="mobile-nav-item" data-i18n="nav_services">Services & Rituals</a>
+        <a href="pricing.html" class="mobile-nav-item" data-i18n="nav_pricing">Pricing Menu</a>
+        <a href="contact.html" class="mobile-nav-item" data-i18n="nav_contact">Contact & Location</a>
+      </div>
+
+      <div class="mt-auto pt-4 border-t" style="border-color: var(--border-color);">
+        <a href="booking.html" class="btn-wellness btn-primary-custom w-full" data-i18n="nav_book">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content" class="py-12 bg-cream min-h-screen flex items-center">
+    <div class="container-custom" style="max-width: 760px;">
+      
+      <div class="confirmation-card card-wellness p-6 sm:p-10 rounded-2xl shadow-md border border-color">
+        <div class="text-center mb-8">
+          <div class="confirmation-success-check mx-auto mb-4" style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-success-bg); color: var(--color-success); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+            ✓
+          </div>
+          <span class="badge-wellness mb-2" style="background: var(--color-primary-soft); color: var(--color-primary);">Appointment Confirmed</span>
+          <h1 class="font-heading mb-2 text-2xl sm:text-3xl font-bold text-main" data-i18n="conf_title">Your Healing Session is Reserved</h1>
+          <p class="text-secondary text-sm max-w-md mx-auto mb-0" data-i18n="conf_subtitle">
+            We have confirmed your appointment and registered it in our sanctuary booking registry.
           </p>
         </div>
 
         <div class="confirmation-body">
-          <div class="flex items-center justify-between p-3 rounded-lg mb-6" style="background: var(--color-primary-softest); border: 1.5px dashed var(--color-primary);">
-            <span class="text-xs font-semibold uppercase tracking-wider text-muted-custom">Booking Reference Number:</span>
-            <span class="font-heading font-bold text-primary-custom text-lg" id="conf-ref-id">REF-84912</span>
+          <div class="flex items-center justify-between p-3.5 rounded-xl mb-6" style="background: var(--color-primary-softest); border: 1.5px dashed var(--color-primary);">
+            <span class="text-xs font-semibold uppercase tracking-wider text-muted-custom" data-i18n="conf_ref">Booking Reference:</span>
+            <span class="font-heading font-bold text-primary-custom text-xl font-mono" id="conf-ref-id">REF-84912</span>
           </div>
 
-          <h4 class="font-heading mb-2 text-main">Session Details</h4>
-          <div class="appointment-meta-grid">
+          <h4 class="font-heading mb-3 text-main text-base font-bold">Session Details</h4>
+          <div class="appointment-meta-grid grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl mb-6" style="background: var(--bg-surface-soft); border: 1px solid var(--border-color);">
             <div>
               <span class="text-xs uppercase text-muted-custom block mb-0.5">Selected Therapy</span>
-              <strong class="text-main" id="conf-service-name">Classic Eastern Foot Reflexology</strong>
+              <strong class="text-main" id="conf-service-name">Traditional Foot Reflexology</strong>
               <span class="text-xs text-muted-custom block" id="conf-duration">60 Minutes Session</span>
             </div>
 
@@ -175,60 +213,65 @@
 
             <div>
               <span class="text-xs uppercase text-muted-custom block mb-0.5">Date & Time</span>
-              <strong class="text-main" id="conf-datetime">Tuesday, Oct 20 • 10:30 AM</strong>
-              <span class="text-xs text-muted-custom block">Please arrive 10 min early</span>
+              <strong class="text-main" id="conf-datetime">Saturday, Oct 25 • 10:30 AM</strong>
+              <span class="text-xs text-muted-custom block">Please arrive 10-15 min early</span>
             </div>
 
             <div>
               <span class="text-xs uppercase text-muted-custom block mb-0.5">Guest & Contact</span>
               <strong class="text-main" id="conf-guest-name">Eleanor Vance</strong>
-              <span class="text-xs text-muted-custom block" id="conf-guest-email">eleanor@example.com</span>
+              <span class="text-xs text-muted-custom block" id="conf-guest-email">guest@wellness.com</span>
             </div>
           </div>
 
-          <div class="p-4 rounded-xl mb-6" style="background: var(--bg-surface-soft); border: 1px solid var(--border-color);">
-            <div class="flex items-center justify-between text-sm mb-1">
+          <div class="p-4 rounded-xl mb-6" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+            <div class="flex items-center justify-between text-sm mb-1.5">
               <span class="text-muted-custom">Payment Policy:</span>
               <strong class="text-primary-custom">Pay in Studio Upon Arrival</strong>
             </div>
             <div class="flex items-center justify-between text-sm">
-              <span class="text-muted-custom">Total Amount (with taxes):</span>
-              <strong class="text-main font-heading text-lg" id="conf-total-price">$81.00</strong>
+              <span class="text-muted-custom">Total Estimated Amount (incl. tax):</span>
+              <strong class="text-main font-heading text-xl" id="conf-total-price">$81.00</strong>
             </div>
           </div>
 
           <!-- Arrival Instructions -->
           <div class="mb-8">
-            <h5 class="font-heading mb-2">Arrival & Preparation Advice</h5>
-            <ul class="flex flex-col gap-2 text-sm text-secondary">
+            <h5 class="font-heading text-sm font-bold mb-2">Arrival & Sanctuary Guidelines</h5>
+            <ul class="flex flex-col gap-2 text-xs text-secondary">
               <li class="flex items-start gap-2">
                 <span class="text-primary-custom font-bold">✓</span>
-                <span>Wear loose, comfortable clothing that easily rolls above the calf line.</span>
+                <span>Wear loose, comfortable trousers that easily roll above the knee line.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-primary-custom font-bold">✓</span>
-                <span>Enjoy a complimentary warm medicinal herbal tea upon check-in at reception.</span>
+                <span>Enjoy a complimentary warm organic herbal tea upon arrival at reception.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-primary-custom font-bold">✓</span>
-                <span>Free dedicated parking is available behind the building on Serenity Way.</span>
+                <span>Reserved guest parking is available directly behind the sanctuary on Harmony Way.</span>
               </li>
             </ul>
           </div>
 
           <!-- Action Buttons -->
           <div class="flex items-center justify-center gap-3 flex-wrap border-t pt-6" style="border-color: var(--border-color);">
-            <button type="button" onclick="window.print()" class="btn-wellness btn-secondary-custom">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-              Print Summary
+            <a href="user/dashboard.html" class="btn-wellness btn-primary-custom btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span data-i18n="btn_view_dashboard">View in My Dashboard</span>
+            </a>
+
+            <button type="button" onclick="window.print()" class="btn-wellness btn-secondary-custom btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <span data-i18n="btn_print">Print Summary</span>
             </button>
 
-            <button type="button" id="add-to-cal-btn" class="btn-wellness btn-outline-custom">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              Add to Calendar (.ics)
+            <button type="button" id="add-to-cal-btn" class="btn-wellness btn-outline-custom btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span data-i18n="btn_add_cal">Add to Calendar (.ics)</span>
             </button>
 
-            <a href="index.html" class="btn-wellness btn-primary-custom">
+            <a href="index.html" class="btn-wellness btn-secondary-custom btn-sm">
               Return to Homepage
             </a>
           </div>
@@ -244,125 +287,82 @@
     <div class="container-custom">
       <div class="footer-bottom">
         <div>
-          © <span class="current-year">2026</span> Solace & Sole Reflexology Studio. All rights reserved.
+          © <span class="current-year">2026</span> <span data-config="brandName">SOLE HARMONY</span>. All rights reserved.
         </div>
         <div class="flex items-center gap-4 text-xs">
           <a href="about.html" class="text-secondary">Hygiene Standards</a>
           <a href="contact.html" class="text-secondary">Directions & Parking</a>
-          <a href="index.html" class="text-secondary">Home</a>
+          <a href="booking.html" class="text-secondary">Reserve Slot</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/translations.js"></script>
   <script src="js/notifications.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/language.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/authentication.js"></script>
   <script src="js/main.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const refParam = urlParams.get('ref');
-
+      // Load latest booking from localStorage
       let booking = null;
+      try {
+        const raw = localStorage.getItem('wellness_latest_booking');
+        if (raw) booking = JSON.parse(raw);
+      } catch (e) {}
 
-      // 1. Try latest booking
-      const rawLatest = localStorage.getItem('wellness_latest_booking');
-      if (rawLatest) {
-        try {
-          const parsed = JSON.parse(rawLatest);
-          if (!refParam || parsed.referenceId === refParam) {
-            booking = parsed;
-          }
-        } catch (e) {}
-      }
-
-      // 2. Try persistent list if URL ref provided
-      if (!booking && refParam) {
-        const rawAll = localStorage.getItem('wellness_studio_bookings');
-        if (rawAll) {
-          try {
-            const all = JSON.parse(rawAll);
-            booking = all.find(b => b.referenceId === refParam);
-          } catch (e) {}
+      if (booking) {
+        if (booking.id) document.getElementById('conf-ref-id').textContent = booking.id;
+        if (booking.serviceName) document.getElementById('conf-service-name').textContent = booking.serviceName;
+        if (booking.durationMinutes) document.getElementById('conf-duration').textContent = `${booking.durationMinutes} Minutes Session`;
+        if (booking.therapistName) document.getElementById('conf-therapist-name').textContent = booking.therapistName;
+        if (booking.dateFormatted || booking.date) {
+          const dateStr = booking.dateFormatted || booking.date;
+          document.getElementById('conf-datetime').textContent = `${dateStr} • ${booking.time || '10:00 AM'}`;
         }
+        if (booking.guestName) document.getElementById('conf-guest-name').textContent = booking.guestName;
+        if (booking.guestEmail) document.getElementById('conf-guest-email').textContent = `${booking.guestEmail} • ${booking.guestPhone || ''}`;
+        if (booking.totalPrice) document.getElementById('conf-total-price').textContent = `$${booking.totalPrice.toFixed(2)}`;
       }
 
-      // 3. Fallback realistic reservation
-      if (!booking) {
-        booking = {
-          referenceId: refParam || ('REF-' + Math.floor(10000 + Math.random() * 90000)),
-          serviceName: 'Classic Eastern Reflexology',
-          duration: 60,
-          therapistName: 'Master Mei-Ling Chen',
-          date: new Date().toISOString().split('T')[0],
-          timeSlot: '10:30 AM',
-          totalWithTax: '81.00',
-          client: {
-            name: 'Valued Guest',
-            email: 'guest@example.com'
-          }
-        };
-      }
-
-      const refEl = document.getElementById('conf-ref-id');
-      const sNameEl = document.getElementById('conf-service-name');
-      const durEl = document.getElementById('conf-duration');
-      const thEl = document.getElementById('conf-therapist-name');
-      const dtEl = document.getElementById('conf-datetime');
-      const gNameEl = document.getElementById('conf-guest-name');
-      const gMailEl = document.getElementById('conf-guest-email');
-      const priceEl = document.getElementById('conf-total-price');
-
-      let dateFormatted = booking.date;
-      if (booking.date && booking.date.includes('-')) {
-        const parts = booking.date.split('-');
-        if (parts.length === 3) {
-          const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-          dateFormatted = dObj.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
-        }
-      }
-
-      if (refEl) refEl.textContent = booking.referenceId;
-      if (sNameEl) sNameEl.textContent = booking.serviceName;
-      if (durEl) durEl.textContent = `${booking.duration} Minutes Comprehensive Session`;
-      if (thEl) thEl.textContent = booking.therapistName;
-      if (dtEl) dtEl.textContent = `${dateFormatted} • ${booking.timeSlot}`;
-      if (gNameEl && booking.client) gNameEl.textContent = booking.client.name;
-      if (gMailEl && booking.client) gMailEl.textContent = booking.client.email;
-      if (priceEl) priceEl.textContent = `$${booking.totalWithTax || '81.00'}`;
-
-      // Calendar ICS generator
+      // Add to calendar (.ics download)
       const calBtn = document.getElementById('add-to-cal-btn');
       if (calBtn) {
         calBtn.addEventListener('click', () => {
-          const icsData = [
+          const b = booking || {
+            serviceName: 'Traditional Foot Reflexology',
+            date: new Date().toISOString().split('T')[0],
+            time: '10:00 AM',
+            durationMinutes: 60
+          };
+          const icsContent = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//Solace & Sole//Reflexology Appointment//EN',
+            'PRODID:-//Sole Harmony//Sanctuary Scheduler//EN',
             'BEGIN:VEVENT',
-            `SUMMARY:Solace & Sole - ${booking.serviceName}`,
-            `DESCRIPTION:Reflexology session with ${booking.therapistName}. Reference: ${booking.referenceId}`,
-            'LOCATION:482 Serenity Way, Suite 100, Wellness District',
+            `SUMMARY:${b.serviceName} at Sole Harmony`,
+            'DESCRIPTION:Your restorative holistic reflexology appointment at Sole Harmony sanctuary.',
+            'LOCATION:482 Harmony Way, Suite 100, San Francisco, CA 94102',
+            `DTSTART:${b.date.replace(/-/g, '')}T100000Z`,
+            `DTEND:${b.date.replace(/-/g, '')}T110000Z`,
             'STATUS:CONFIRMED',
             'END:VEVENT',
             'END:VCALENDAR'
           ].join('\r\n');
 
-          const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+          const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
           const link = document.createElement('a');
           link.href = window.URL.createObjectURL(blob);
-          link.setAttribute('download', `appointment-${booking.referenceId}.ics`);
+          link.setAttribute('download', `Sole_Harmony_Appointment_${b.id || 'Session'}.ics`);
           document.body.appendChild(link);
           link.click();
-          document.body.removeChild(link);
-
-          if (window.Notifications) {
-            Notifications.show('Calendar Event Generated', 'The .ics file has been downloaded to your device.', 'info');
-          }
+          link.remove();
         });
       }
     });

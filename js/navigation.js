@@ -114,7 +114,14 @@ const Navigation = {
       if (!toggle) return;
 
       toggle.addEventListener('click', (e) => {
-        if (toggle.tagName === 'BUTTON') {
+        if (dropdown.classList.contains('home-nav-dropdown') && (window.innerWidth < 992 || 'ontouchstart' in window)) {
+          // If on touch device, toggle open
+          if (!dropdown.classList.contains('open')) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.add('open');
+          }
+        } else if (toggle.tagName === 'BUTTON') {
           e.preventDefault();
           e.stopPropagation();
           const wasOpen = dropdown.classList.contains('open');
@@ -123,6 +130,13 @@ const Navigation = {
             dropdown.classList.add('open');
           }
         }
+      });
+
+      // Close when clicking an option inside
+      dropdown.querySelectorAll('.home-menu-card, .home-demo-option-item, .dropdown-item-custom').forEach(opt => {
+        opt.addEventListener('click', () => {
+          dropdown.classList.remove('open');
+        });
       });
     });
 

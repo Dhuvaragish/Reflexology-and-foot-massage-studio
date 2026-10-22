@@ -1,14 +1,14 @@
 /**
- * Solace & Sole - Reflexology & Wellness Studio
+ * SOLE HARMONY - Wellness Sanctuary
  * Interactive 5-Step Appointment Booking Engine
  */
 
 // 1. Built-in Reliable Default Services Dataset (guarantees cards always render)
 const DEFAULT_SERVICES = [
   {
-    id: "classic-eastern-reflexology",
-    alias: "foot-reflexology-classic",
-    name: "Classic Eastern Reflexology",
+    id: "traditional-foot-reflexology",
+    alias: "classic-eastern-reflexology",
+    name: "Traditional Foot Reflexology",
     badge: "Signature Treatment",
     category: "foot-reflexology",
     rating: 4.95,
@@ -16,73 +16,91 @@ const DEFAULT_SERVICES = [
     shortDescription: "Traditional acupressure targeting meridian reflex zones on the soles, relieving systemic stress and restoring organ equilibrium.",
     image: "assets/images/reflexology/foot-reflexology-1.jpg",
     durations: [
-      { minutes: 45, price: 55, label: "Express Relief (45m)" },
-      { minutes: 60, price: 75, label: "Standard Harmony (60m)", popular: true },
+      { minutes: 30, price: 45, label: "Express Sole Relief (30m)" },
+      { minutes: 45, price: 60, label: "Classic Harmony (45m)" },
+      { minutes: 60, price: 75, label: "Full Meridian Balance (60m)", popular: true },
       { minutes: 90, price: 105, label: "Deep Therapeutic (90m)" }
     ]
   },
   {
-    id: "foot-reflexology",
-    alias: "foot-reflexology-relief",
-    name: "Foot Reflexology",
-    badge: "Specialized Care",
-    category: "foot-reflexology",
-    rating: 4.92,
-    reviewsCount: 195,
-    shortDescription: "Targeted sole, heel, and arch pressure therapy to stimulate circulation, dissolve tension knots, and alleviate plantar discomfort.",
-    image: "assets/images/reflexology/foot-reflexology-2.jpg",
-    durations: [
-      { minutes: 30, price: 40, label: "Express Sole Relief (30m)" },
-      { minutes: 60, price: 70, label: "Complete Reflexology (60m)", popular: true },
-      { minutes: 75, price: 85, label: "Extended Restorative (75m)" }
-    ]
-  },
-  {
-    id: "body-reflexology",
-    alias: "body-reflexology-acupressure",
-    name: "Body Reflexology",
-    badge: "Meridian Balancing",
-    category: "body-reflexology",
-    rating: 4.88,
-    reviewsCount: 164,
-    shortDescription: "Focused acupressure across upper back, neck, shoulders, and spinal meridians to release deep muscular stress and reset posture.",
-    image: "assets/images/body-massage/body-reflexology-1.jpg",
-    durations: [
-      { minutes: 45, price: 60, label: "Targeted Upper Body (45m)" },
-      { minutes: 60, price: 80, label: "Full Spinal Meridian (60m)", popular: true },
-      { minutes: 90, price: 110, label: "Comprehensive Acupressure (90m)" }
-    ]
-  },
-  {
-    id: "relaxation-foot-massage",
+    id: "relaxing-foot-massage",
     alias: "botanical-foot-massage",
-    name: "Relaxation Foot Massage",
+    name: "Relaxing Foot Massage",
     badge: "Deep Relaxation",
     category: "relaxation-foot",
-    rating: 4.86,
-    reviewsCount: 182,
+    rating: 4.88,
+    reviewsCount: 192,
     shortDescription: "A soothing, rhythmic massage blending nourishing botanical oils with warm towels, gentle stretches, and calming tension strokes.",
     image: "assets/images/foot-massage/thai-foot-massage.jpg",
     durations: [
-      { minutes: 45, price: 50, label: "Quick Revival (45m)" },
-      { minutes: 60, price: 68, label: "Nourishing Session (60m)", popular: true },
-      { minutes: 75, price: 82, label: "Extended Bliss (75m)" }
+      { minutes: 30, price: 40, label: "Express Revival (30m)" },
+      { minutes: 45, price: 52, label: "Soothing Session (45m)" },
+      { minutes: 60, price: 68, label: "Nourishing Care (60m)", popular: true },
+      { minutes: 90, price: 95, label: "Extended Bliss (90m)" }
     ]
   },
   {
-    id: "full-body-relaxation-massage",
-    alias: "holistic-full-body",
-    name: "Full-Body Relaxation Massage",
-    badge: "Holistic Wellness",
+    id: "full-body-reflexology",
+    alias: "body-reflexology",
+    name: "Full-Body Reflexology",
+    badge: "Meridian Harmony",
+    category: "body-reflexology",
+    rating: 4.92,
+    reviewsCount: 210,
+    shortDescription: "Comprehensive acupressure across spine, neck, shoulders, and plantar meridians to dissolve deep muscular tension.",
+    image: "assets/images/body-massage/body-reflexology-1.jpg",
+    durations: [
+      { minutes: 45, price: 65, label: "Targeted Upper Body (45m)" },
+      { minutes: 60, price: 85, label: "Full Spinal Meridian (60m)", popular: true },
+      { minutes: 90, price: 115, label: "Comprehensive Acupressure (90m)" }
+    ]
+  },
+  {
+    id: "head-neck-shoulder-massage",
+    alias: "neck-shoulder",
+    name: "Head, Neck & Shoulder Massage",
+    badge: "Desk Worker Rescue",
+    category: "body-reflexology",
+    rating: 4.89,
+    reviewsCount: 178,
+    shortDescription: "Focused relief for upper-body strain, cervical compression, and tension headaches caused by modern desk work.",
+    image: "assets/images/body-massage/neck-shoulder.jpg",
+    durations: [
+      { minutes: 30, price: 42, label: "Quick Express Release (30m)" },
+      { minutes: 45, price: 58, label: "Standard Realignment (45m)", popular: true },
+      { minutes: 60, price: 75, label: "Deep Therapeutic Reset (60m)" }
+    ]
+  },
+  {
+    id: "relaxation-massage",
+    alias: "full-body-relaxation-massage",
+    name: "Relaxation Massage",
+    badge: "Holistic Renewal",
     category: "body-massage",
-    rating: 4.94,
-    reviewsCount: 220,
-    shortDescription: "A restorative full-body sequence integrating aromatic oils, long flowing strokes, and gentle joint decompression for deep calm.",
+    rating: 4.96,
+    reviewsCount: 310,
+    shortDescription: "A restorative head-to-toe session integrating long flowing strokes, warm towels, and balancing botanical aromas.",
     image: "assets/images/body-massage/full-body-relaxation.jpg",
     durations: [
-      { minutes: 60, price: 85, label: "Full Body Reset (60m)" },
-      { minutes: 90, price: 120, label: "Deep Sensory Escape (90m)", popular: true },
-      { minutes: 120, price: 155, label: "Ultimate Sanctuary (120m)" }
+      { minutes: 60, price: 85, label: "Essential Harmony (60m)" },
+      { minutes: 90, price: 120, label: "Full Sanctuary (90m)", popular: true },
+      { minutes: 120, price: 155, label: "Ultimate Transcendence (120m)" }
+    ]
+  },
+  {
+    id: "custom-wellness-session",
+    alias: "signature-duo-ritual",
+    name: "Custom Wellness Session",
+    badge: "Personalized Care",
+    category: "signature-packages",
+    rating: 4.98,
+    reviewsCount: 265,
+    shortDescription: "A tailored consultation and treatment combining foot zone reflexology with focused muscular release.",
+    image: "assets/images/foot-massage/herbal-foot-bath.jpg",
+    durations: [
+      { minutes: 60, price: 90, label: "Custom Focus (60m)" },
+      { minutes: 90, price: 125, label: "Comprehensive Bespoke (90m)", popular: true },
+      { minutes: 120, price: 160, label: "Master Tailored Ritual (120m)" }
     ]
   }
 ];

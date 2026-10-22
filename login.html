@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Sign In | Solace & Sole Reflexology Studio</title>
-  <meta name="description" content="Sign in to your Solace & Sole guest account for expedited appointment booking and saved foot pressure preferences.">
+  <title>Client Sign In | SOLE HARMONY Studio</title>
+  <meta name="description" content="Sign in to your SOLE HARMONY guest account for expedited appointment booking and saved foot pressure preferences.">
+
+    <!-- Favicon & Application Icons -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#203D2C">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,62 +31,61 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Utility Bar -->
-  <div class="top-bar">
-    <div class="container-custom flex items-center justify-between flex-wrap gap-2">
-      <div class="flex items-center gap-4 text-xs">
-        <span class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Open Today: 9:00 AM – 9:00 PM
-        </span>
-        <span class="top-bar-divider md:block hidden"></span>
-        <span class="top-bar-item md:inline-flex hidden">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          482 Serenity Way, Suite 100
-        </span>
-      </div>
-
-            <div class="md:flex hidden items-center gap-4 text-xs">
-        <a href="mailto:info@solaceandsole.com" class="top-bar-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          info@solaceandsole.com
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="site-header">
     <div class="container-custom header-inner">
-      <a href="index.html" class="site-logo">
+            <!-- Logo -->
+      <a href="index.html" class="site-logo" aria-label="Sole Harmony — Reflexology &amp; Foot Wellness">
         <div class="logo-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v12"></path>
-          </svg>
+          <img src="assets/icons/sole-harmony-symbol.png" alt="Sole Harmony — Reflexology &amp; Foot Wellness" class="logo-symbol-light">
+          <img src="assets/icons/sole-harmony-symbol-dark.png" alt="Sole Harmony — Reflexology &amp; Foot Wellness" class="logo-symbol-dark">
         </div>
         <div class="logo-text-wrap">
-          <span class="logo-title">Solace & Sole</span>
-          <span class="logo-subtitle">Reflexology & Wellness Studio</span>
+          <span class="logo-title" data-config="brandName">SOLE HARMONY</span>
+          <span class="logo-subtitle" data-config="brandSubtitle">Traditional Reflexology &amp; Holistic Wellness</span>
         </div>
       </a>
 
       <nav class="nav-menu-desktop" aria-label="Main Navigation">
-        <div class="nav-dropdown">
-          <a href="index.html" class="nav-link-custom">
-            Home
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <div class="nav-dropdown home-nav-dropdown">
+          <a href="index.html" class="nav-link-custom" data-i18n="nav_home" aria-haspopup="true" aria-expanded="false">
+            <span>Home</span>
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
-          <div class="nav-dropdown-menu">
-            <a href="index.html" class="dropdown-item-custom">Home 1 – Traditional Studio</a>
-            <a href="home-2.html" class="dropdown-item-custom">Home 2 – Luxury Wellness Sanctuary</a>
+          <div class="home-dropdown-menu" role="menu">
+            <a href="index.html" class="home-menu-card" role="menuitem">
+              <div class="home-menu-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <div class="home-menu-info">
+                <span class="home-menu-title" data-i18n="nav_home_1">Home 1 — Serenity</span>
+                <span class="home-menu-desc" data-i18n="nav_home_1_desc">A calming, traditional reflexology experience</span>
+              </div>
+            </a>
+            <a href="home-2.html" class="home-menu-card" role="menuitem">
+              <div class="home-menu-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 16v-2.38C4 11.5 7 11 9 11s5 .5 5 2.62V16c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3Z"></path>
+                  <path d="M20 20v-1.5c0-1.5-2-2-3.5-2s-3.5.5-3.5 2V20c0 1.1.9 2 2 2h3c1.1 0 2-.9 2-2Z"></path>
+                  <circle cx="6" cy="7" r="1.5"></circle>
+                  <circle cx="10" cy="5.5" r="1.5"></circle>
+                  <circle cx="14" cy="6.5" r="1.5"></circle>
+                </svg>
+              </div>
+              <div class="home-menu-info">
+                <span class="home-menu-title" data-i18n="nav_home_2">Home 2 — Wellness</span>
+                <span class="home-menu-desc" data-i18n="nav_home_2_desc">Discover treatments, benefits, and personalized care</span>
+              </div>
+            </a>
           </div>
         </div>
         <a href="about.html" class="nav-link-custom">About Us</a>
         <a href="services.html" class="nav-link-custom">Services</a>
-        <a href="benefits.html" class="nav-link-custom">Benefits & Map</a>
         <a href="pricing.html" class="nav-link-custom">Pricing Menu</a>
-        <a href="therapists.html" class="nav-link-custom">Therapists</a>
         <a href="contact.html" class="nav-link-custom">Contact</a>
       </nav>
 
@@ -112,13 +119,6 @@
           </button>
         </div>
 
-        <div class="auth-link-slot">
-          <a href="login.html" class="header-auth-link active">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span>Client Sign In</span>
-          </a>
-        </div>
-
         <a href="booking.html" class="btn-wellness btn-primary-custom btn-sm header-book-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
           <span class="header-book-text">Book Appointment</span>
@@ -135,18 +135,43 @@
   <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
     <div class="mobile-drawer">
       <div class="mobile-drawer-header">
-        <span class="font-heading font-bold text-main" style="font-size: 1.15rem;">Solace & Sole</span>
+        <span class="font-heading font-bold text-main" style="font-size: 1.15rem;">SOLE HARMONY</span>
         <button type="button" class="mobile-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.75rem; cursor:pointer; color:var(--text-main);">&times;</button>
       </div>
       <div class="mobile-nav-links mb-6">
-        <a href="index.html" class="mobile-nav-item">Home</a>
+        <div class="mobile-nav-heading">Home Variations</div>
+        <a href="index.html" class="mobile-home-card">
+          <div class="mobile-home-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+          </div>
+          <div class="mobile-home-info">
+            <span class="mobile-home-title" data-i18n="nav_home_1">Home 1 — Serenity</span>
+            <span class="mobile-home-desc" data-i18n="nav_home_1_desc">A calming, traditional reflexology experience</span>
+          </div>
+        </a>
+        <a href="home-2.html" class="mobile-home-card">
+          <div class="mobile-home-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 16v-2.38C4 11.5 7 11 9 11s5 .5 5 2.62V16c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3Z"></path>
+              <path d="M20 20v-1.5c0-1.5-2-2-3.5-2s-3.5.5-3.5 2V20c0 1.1.9 2 2 2h3c1.1 0 2-.9 2-2Z"></path>
+              <circle cx="6" cy="7" r="1.5"></circle>
+              <circle cx="10" cy="5.5" r="1.5"></circle>
+              <circle cx="14" cy="6.5" r="1.5"></circle>
+            </svg>
+          </div>
+          <div class="mobile-home-info">
+            <span class="mobile-home-title" data-i18n="nav_home_2">Home 2 — Wellness</span>
+            <span class="mobile-home-desc" data-i18n="nav_home_2_desc">Discover treatments, benefits, and personalized care</span>
+          </div>
+        </a>
+        <div class="mobile-nav-divider"></div>
         <a href="about.html" class="mobile-nav-item">About Us</a>
         <a href="services.html" class="mobile-nav-item">Services</a>
-        <a href="benefits.html" class="mobile-nav-item">Foot Reflexology Map</a>
         <a href="pricing.html" class="mobile-nav-item">Pricing Menu</a>
-        <a href="therapists.html" class="mobile-nav-item">Therapists</a>
         <a href="contact.html" class="mobile-nav-item">Contact</a>
-        <a href="login.html" class="mobile-nav-item active">Client Sign In</a>
       </div>
 
       <!-- Mobile Theme & Direction Switcher -->
@@ -265,7 +290,7 @@
         <!-- Create Account Link -->
         <div class="text-center mt-6">
           <p class="text-sm text-secondary mb-0">
-            New to Solace & Sole? <a href="register.html" class="text-primary-custom font-semibold hover:underline">Create an account</a>
+            New to SOLE HARMONY? <a href="register.html" class="text-primary-custom font-semibold hover:underline">Create an account</a>
           </p>
         </div>
 
@@ -278,7 +303,7 @@
     <div class="container-custom">
       <div class="footer-bottom">
         <div>
-          © <span class="current-year">2026</span> Solace & Sole Reflexology Studio. All rights reserved.
+          © <span class="current-year">2026</span> SOLE HARMONY Studio. All rights reserved.
         </div>
         <div class="flex items-center gap-4 text-xs">
           <a href="about.html" class="text-secondary">Hygiene Standards</a>
@@ -290,6 +315,8 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/translations.js"></script>
   <script src="js/notifications.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/language.js"></script>

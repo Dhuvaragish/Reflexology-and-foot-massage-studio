@@ -38,6 +38,109 @@ const HomeModule = {
 
   init() {
     this.initInteractiveMeridianMap();
+    this.initDemoSelector();
+    this.initTreatmentFilters();
+  },
+
+  initTreatmentFilters() {
+    const filterBtns = document.querySelectorAll('.treatment-filter-btn');
+    const cards = document.querySelectorAll('.wellness-treatment-card');
+    if (!filterBtns.length || !cards.length) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  },
+
+  initDemoSelector() {
+    const selectorWrapper = document.getElementById('homeDemoSelector');
+    const toggleBtn = document.getElementById('homeDemoSelectorBtn');
+    const dropdownPanel = document.getElementById('homeDemoDropdownPanel');
+    if (!selectorWrapper || !toggleBtn || !dropdownPanel) return;
+
+    // Detect active page based on pathname / filename
+    const path = window.location.pathname.toLowerCase();
+    const href = window.location.href.toLowerCase();
+    const isHome2 = path.endsWith('home-2.html') || href.includes('home-2.html');
+
+    const optHome1 = document.getElementById('demoOptHome1');
+    const optHome2 = document.getElementById('demoOptHome2');
+    const labelEl = document.getElementById('homeDemoCurrentLabel');
+
+    if (isHome2) {
+      if (labelEl) labelEl.textContent = 'Home 2 – Luxury Wellness Sanctuary';
+      if (optHome1) optHome1.classList.remove('active');
+      if (optHome2) optHome2.classList.add('active');
+    } else {
+      if (labelEl) labelEl.textContent = 'Home 1 – Traditional Studio';
+      if (optHome1) optHome1.classList.add('active');
+      if (optHome2) optHome2.classList.remove('active');
+    }
+
+    // Toggle dropdown open/close on click
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = selectorWrapper.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close when selecting an option
+    const optionLinks = dropdownPanel.querySelectorAll('.home-demo-option-item');
+    optionLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        selectorWrapper.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!selectorWrapper.contains(e.target)) {
+        selectorWrapper.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && selectorWrapper.classList.contains('open')) {
+        selectorWrapper.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.focus();
+      }
+    });
+
+    // Desktop hover support
+    let hoverTimeout = null;
+    selectorWrapper.addEventListener('mouseenter', () => {
+      if (window.innerWidth >= 992) {
+        clearTimeout(hoverTimeout);
+        selectorWrapper.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    selectorWrapper.addEventListener('mouseleave', () => {
+      if (window.innerWidth >= 992) {
+        hoverTimeout = setTimeout(() => {
+          selectorWrapper.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }, 220);
+      }
+    });
   },
 
   initInteractiveMeridianMap() {

@@ -35,5 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  console.log('Solace & Sole Reflexology Studio initialized smoothly.');
+  // Auto-apply central studio config to DOM
+  if (window.StudioConfig && typeof window.StudioConfig.bindToDOM === 'function') {
+    window.StudioConfig.bindToDOM();
+  }
+
+  console.log('SOLE HARMONY Studio initialized smoothly.');
 });

@@ -1,101 +1,96 @@
 /**
- * Reflexology & Foot Massage Studio - RTL (Right to Left) Layout Support
- * Complete support for Arabic and RTL languages
+ * SOLE HARMONY - RTL (Right to Left) Layout Support
+ * Complete bidirectional mirroring and Arabic typography support.
  */
 
-[dir="rtl"] {
+/* Font import removed: Sole Harmony English typography preserved in RTL */
+
+[dir="rtl"],
+ {
   direction: rtl;
   text-align: right;
 }
 
-[dir="rtl"] body {
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+/* Typography preserved: Sole Harmony brand serif and sans-serif fonts maintained in RTL */
+
+/* Heading typography preserved in RTL */
+
+/* Ensure numbers, phone, email and prices remain readable */
+[dir="rtl"] .phone-number,
+[dir="rtl"] .email-address,
+[dir="rtl"] .price-display,
+[dir="rtl"] .booking-ref-badge,
+[dir="rtl"] .stat-number,
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="time"] {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
 }
 
-/* Nav & Header: Preserved in LTR alignment even in RTL mode */
-[dir="rtl"] .top-bar,
-[dir="rtl"] .top-bar .container-custom,
-[dir="rtl"] .top-bar-item,
-[dir="rtl"] .site-header,
-[dir="rtl"] .header-inner,
-[dir="rtl"] .site-logo,
-[dir="rtl"] .logo-text-wrap,
-[dir="rtl"] .nav-menu-desktop,
-[dir="rtl"] .nav-link-custom,
-[dir="rtl"] .nav-dropdown,
-[dir="rtl"] .nav-dropdown-menu,
-[dir="rtl"] .dropdown-item-custom,
-[dir="rtl"] .header-mode-controls,
-[dir="rtl"] .header-actions,
-[dir="rtl"] .auth-link-slot,
-[dir="rtl"] .header-auth-link,
-[dir="rtl"] .header-book-btn {
-  direction: ltr !important;
-  text-align: left !important;
+/* Header & Navigation Mirroring */
+[dir="rtl"] .site-header .header-inner {
+  flex-direction: row;
 }
 
-[dir="rtl"] .header-inner {
-  flex-direction: row !important;
-  justify-content: space-between !important;
+[dir="rtl"] .nav-menu-desktop {
+  margin-inline-start: 1.5rem;
+  margin-inline-end: auto;
 }
 
-[dir="rtl"] .site-logo {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
-
-[dir="rtl"] .nav-link-custom::after {
-  left: 0.2rem !important;
-  right: 0.2rem !important;
+[dir="rtl"] .nav-link-custom svg {
+  margin-inline-start: 0.35rem;
+  margin-inline-end: 0;
 }
 
 [dir="rtl"] .nav-dropdown-menu {
-  left: 0 !important;
-  right: auto !important;
-  direction: ltr !important;
-  text-align: left !important;
+  right: 0;
+  left: auto;
+  text-align: right;
 }
+
 [dir="rtl"] .nav-dropdown-menu.dropdown-align-right {
-  left: auto !important;
-  right: 0 !important;
+  left: 0;
+  right: auto;
 }
 
-[dir="rtl"] .top-bar-item {
-  flex-direction: row !important;
+[dir="rtl"] .header-actions {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
 }
 
-[dir="rtl"] .top-bar .container-custom {
-  flex-direction: row !important;
-  justify-content: space-between !important;
+/* Top Bar */
+[dir="rtl"] .top-bar-item svg {
+  margin-inline-end: 0.4rem;
+  margin-inline-start: 0;
 }
 
-/* RTL Hero Gradient Overlays */
-[dir="rtl"] .hero-home-1::before {
-  background: linear-gradient(
-    270deg,
-    rgba(250, 248, 245, 0.96) 0%,
-    rgba(250, 248, 245, 0.92) 46%,
-    rgba(250, 248, 245, 0.76) 75%,
-    rgba(250, 248, 245, 0.52) 100%
-  );
-}
-[dir="rtl"][data-theme="dark"] .hero-home-1::before {
-  background: linear-gradient(
-    270deg,
-    rgba(18, 22, 20, 0.96) 0%,
-    rgba(18, 22, 20, 0.93) 46%,
-    rgba(18, 22, 20, 0.80) 75%,
-    rgba(18, 22, 20, 0.55) 100%
-  );
-}
-
+/* Mobile Drawer */
 [dir="rtl"] .mobile-drawer {
   right: auto;
   left: 0;
   transform: translateX(-100%);
 }
+
 [dir="rtl"] .mobile-drawer-backdrop.open .mobile-drawer {
   transform: translateX(0);
+}
+
+/* Dashboard Layout Mirroring */
+[dir="rtl"] .dashboard-sidebar {
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+}
+
+[dir="rtl"] .dashboard-nav-item svg {
+  margin-inline-end: 0.75rem;
+  margin-inline-start: 0;
+}
+
+[dir="rtl"] .dashboard-nav-item .badge {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
 }
 
 /* Search input icon */
@@ -103,6 +98,7 @@
   left: auto;
   right: 1rem;
 }
+
 [dir="rtl"] .search-input-field {
   padding: 0.7rem 2.6rem 0.7rem 1rem;
 }
@@ -114,30 +110,33 @@
   padding-left: 0;
   padding-right: 1.5rem;
 }
+
 [dir="rtl"] .treatment-step-dot {
   left: auto;
   right: -2.05rem;
 }
 
-/* Alerts */
+/* Alerts & Toasts */
 [dir="rtl"] .alert-contraindications {
   border-left: none;
   border-right: 4px solid var(--color-warning);
 }
+
 [dir="rtl"] .wellness-toast.toast-success {
   border-left: none;
   border-right: 4px solid var(--color-success);
 }
+
 [dir="rtl"] .wellness-toast.toast-error {
   border-left: none;
   border-right: 4px solid var(--color-danger);
 }
+
 [dir="rtl"] .wellness-toast.toast-info {
   border-left: none;
   border-right: 4px solid var(--color-primary);
 }
 
-/* Toast container position */
 [dir="rtl"] .toast-container-custom {
   right: auto;
   left: 2rem;
@@ -148,21 +147,25 @@
   left: auto;
   right: -1.5rem;
 }
+
 [dir="rtl"] .floating-badge-top {
   right: auto;
   left: -1.5rem;
 }
 
-/* Footer title accent */
+/* Footer & Lists */
 [dir="rtl"] .footer-col-title::after {
   left: auto;
   right: 0;
 }
+
 [dir="rtl"] .footer-links-list a:hover {
   transform: translateX(-4px);
 }
+
 [dir="rtl"] .hours-table td:last-child {
   text-align: left;
+  direction: ltr;
 }
 
 /* Accordion */
@@ -170,68 +173,260 @@
   text-align: right;
 }
 
+[dir="rtl"] .wellness-accordion-icon {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
 /* Stepper */
 [dir="rtl"] .stepper-title {
   text-align: center;
 }
 
-/* ==========================================================================
-   Hero & Page Banners RTL Overlays
-   ========================================================================== */
+/* Hero RTL Overlays */
 [dir="rtl"] .hero-home-1::before {
   background: linear-gradient(
     -90deg,
-    rgba(250, 248, 245, 0.96) 0%,
-    rgba(250, 248, 245, 0.92) 46%,
-    rgba(250, 248, 245, 0.76) 75%,
-    rgba(250, 248, 245, 0.52) 100%
+    rgba(244, 239, 229, 0.96) 0%,
+    rgba(244, 239, 229, 0.92) 46%,
+    rgba(244, 239, 229, 0.76) 75%,
+    rgba(244, 239, 229, 0.52) 100%
   );
 }
 
-[dir="rtl"] .hero-home-2::before {
+[dir="rtl"][data-theme="dark"] .hero-home-1::before {
   background: linear-gradient(
     -90deg,
-    rgba(21, 27, 24, 0.9) 0%,
-    rgba(21, 27, 24, 0.72) 50%,
-    rgba(21, 27, 24, 0.4) 100%
+    rgba(23, 27, 23, 0.96) 0%,
+    rgba(23, 27, 23, 0.92) 46%,
+    rgba(23, 27, 23, 0.76) 75%,
+    rgba(23, 27, 23, 0.52) 100%
   );
 }
 
 [dir="rtl"] .page-header-banner::before {
   background: linear-gradient(
     -90deg,
-    rgba(250, 248, 245, 0.95) 0%,
-    rgba(250, 248, 245, 0.90) 45%,
-    rgba(250, 248, 245, 0.72) 75%,
-    rgba(250, 248, 245, 0.48) 100%
+    rgba(244, 239, 229, 0.95) 0%,
+    rgba(244, 239, 229, 0.90) 45%,
+    rgba(244, 239, 229, 0.72) 75%,
+    rgba(244, 239, 229, 0.48) 100%
   );
 }
 
-[dir="rtl"][data-theme="dark"] .page-header-banner::before,
-[data-theme="dark"] [dir="rtl"] .page-header-banner::before {
+[dir="rtl"][data-theme="dark"] .page-header-banner::before {
   background: linear-gradient(
     -90deg,
-    rgba(18, 22, 20, 0.96) 0%,
-    rgba(18, 22, 20, 0.91) 45%,
-    rgba(18, 22, 20, 0.76) 75%,
-    rgba(18, 22, 20, 0.52) 100%
+    rgba(23, 27, 23, 0.96) 0%,
+    rgba(23, 27, 23, 0.91) 45%,
+    rgba(23, 27, 23, 0.76) 75%,
+    rgba(23, 27, 23, 0.52) 100%
   );
+}
+
+/* Pricing Table RTL */
+[dir="rtl"] .pricing-table th.col-service,
+[dir="rtl"] .pricing-table td.col-service,
+[dir="rtl"] .pricing-table th.col-price,
+[dir="rtl"] .pricing-table td.col-price {
+  text-align: right;
+}
+
+[dir="rtl"] .price-chips-wrap {
+  justify-content: flex-start;
+}
+
+
+/* About Us Hero RTL Override */
+[dir="rtl"] .page-header-banner.page-header-about {
+  background-image: url('../assets/images/hero/about-hero-rtl.jpg');
+  background-position: center right;
+}
+
+[dir="rtl"] .page-header-banner.page-header-about::before {
+  background: linear-gradient(
+    270deg,
+    rgba(250, 249, 245, 0.94) 0%,
+    rgba(250, 249, 245, 0.85) 30%,
+    rgba(250, 249, 245, 0.45) 50%,
+    rgba(250, 249, 245, 0.08) 65%,
+    transparent 80%
+  );
+}
+
+[dir="rtl"][data-theme="dark"] .page-header-banner.page-header-about::before {
+  background: linear-gradient(
+    270deg,
+    rgba(20, 28, 22, 0.94) 0%,
+    rgba(20, 28, 22, 0.85) 32%,
+    rgba(20, 28, 22, 0.45) 52%,
+    rgba(20, 28, 22, 0.10) 68%,
+    transparent 82%
+  );
+}
+
+/* Services, Pricing, Contact Hero RTL Overrides */
+[dir="rtl"] .page-header-banner.page-header-services {
+  background-image: url('../assets/images/hero/services-hero-rtl.jpg');
+  background-position: center right;
+}
+[dir="rtl"] .page-header-banner.page-header-pricing {
+  background-image: url('../assets/images/hero/pricing-hero-rtl.jpg');
+  background-position: center right;
+}
+[dir="rtl"] .page-header-banner.page-header-contact {
+  background-image: url('../assets/images/hero/contact-hero-rtl.jpg');
+  background-position: center right;
+}
+
+[dir="rtl"] .page-header-banner.page-header-services::before,
+[dir="rtl"] .page-header-banner.page-header-pricing::before,
+[dir="rtl"] .page-header-banner.page-header-contact::before {
+  background: linear-gradient(
+    270deg,
+    rgba(250, 249, 245, 0.94) 0%,
+    rgba(250, 249, 245, 0.85) 30%,
+    rgba(250, 249, 245, 0.45) 50%,
+    rgba(250, 249, 245, 0.08) 65%,
+    transparent 80%
+  );
+}
+
+[dir="rtl"][data-theme="dark"] .page-header-banner.page-header-services::before,
+[dir="rtl"][data-theme="dark"] .page-header-banner.page-header-pricing::before,
+[dir="rtl"][data-theme="dark"] .page-header-banner.page-header-contact::before {
+  background: linear-gradient(
+    270deg,
+    rgba(20, 28, 22, 0.94) 0%,
+    rgba(20, 28, 22, 0.85) 32%,
+    rgba(20, 28, 22, 0.45) 52%,
+    rgba(20, 28, 22, 0.10) 68%,
+    transparent 82%
+  );
+}
+
+
+/* ==========================================================================
+   RTL Experience Section
+   ========================================================================== */
+[dir="rtl"] .experience-floating-badge-card {
+  left: auto;
+  right: -20px;
+}
+
+@media (max-width: 1023px) {
+  [dir="rtl"] .experience-floating-badge-card {
+    right: auto;
+  }
+}
+
+
+/* ==========================================================================
+   RTL About Philosophy Section
+   ========================================================================== */
+[dir="rtl"] .about-floating-badge-card {
+  left: auto;
+  right: -20px;
+}
+
+@media (max-width: 1023px) {
+  [dir="rtl"] .about-floating-badge-card {
+    right: auto;
+  }
+}
+
+
+/* ==========================================================================
+   RTL Pricing Cards
+   ========================================================================== */
+[dir="rtl"] .pricing-card-badge {
+  left: auto;
+  right: 1rem;
+}
+
+[dir="rtl"] .pricing-card-popular-ribbon {
+  right: auto;
+  left: 1rem;
+}
+
+[dir="rtl"] .duration-option-pill {
+  text-align: right;
+}
+
+
+/* ==========================================================================
+   RTL Home 2 Wellness Journey
+   ========================================================================== */
+[dir="rtl"] .hero-home-2 {
+  background-image: url('../assets/images/hero/home-2-hero-rtl.jpg');
+  background-position: center left;
+}
+
+[dir="rtl"] .hero-home-2::before {
+  background: linear-gradient(
+    270deg,
+    rgba(250, 249, 245, 0.94) 0%,
+    rgba(250, 249, 245, 0.82) 34%,
+    rgba(250, 249, 245, 0.42) 50%,
+    rgba(250, 249, 245, 0.08) 64%,
+    transparent 78%
+  );
+}
+
+[data-theme="dark"][dir="rtl"] .hero-home-2::before {
+  background: linear-gradient(
+    270deg,
+    rgba(20, 28, 22, 0.94) 0%,
+    rgba(20, 28, 22, 0.82) 34%,
+    rgba(20, 28, 22, 0.40) 52%,
+    rgba(20, 28, 22, 0.08) 68%,
+    transparent 80%
+  );
+}
+
+[dir="rtl"] .hero-home-2 .hero-btn-secondary .hero-btn-arrow {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .home-2-feature-card {
+  text-align: right;
 }
 
 @media (max-width: 768px) {
-  [dir="rtl"] .page-header-banner::before {
-    background: linear-gradient(
-      180deg,
-      rgba(250, 248, 245, 0.95) 0%,
-      rgba(250, 248, 245, 0.88) 100%
-    );
+  [dir="rtl"] .hero-home-2 {
+    background-image: url('../assets/images/hero/home-2-hero-mobile.jpg');
+    background-position: center top;
   }
-  [dir="rtl"][data-theme="dark"] .page-header-banner::before,
-  [data-theme="dark"] [dir="rtl"] .page-header-banner::before {
-    background: linear-gradient(
-      180deg,
-      rgba(18, 22, 20, 0.96) 0%,
-      rgba(18, 22, 20, 0.90) 100%
-    );
-  }
+}
+
+
+/* ==========================================================================
+   RTL Service Details Banner
+   ========================================================================== */
+[dir="rtl"] .page-header-banner.page-header-service-details {
+  background-position: center left;
+}
+[dir="rtl"] .page-header-banner.page-header-service-details::before {
+  background: linear-gradient(
+    270deg,
+    rgba(250, 249, 245, 0.95) 0%,
+    rgba(250, 249, 245, 0.90) 28%,
+    rgba(250, 249, 245, 0.65) 45%,
+    rgba(250, 249, 245, 0.20) 60%,
+    rgba(250, 249, 245, 0.0) 75%,
+    transparent 100%
+  ) !important;
+}
+[dir="rtl"][data-theme="dark"] .page-header-banner.page-header-service-details::before {
+  background: linear-gradient(
+    270deg,
+    rgba(18, 22, 20, 0.96) 0%,
+    rgba(18, 22, 20, 0.90) 30%,
+    rgba(18, 22, 20, 0.60) 48%,
+    rgba(18, 22, 20, 0.15) 62%,
+    transparent 78%
+  ) !important;
+}
+[dir="rtl"] .service-details-hero-content {
+  text-align: right;
 }
