@@ -1,6 +1,6 @@
 /**
  * SOLE HARMONY - Theme Switching (Light & Dark Mode)
- * Ensures consistent, accessible contrast across all components, forms, tables, modals, and dashboards.
+ * Ensures consistent, accessible contrast across all components, forms, tables, modals, and booking interfaces.
  */
 
 [data-theme="dark"] body {
@@ -8,8 +8,7 @@
   color: var(--text-main);
 }
 
-[data-theme="dark"] .site-header,
-[data-theme="dark"] .dashboard-header {
+[data-theme="dark"] .site-header {
   background-color: rgba(34, 39, 33, 0.95);
   border-bottom-color: var(--border-color);
 }
@@ -30,8 +29,6 @@
 [data-theme="dark"] .auth-card,
 [data-theme="dark"] .confirmation-card,
 [data-theme="dark"] .wellness-accordion-item,
-[data-theme="dark"] .dashboard-card,
-[data-theme="dark"] .dashboard-sidebar,
 [data-theme="dark"] .nav-dropdown-menu,
 [data-theme="dark"] .mobile-drawer {
   background-color: var(--bg-surface);
@@ -41,8 +38,7 @@
 
 [data-theme="dark"] .service-card-footer,
 [data-theme="dark"] .wellness-modal-footer,
-[data-theme="dark"] .site-footer,
-[data-theme="dark"] .dashboard-footer {
+[data-theme="dark"] .site-footer {
   background-color: var(--bg-surface-soft);
   border-color: var(--border-color);
 }
@@ -71,16 +67,14 @@
 /* Tables & Data */
 [data-theme="dark"] .table-wellness,
 [data-theme="dark"] .table,
-[data-theme="dark"] .pricing-table,
-[data-theme="dark"] .dashboard-table {
+[data-theme="dark"] .pricing-table {
   color: var(--text-main);
   border-color: var(--border-color);
 }
 
 [data-theme="dark"] .table-wellness th,
 [data-theme="dark"] .table th,
-[data-theme="dark"] .pricing-table th,
-[data-theme="dark"] .dashboard-table th {
+[data-theme="dark"] .pricing-table th th {
   background-color: var(--bg-surface-soft);
   color: var(--text-secondary);
   border-bottom-color: var(--border-color);
@@ -88,14 +82,12 @@
 
 [data-theme="dark"] .table-wellness td,
 [data-theme="dark"] .table td,
-[data-theme="dark"] .pricing-table td,
-[data-theme="dark"] .dashboard-table td {
+[data-theme="dark"] .pricing-table td td {
   border-bottom-color: var(--border-color-light);
 }
 
 [data-theme="dark"] .table-hover tbody tr:hover,
-[data-theme="dark"] .pricing-table tbody tr:hover,
-[data-theme="dark"] .dashboard-table tbody tr:hover {
+[data-theme="dark"] .pricing-table tbody tr:hover tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.03);
 }
 

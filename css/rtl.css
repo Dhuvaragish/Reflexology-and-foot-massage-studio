@@ -77,21 +77,6 @@
   transform: translateX(0);
 }
 
-/* Dashboard Layout Mirroring */
-[dir="rtl"] .dashboard-sidebar {
-  border-right: none;
-  border-left: 1px solid var(--border-color);
-}
-
-[dir="rtl"] .dashboard-nav-item svg {
-  margin-inline-end: 0.75rem;
-  margin-inline-start: 0;
-}
-
-[dir="rtl"] .dashboard-nav-item .badge {
-  margin-inline-start: auto;
-  margin-inline-end: 0;
-}
 
 /* Search input icon */
 [dir="rtl"] .search-icon-inside {

@@ -158,6 +158,8 @@ const BookingEngine = {
   services: DEFAULT_SERVICES,
   therapists: DEFAULT_THERAPISTS,
   demoAppointments: [],
+  calendarViewYear: new Date().getFullYear(),
+  calendarViewMonth: new Date().getMonth(),
 
   state: {
     serviceId: null,
@@ -189,6 +191,12 @@ const BookingEngine = {
     this.updateButtonStates();
     this.bindStepActions();
     this.restoreClientForm();
+
+    // Attach real-time validation to guest information form
+    const clientForm = document.getElementById('booking-client-form');
+    if (clientForm && window.FormValidator) {
+      FormValidator.attach(clientForm);
+    }
   },
 
   async loadAllData() {
@@ -437,10 +445,17 @@ const BookingEngine = {
     this.updateSummarySidebar();
     this.updateButtonStates();
 
-    // Scroll smoothly to the booking section
+    // Scroll smoothly to the booking section with sticky header offset
     const bookingSection = document.querySelector('.booking-stepper');
     if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const header = document.querySelector('.site-header');
+      const headerHeight = header ? header.offsetHeight : 85;
+      const elementTop = bookingSection.getBoundingClientRect().top + window.pageYOffset;
+      const targetScroll = Math.max(0, elementTop - headerHeight - 16);
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      });
     }
   },
 
@@ -577,48 +592,140 @@ const BookingEngine = {
           this.state.therapistAvatar = t ? t.avatar : '';
         }
 
+        // If a date is currently selected but unavailable for the chosen specialist, shift to next available day
+        if (this.state.date) {
+          const [yr, mo, da] = this.state.date.split('-').map(Number);
+          const currDateObj = new Date(yr, mo - 1, da);
+          const dayLong = currDateObj.toLocaleDateString('en-US', { weekday: 'long' });
+          const selTherapist = this.therapists.find(t => t.id === this.state.therapistId);
+          if (selTherapist && selTherapist.availableDays && !selTherapist.availableDays.includes(dayLong)) {
+            let searchDate = new Date(currDateObj);
+            for (let i = 0; i < 30; i++) {
+              searchDate.setDate(searchDate.getDate() + 1);
+              const dl = searchDate.toLocaleDateString('en-US', { weekday: 'long' });
+              if (selTherapist.availableDays.includes(dl)) {
+                const y = searchDate.getFullYear();
+                const m = String(searchDate.getMonth() + 1).padStart(2, '0');
+                const d = String(searchDate.getDate()).padStart(2, '0');
+                this.state.date = `${y}-${m}-${d}`;
+                this.calendarViewYear = searchDate.getFullYear();
+                this.calendarViewMonth = searchDate.getMonth();
+                break;
+              }
+            }
+          }
+        }
+
         this.updateSummarySidebar();
       });
     });
   },
 
   renderStep3DateTime() {
-    const dateContainer = document.getElementById('booking-date-scroll');
-    if (!dateContainer) return;
+    const selectedTherapist = this.therapists.find(t => t.id === this.state.therapistId);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    // Generate upcoming 14 days starting today
-    const dates = [];
-    const today = new Date();
-    for (let i = 0; i < 14; i++) {
-      const d = new Date(today);
-      d.setDate(today.getDate() + i);
-      dates.push(d);
+    let needPick = !this.state.date;
+    if (this.state.date) {
+      const [y, m, d] = this.state.date.split('-').map(Number);
+      const curDate = new Date(y, m - 1, d);
+      if (curDate < today) {
+        needPick = true;
+      } else if (selectedTherapist && selectedTherapist.availableDays) {
+        const dayLong = curDate.toLocaleDateString('en-US', { weekday: 'long' });
+        if (!selectedTherapist.availableDays.includes(dayLong)) {
+          needPick = true;
+        }
+      }
     }
+
+    if (needPick) {
+      let searchDate = new Date(today);
+      for (let i = 0; i < 60; i++) {
+        const dayLong = searchDate.toLocaleDateString('en-US', { weekday: 'long' });
+        if (!selectedTherapist || !selectedTherapist.availableDays || selectedTherapist.availableDays.includes(dayLong)) {
+          break;
+        }
+        searchDate.setDate(searchDate.getDate() + 1);
+      }
+      const y = searchDate.getFullYear();
+      const m = String(searchDate.getMonth() + 1).padStart(2, '0');
+      const d = String(searchDate.getDate()).padStart(2, '0');
+      this.state.date = `${y}-${m}-${d}`;
+    }
+
+    if (this.state.date) {
+      const [y, m] = this.state.date.split('-').map(Number);
+      this.calendarViewYear = y;
+      this.calendarViewMonth = m - 1;
+    } else {
+      this.calendarViewYear = now.getFullYear();
+      this.calendarViewMonth = now.getMonth();
+    }
+
+    this.renderMonthlyCalendar();
+    this.renderTimeSlots();
+    this.updateSummarySidebar();
+    this.updateButtonStates();
+  },
+
+  renderMonthlyCalendar() {
+    const container = document.getElementById('booking-date-scroll');
+    if (!container) return;
+
+    const viewYear = this.calendarViewYear;
+    const viewMonth = this.calendarViewMonth;
+
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+    const bookingWindowDays = (window.StudioConfig && window.StudioConfig.bookingWindowDays) || 90;
+    const maxBookingDate = new Date(today);
+    maxBookingDate.setDate(maxBookingDate.getDate() + bookingWindowDays);
+
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const monthTitle = `${monthNames[viewMonth]} ${viewYear}`;
+
+    // Can we go to previous month?
+    // Disabled if current view month is <= today's month & year
+    const canGoPrev = (viewYear > now.getFullYear()) || (viewYear === now.getFullYear() && viewMonth > now.getMonth());
+
+    // Can we go to next month?
+    // Disabled if 1st day of next month is > maxBookingDate
+    const nextMonthDate = new Date(viewMonth === 11 ? viewYear + 1 : viewYear, viewMonth === 11 ? 0 : viewMonth + 1, 1);
+    const canGoNext = nextMonthDate <= maxBookingDate;
+
+    // Start day of month (0 = Sun, 1 = Mon, ..., 6 = Sat)
+    const firstDayIndex = new Date(viewYear, viewMonth, 1).getDay();
+    // Total days in month (accurately handles 28, 29, 30, 31 and leap years)
+    const totalDaysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
     const selectedTherapist = this.therapists.find(t => t.id === this.state.therapistId);
 
-    // If no date selected yet, pick first available day
-    if (!this.state.date) {
-      let firstAvailable = dates[0];
-      if (selectedTherapist && selectedTherapist.availableDays) {
-        const found = dates.find(d => {
-          const weekday = d.toLocaleDateString('en-US', { weekday: 'long' });
-          return selectedTherapist.availableDays.includes(weekday);
-        });
-        if (found) firstAvailable = found;
-      }
-      this.state.date = firstAvailable.toISOString().split('T')[0];
+    // Build days HTML
+    let daysHtml = '';
+
+    // Empty padding cells for days before the 1st
+    for (let i = 0; i < firstDayIndex; i++) {
+      daysHtml += `<div class="calendar-day-empty" aria-hidden="true"></div>`;
     }
 
-    dateContainer.innerHTML = dates.map(d => {
-      const dateStr = d.toISOString().split('T')[0];
-      const isSelected = dateStr === this.state.date;
-      const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
-      const dayLong = d.toLocaleDateString('en-US', { weekday: 'long' });
-      const dayNum = d.getDate();
-      const monthName = d.toLocaleDateString('en-US', { month: 'short' });
+    // Days in current month
+    for (let day = 1; day <= totalDaysInMonth; day++) {
+      const dateObj = new Date(viewYear, viewMonth, day);
+      const dateStr = `${viewYear}-${String(viewMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const dayLong = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
 
-      // Check therapist availability for day
+      const isPast = dateObj < today;
+      const isAfterMax = dateObj > maxBookingDate;
+      const isToday = dateStr === todayStr;
+      const isSelected = dateStr === this.state.date;
+
       let isOff = false;
       if (selectedTherapist && selectedTherapist.availableDays) {
         if (!selectedTherapist.availableDays.includes(dayLong)) {
@@ -626,31 +733,203 @@ const BookingEngine = {
         }
       }
 
-      return `
-        <div class="date-slot-card ${isSelected ? 'selected' : ''} ${isOff ? 'disabled' : ''}" 
-             data-date="${dateStr}" 
-             ${isOff ? 'disabled title="Specialist not available on this day"' : ''}
-             role="button"
-             tabindex="${isOff ? -1 : 0}">
-          <span class="text-xs uppercase text-muted-custom block mb-1">${dayName}</span>
-          <span class="font-heading font-bold text-main block" style="font-size: 1.35rem; line-height: 1;">${dayNum}</span>
-          <span class="text-xs text-muted-custom block mt-1">${isOff ? 'Off' : monthName}</span>
-        </div>
-      `;
-    }).join('');
+      const isAvailable = !isPast && !isAfterMax && !isOff;
+      const classes = [
+        'calendar-day-btn',
+        'calendar-day-cell',
+        isAvailable ? 'is-available' : 'disabled',
+        isPast ? 'is-past' : '',
+        isOff ? 'is-off' : '',
+        isAfterMax ? 'is-unavailable' : '',
+        isToday ? 'is-today' : '',
+        isSelected ? 'selected' : ''
+      ].filter(Boolean).join(' ');
 
-    dateContainer.querySelectorAll('.date-slot-card:not(.disabled)').forEach(card => {
-      card.addEventListener('click', () => {
-        dateContainer.querySelectorAll('.date-slot-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        this.state.date = card.getAttribute('data-date');
-        this.updateSummarySidebar();
-        this.renderTimeSlots();
-        this.updateButtonStates();
+      let title = '';
+      let statusLabel = '';
+      if (isPast) {
+        title = 'Past date';
+      } else if (isOff) {
+        title = `${selectedTherapist.name || 'Specialist'} is not available on ${dayLong}s`;
+        statusLabel = 'Off';
+      } else if (isAfterMax) {
+        title = 'Date exceeds advance booking window';
+      } else if (isToday) {
+        title = 'Today';
+        statusLabel = 'Today';
+      }
+
+      daysHtml += `
+        <button type="button" 
+                class="${classes}" 
+                data-date="${dateStr}"
+                ${!isAvailable ? 'disabled' : ''}
+                ${title ? `title="${title}"` : ''}
+                aria-label="${dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}${isOff ? ' (Unavailable)' : ''}${isToday ? ' (Today)' : ''}"
+                aria-selected="${isSelected ? 'true' : 'false'}"
+                tabindex="${isAvailable ? 0 : -1}">
+          <span class="day-num">${day}</span>
+          ${statusLabel ? `<span class="day-status-label">${statusLabel}</span>` : ''}
+        </button>
+      `;
+    }
+
+    container.innerHTML = `
+      <div class="calendar-picker-card">
+        <div class="calendar-header">
+          <div class="calendar-header-info">
+            <h4 class="calendar-month-title">${monthTitle}</h4>
+            <span class="calendar-header-subtitle">Select an unreserved appointment date</span>
+          </div>
+          <div class="calendar-nav-controls">
+            <button type="button" 
+                    class="calendar-nav-btn calendar-prev-btn" 
+                    id="calendar-prev-btn" 
+                    aria-label="Previous Month"
+                    ${!canGoPrev ? 'disabled' : ''}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="calendar-today-btn" id="calendar-today-btn">Today</button>
+            <button type="button" 
+                    class="calendar-nav-btn calendar-next-btn" 
+                    id="calendar-next-btn" 
+                    aria-label="Next Month"
+                    ${!canGoNext ? 'disabled' : ''}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="calendar-weekdays-grid" aria-hidden="true">
+          <div class="calendar-weekday">Sun</div>
+          <div class="calendar-weekday">Mon</div>
+          <div class="calendar-weekday">Tue</div>
+          <div class="calendar-weekday">Wed</div>
+          <div class="calendar-weekday">Thu</div>
+          <div class="calendar-weekday">Fri</div>
+          <div class="calendar-weekday">Sat</div>
+        </div>
+
+        <div class="calendar-days-grid" role="grid" aria-label="Month Dates">
+          ${daysHtml}
+        </div>
+
+        <div class="calendar-footer-legend">
+          <div class="legend-item"><span class="legend-swatch swatch-selected"></span> Selected</div>
+          <div class="legend-item"><span class="legend-swatch swatch-available"></span> Available</div>
+          <div class="legend-item"><span class="legend-swatch swatch-today"></span> Today</div>
+          <div class="legend-item"><span class="legend-swatch swatch-unavailable"></span> Unavailable / Off</div>
+        </div>
+      </div>
+    `;
+
+    // Event listeners: Previous Month
+    const prevBtn = container.querySelector('#calendar-prev-btn');
+    if (prevBtn && canGoPrev) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (this.calendarViewMonth === 0) {
+          this.calendarViewYear--;
+          this.calendarViewMonth = 11;
+        } else {
+          this.calendarViewMonth--;
+        }
+        this.renderMonthlyCalendar();
+      });
+    }
+
+    // Event listeners: Next Month
+    const nextBtn = container.querySelector('#calendar-next-btn');
+    if (nextBtn && canGoNext) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (this.calendarViewMonth === 11) {
+          this.calendarViewYear++;
+          this.calendarViewMonth = 0;
+        } else {
+          this.calendarViewMonth++;
+        }
+        this.renderMonthlyCalendar();
+      });
+    }
+
+    // Event listeners: Today button
+    const todayBtn = container.querySelector('#calendar-today-btn');
+    if (todayBtn) {
+      todayBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.calendarViewYear = now.getFullYear();
+        this.calendarViewMonth = now.getMonth();
+        const dayLong = now.toLocaleDateString('en-US', { weekday: 'long' });
+        if (!selectedTherapist || !selectedTherapist.availableDays || selectedTherapist.availableDays.includes(dayLong)) {
+          this.selectDate(todayStr);
+        } else {
+          this.renderMonthlyCalendar();
+          if (window.Notifications) {
+            Notifications.show('Specialist Notice', `${selectedTherapist.name} is off on ${dayLong}s. Please select an available date highlighted below.`, 'info');
+          }
+        }
+      });
+    }
+
+    // Event listeners: Day clicks
+    container.querySelectorAll('.calendar-day-btn.is-available').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pickedDate = btn.getAttribute('data-date');
+        this.selectDate(pickedDate);
       });
     });
+  },
 
+  selectDate(dateStr) {
+    if (!dateStr) return;
+    this.state.date = dateStr;
+
+    // Reset current time slot if booked or in past for new date
+    if (this.state.timeSlot) {
+      const allBookings = this.getAllBookings();
+      const isSlotBooked = allBookings.some(b => {
+        const dateMatch = b.date === this.state.date;
+        const timeMatch = b.timeSlot === this.state.timeSlot;
+        const therapistMatch = (this.state.therapistId === 'any') 
+          ? true 
+          : (b.therapistId === this.state.therapistId || b.therapistName === this.state.therapistName);
+        return dateMatch && timeMatch && therapistMatch;
+      });
+
+      const todayStr = new Date().toISOString().split('T')[0];
+      const isToday = this.state.date === todayStr;
+      let isPastSlot = false;
+      if (isToday) {
+        const [timePart, modifier] = this.state.timeSlot.split(' ');
+        let [hours, minutes] = timePart.split(':').map(Number);
+        if (modifier === 'PM' && hours < 12) hours += 12;
+        if (modifier === 'AM' && hours === 12) hours = 0;
+        const now = new Date();
+        if (hours < now.getHours() || (hours === now.getHours() && minutes <= now.getMinutes())) {
+          isPastSlot = true;
+        }
+      }
+
+      if (isSlotBooked || isPastSlot) {
+        this.state.timeSlot = '';
+      }
+    }
+
+    this.renderMonthlyCalendar();
+    this.updateSummarySidebar();
     this.renderTimeSlots();
+    this.updateButtonStates();
+  },
+
+  getAllBookings() {
+    const storedBookingsRaw = localStorage.getItem('wellness_studio_bookings');
+    let storedBookings = [];
+    if (storedBookingsRaw) {
+      try { storedBookings = JSON.parse(storedBookingsRaw); } catch (e) {}
+    }
+    return [...this.demoAppointments, ...storedBookings];
   },
 
   renderTimeSlots() {
@@ -663,12 +942,7 @@ const BookingEngine = {
     const eveningTimes = ['05:30 PM', '06:15 PM', '07:00 PM', '08:00 PM'];
 
     // Collect all booked appointments (from demo data + local storage)
-    const storedBookingsRaw = localStorage.getItem('wellness_studio_bookings');
-    let storedBookings = [];
-    if (storedBookingsRaw) {
-      try { storedBookings = JSON.parse(storedBookingsRaw); } catch (e) {}
-    }
-    const allBookings = [...this.demoAppointments, ...storedBookings];
+    const allBookings = this.getAllBookings();
 
     const todayStr = new Date().toISOString().split('T')[0];
     const isToday = this.state.date === todayStr;
@@ -711,7 +985,7 @@ const BookingEngine = {
 
         return `
           <button type="button" 
-            class="time-slot-pill ${isSelected ? 'selected' : ''} ${disabled ? 'booked' : ''}" 
+            class="time-slot-pill time-slot ${isSelected ? 'selected' : ''} ${disabled ? 'booked' : ''}" 
             data-time="${t}"
             ${disabled ? 'disabled title="Slot is unavailable"' : ''}
             aria-label="${labelText}">
@@ -789,7 +1063,21 @@ const BookingEngine = {
       // Fallback manual validation
       if (!nameEl || nameEl.value.trim().length < 2) isValid = false;
       if (!emailEl || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) isValid = false;
-      if (!phoneEl || phoneEl.value.trim().length < 7) isValid = false;
+      if (!phoneEl || !phoneEl.value.trim()) isValid = false;
+    }
+
+    // Defensive specific validation for phone input
+    if (phoneEl) {
+      const phoneValidation = window.FormValidator ?
+        FormValidator.validatePhoneNumber(phoneEl.value) :
+        { isValid: phoneEl.value.trim().length >= 8 && !/[a-zA-Z]/.test(phoneEl.value), error: 'Please enter a valid mobile number.' };
+
+      if (!phoneValidation.isValid) {
+        isValid = false;
+        if (window.FormValidator) {
+          FormValidator.setStatus(phoneEl, false, phoneValidation.error || 'Please enter a valid mobile number.');
+        }
+      }
     }
 
     if (consentEl && !consentEl.checked) {
@@ -802,13 +1090,29 @@ const BookingEngine = {
     }
 
     if (!isValid) {
+      const firstInvalid = clientForm ? clientForm.querySelector('.is-invalid') : null;
+      if (firstInvalid) {
+        firstInvalid.focus();
+      }
       if (window.Notifications) {
-        Notifications.show('Required Information', 'Please complete all required fields correctly before reviewing.', 'error');
+        Notifications.show('Required Information', 'Please complete all required fields with valid information before reviewing.', 'error');
       }
       return false;
     }
 
     this.readClientFormInputs();
+
+    // Normalize and format phone number upon valid validation
+    if (phoneEl && window.FormValidator) {
+      const normalized = FormValidator.normalizePhoneNumber(phoneEl.value);
+      this.state.client.phoneNormalized = normalized;
+      const formatted = FormValidator.formatPhoneNumber(phoneEl.value);
+      if (formatted && formatted !== phoneEl.value.trim()) {
+        phoneEl.value = formatted;
+        this.state.client.phone = formatted;
+      }
+    }
+
     return true;
   },
 
@@ -958,6 +1262,14 @@ const BookingEngine = {
     // Input listeners to clear error states and update state in real time
     const clientForm = document.getElementById('booking-client-form');
     if (clientForm) {
+      // Handle pressing Enter inside the guest details form to trigger validation and advance
+      clientForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (this.validateAndSaveClientForm()) {
+          this.goToStep(5);
+        }
+      });
+
       clientForm.querySelectorAll('input, textarea').forEach(input => {
         input.addEventListener('input', () => {
           this.readClientFormInputs();
@@ -967,6 +1279,30 @@ const BookingEngine = {
   },
 
   completeBooking() {
+    const confirmBtn = document.getElementById('complete-booking-final-btn');
+    if (confirmBtn && confirmBtn.disabled) {
+      return; // Prevent duplicate submissions
+    }
+
+    // Final defensive validation: ensure phone and guest details are valid before saving
+    const clientPhone = this.state.client ? this.state.client.phone : '';
+    const phoneValidation = window.FormValidator ?
+      FormValidator.validatePhoneNumber(clientPhone) :
+      { isValid: !!clientPhone && clientPhone.length >= 8 && !/[a-zA-Z]/.test(clientPhone), error: 'Please enter a valid mobile number.' };
+
+    if (!phoneValidation.isValid) {
+      if (window.Notifications) {
+        Notifications.show('Invalid Phone Number', phoneValidation.error || 'Please enter a valid mobile number.', 'error');
+      }
+      this.goToStep(4);
+      const phoneEl = document.getElementById('client-phone');
+      if (phoneEl) {
+        if (window.FormValidator) FormValidator.setStatus(phoneEl, false, phoneValidation.error || 'Please enter a valid mobile number.');
+        phoneEl.focus();
+      }
+      return;
+    }
+
     const termsCheck = document.getElementById('terms-agree');
     if (termsCheck && !termsCheck.checked) {
       if (window.Notifications) {
@@ -976,7 +1312,6 @@ const BookingEngine = {
       return;
     }
 
-    const confirmBtn = document.getElementById('complete-booking-final-btn');
     if (confirmBtn) {
       confirmBtn.disabled = true;
       confirmBtn.innerHTML = `
@@ -1001,6 +1336,9 @@ const BookingEngine = {
       tax: (price * 0.08).toFixed(2),
       totalWithTax: (price * 1.08).toFixed(2),
       client: { ...this.state.client },
+      guestName: this.state.client.name,
+      guestEmail: this.state.client.email,
+      guestPhone: this.state.client.phone,
       status: 'Confirmed',
       createdAt: new Date().toISOString()
     };

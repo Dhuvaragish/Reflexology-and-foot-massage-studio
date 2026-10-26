@@ -69,6 +69,9 @@ const StudioConfig = {
     taxRate: 0.08 // 8% local sales/wellness tax
   },
 
+  // Booking Calendar Window
+  bookingWindowDays: 90, // Configurable reservation window (advance days allowed)
+
   // Proposed Service Categories (Marked for Business Confirmation)
   proposedCategoriesNotice: "Proposed service catalog — All offerings, prices, and durations are subject to business confirmation before live commercial launch."
 };

@@ -115,6 +115,11 @@
   margin-top: auto;
 }
 
+.card-wellness.h-auto,
+.flex-col > .card-wellness {
+  height: auto;
+}
+
 /* How Your Visit Works: 3-Step Journey Alignment */
 .visit-step-number {
   width: 56px !important;
@@ -913,8 +918,7 @@
 /* ==========================================================================
    Pricing Table & Data Tables (Wellness Design System)
    ========================================================================== */
-.pricing-table-wrapper,
-.dashboard-table-container {
+.pricing-table-wrapper {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
@@ -925,7 +929,6 @@
 }
 
 .pricing-table,
-.dashboard-table,
 .table-wellness {
   width: 100%;
   border-collapse: collapse;
@@ -934,8 +937,7 @@
 }
 
 [dir="rtl"] .pricing-table,
-[dir="rtl"] .dashboard-table,
-[dir="rtl"] .table-wellness {
+[dir="rtl"] [dir="rtl"] .table-wellness {
   text-align: right;
 }
 
@@ -1852,4 +1854,226 @@
 [data-theme="dark"] .pricing-transparency-box {
   background: var(--bg-surface);
   border-color: rgba(135, 155, 122, 0.35);
+}
+
+
+/* ==========================================================================
+   Contact Page Layout, Cards & Responsive Spacing Fix
+   ========================================================================== */
+.contact-page-section {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-main-container {
+  width: 100%;
+  max-width: var(--container-max-width, 1240px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .contact-main-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.contact-main-grid {
+  align-items: start;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contact-details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem; /* ~28px vertical separation between cards (24px-32px requirement) */
+  height: auto !important;
+  min-height: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contact-info-card,
+.contact-hours-card,
+.contact-map-card,
+.contact-form-card {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.contact-info-card,
+.contact-hours-card {
+  overflow: visible !important; /* Prevent bottom clipping of text and items */
+  padding: 2rem; /* 32px internal padding (within 24px-40px requirement) */
+}
+
+@media (max-width: 640px) {
+  .contact-info-card,
+  .contact-hours-card {
+    padding: 1.5rem; /* 24px internal padding on mobile */
+  }
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Consistent 20px vertical spacing between contact items */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-detail-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.contact-detail-body strong {
+  margin-bottom: 0.15rem;
+  line-height: 1.4;
+}
+
+.contact-detail-body a,
+.contact-detail-body span {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.45;
+}
+
+.contact-hours-card {
+  margin-top: 0; /* Clean separation handled strictly by flex gap */
+}
+
+.contact-map-card {
+  overflow: hidden !important; /* Keep map iframe neatly rounded */
+}
+
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  height: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contact-concierge-card {
+  padding: 1.75rem 2rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  height: auto !important;
+  min-height: auto;
+  overflow: visible !important;
+}
+
+.concierge-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  width: fit-content;
+}
+
+.concierge-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.concierge-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.concierge-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 576px) {
+  .concierge-perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.concierge-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.concierge-perk-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.concierge-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.concierge-actions .btn-wellness {
+  flex: 1 1 200px;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  height: auto !important;
+  max-height: 48px;
+}
+
+@media (max-width: 640px) {
+  .contact-concierge-card {
+    padding: 1.5rem;
+  }
 }

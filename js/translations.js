@@ -27,10 +27,7 @@ window.StudioTranslations = (function() {
     nav_contact: "Contact",
     nav_book: "Book Appointment",
     nav_signin: "Client Sign In",
-    nav_my_dashboard: "My Dashboard",
-    nav_my_appointments: "My Appointments",
     nav_signout: "Sign Out",
-    nav_admin: "Admin Portal",
     
     // Breadcrumbs
     breadcrumb_home: "Home",
@@ -252,54 +249,19 @@ window.StudioTranslations = (function() {
     pressure_firm: "Firm (Deep Therapeutic)",
     lbl_health_notes: "Health or Tension Notes (Optional)",
 
-    // Confirmation & Dashboard
+    // Booking Confirmation
     conf_title: "Your Healing Session is Reserved",
     conf_subtitle: "We have registered your appointment in our sanctuary booking registry.",
     conf_ref: "Booking Reference:",
     btn_print: "Print Summary",
     btn_add_cal: "Add to Calendar (.ics)",
-    btn_view_dashboard: "View in My Dashboard",
     
-    // User Dashboard
-    dash_welcome: "Welcome to Your Wellness Sanctuary,",
-    dash_upcoming: "Upcoming Appointments",
-    dash_past: "Past Treatment History",
-    dash_profile: "Personal Profile",
-    dash_preferences: "Contact Preferences",
-    dash_no_upcoming: "No upcoming appointments scheduled.",
-    dash_book_new: "Schedule a New Session",
-    status_pending: "Pending",
-    status_confirmed: "Confirmed",
-    status_completed: "Completed",
-    status_cancelled: "Cancelled",
-    btn_cancel_appt: "Cancel Appointment",
-    btn_reschedule: "Reschedule",
-    btn_save_profile: "Save Profile",
-
-    // Admin Dashboard
-    admin_title: "Sanctuary Administration Portal",
-    admin_prototype_notice: "Demonstration Prototype — Mock data isolated in browser localStorage. Real database and backend auth required before live production deployment.",
-    kpi_total_bookings: "Total Bookings",
-    kpi_today_appointments: "Today's Appointments",
-    kpi_upcoming: "Upcoming Sessions",
-    kpi_active_services: "Active Services",
-    kpi_enquiries: "Customer Enquiries",
-    tab_overview: "Dashboard Overview",
-    tab_bookings: "Bookings Management",
-    tab_services: "Services & Pricing",
-    tab_enquiries: "Customer Enquiries",
-    tab_settings: "Studio Settings",
-    btn_add_service: "Add New Service",
-    btn_export_data: "Export JSON",
-    btn_reset_data: "Reset Demo Data",
-
     // Footer
     footer_desc: "A premier sanctuary offering traditional foot reflexology, calming meridian bodywork, and holistic sensory renewal.",
     footer_quick_links: "Quick Links",
     footer_treatments: "Wellness Treatments",
     footer_hours: "Opening Hours",
     footer_contact_info: "Studio Contact",
-    footer_staff_portal: "Staff & Admin Portal",
     footer_rights: "All rights reserved. Dedicated to authentic natural wellness.",
     footer_privacy: "Privacy Policy",
     footer_terms: "Terms of Service"

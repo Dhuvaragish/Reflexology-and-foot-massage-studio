@@ -176,107 +176,108 @@
     </div>
   </div>
 
-  <main id="main-content" class="py-12 bg-cream min-h-screen flex items-center">
-    <div class="container-custom" style="max-width: 760px;">
+  <main id="main-content" class="confirmation-page-main">
+    <div class="confirmation-container">
       
-      <div class="confirmation-card card-wellness p-6 sm:p-10 rounded-2xl shadow-md border border-color">
-        <div class="text-center mb-8">
-          <div class="confirmation-success-check mx-auto mb-4" style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-success-bg); color: var(--color-success); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
-            ✓
-          </div>
-          <span class="badge-wellness mb-2" style="background: var(--color-primary-soft); color: var(--color-primary);">Appointment Confirmed</span>
-          <h1 class="font-heading mb-2 text-2xl sm:text-3xl font-bold text-main" data-i18n="conf_title">Your Healing Session is Reserved</h1>
-          <p class="text-secondary text-sm max-w-md mx-auto mb-0" data-i18n="conf_subtitle">
+      <div class="confirmation-card">
+        <!-- Success Check & Header -->
+        <div class="text-center">
+          <div class="confirmation-icon-wrap" aria-hidden="true">✓</div>
+          <span class="confirmation-badge" data-i18n="badge_confirmed">Appointment Confirmed</span>
+          <h1 class="confirmation-title" data-i18n="conf_title">Your Healing Session is Reserved</h1>
+          <p class="confirmation-subtitle" data-i18n="conf_subtitle">
             We have confirmed your appointment and registered it in our sanctuary booking registry.
           </p>
         </div>
 
-        <div class="confirmation-body">
-          <div class="flex items-center justify-between p-3.5 rounded-xl mb-6" style="background: var(--color-primary-softest); border: 1.5px dashed var(--color-primary);">
-            <span class="text-xs font-semibold uppercase tracking-wider text-muted-custom" data-i18n="conf_ref">Booking Reference:</span>
-            <span class="font-heading font-bold text-primary-custom text-xl font-mono" id="conf-ref-id">REF-84912</span>
-          </div>
-
-          <h4 class="font-heading mb-3 text-main text-base font-bold">Session Details</h4>
-          <div class="appointment-meta-grid grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl mb-6" style="background: var(--bg-surface-soft); border: 1px solid var(--border-color);">
-            <div>
-              <span class="text-xs uppercase text-muted-custom block mb-0.5">Selected Therapy</span>
-              <strong class="text-main" id="conf-service-name">Traditional Foot Reflexology</strong>
-              <span class="text-xs text-muted-custom block" id="conf-duration">60 Minutes Session</span>
-            </div>
-
-            <div>
-              <span class="text-xs uppercase text-muted-custom block mb-0.5">Assigned Specialist</span>
-              <strong class="text-main" id="conf-therapist-name">Master Mei-Ling Chen</strong>
-              <span class="text-xs text-muted-custom block">Certified Reflexologist</span>
-            </div>
-
-            <div>
-              <span class="text-xs uppercase text-muted-custom block mb-0.5">Date & Time</span>
-              <strong class="text-main" id="conf-datetime">Saturday, Oct 25 • 10:30 AM</strong>
-              <span class="text-xs text-muted-custom block">Please arrive 10-15 min early</span>
-            </div>
-
-            <div>
-              <span class="text-xs uppercase text-muted-custom block mb-0.5">Guest & Contact</span>
-              <strong class="text-main" id="conf-guest-name">Eleanor Vance</strong>
-              <span class="text-xs text-muted-custom block" id="conf-guest-email">guest@wellness.com</span>
-            </div>
-          </div>
-
-          <div class="p-4 rounded-xl mb-6" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
-            <div class="flex items-center justify-between text-sm mb-1.5">
-              <span class="text-muted-custom">Payment Policy:</span>
-              <strong class="text-primary-custom">Pay in Studio Upon Arrival</strong>
-            </div>
-            <div class="flex items-center justify-between text-sm">
-              <span class="text-muted-custom">Total Estimated Amount (incl. tax):</span>
-              <strong class="text-main font-heading text-xl" id="conf-total-price">$81.00</strong>
-            </div>
-          </div>
-
-          <!-- Arrival Instructions -->
-          <div class="mb-8">
-            <h5 class="font-heading text-sm font-bold mb-2">Arrival & Sanctuary Guidelines</h5>
-            <ul class="flex flex-col gap-2 text-xs text-secondary">
-              <li class="flex items-start gap-2">
-                <span class="text-primary-custom font-bold">✓</span>
-                <span>Wear loose, comfortable trousers that easily roll above the knee line.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-primary-custom font-bold">✓</span>
-                <span>Enjoy a complimentary warm organic herbal tea upon arrival at reception.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-primary-custom font-bold">✓</span>
-                <span>Reserved guest parking is available directly behind the sanctuary on Harmony Way.</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex items-center justify-center gap-3 flex-wrap border-t pt-6" style="border-color: var(--border-color);">
-            <a href="user/dashboard.html" class="btn-wellness btn-primary-custom btn-sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              <span data-i18n="btn_view_dashboard">View in My Dashboard</span>
-            </a>
-
-            <button type="button" onclick="window.print()" class="btn-wellness btn-secondary-custom btn-sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-              <span data-i18n="btn_print">Print Summary</span>
-            </button>
-
-            <button type="button" id="add-to-cal-btn" class="btn-wellness btn-outline-custom btn-sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span data-i18n="btn_add_cal">Add to Calendar (.ics)</span>
-            </button>
-
-            <a href="index.html" class="btn-wellness btn-secondary-custom btn-sm">
-              Return to Homepage
-            </a>
-          </div>
-
+        <!-- Booking Reference Row -->
+        <div class="confirmation-ref-box">
+          <span class="confirmation-ref-label" data-i18n="conf_ref">Booking Reference:</span>
+          <span class="confirmation-ref-code" id="conf-ref-id">REF-84912</span>
         </div>
+
+        <!-- Session Details Heading & Meta Grid -->
+        <h2 class="confirmation-section-heading">Session Details</h2>
+        <div class="appointment-meta-grid">
+          <div class="appointment-meta-item">
+            <span class="meta-label">Selected Therapy</span>
+            <strong class="meta-val" id="conf-service-name">Traditional Foot Reflexology</strong>
+            <span class="meta-sub" id="conf-duration">60 Minutes Session</span>
+          </div>
+
+          <div class="appointment-meta-item">
+            <span class="meta-label">Assigned Specialist</span>
+            <strong class="meta-val" id="conf-therapist-name">Master Mei-Ling Chen</strong>
+            <span class="meta-sub">Certified Reflexologist</span>
+          </div>
+
+          <div class="appointment-meta-item">
+            <span class="meta-label">Date & Time</span>
+            <strong class="meta-val" id="conf-datetime">Friday, Oct 30, 2026 • 10:00 AM</strong>
+            <span class="meta-sub">Please arrive 10–15 min early</span>
+          </div>
+
+          <div class="appointment-meta-item">
+            <span class="meta-label">Guest & Contact</span>
+            <strong class="meta-val" id="conf-guest-name">Eleanor Vance</strong>
+            <span class="meta-sub" id="conf-guest-email">guest@wellness.com</span>
+          </div>
+        </div>
+
+        <!-- Transparent Studio Payment Summary -->
+        <div class="confirmation-pricing-card">
+          <div class="flex items-center justify-between text-sm mb-1.5">
+            <span class="text-muted-custom">Payment Policy:</span>
+            <strong class="text-primary-custom font-semibold">Pay in Studio Upon Arrival</strong>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-custom">Total Estimated Amount (incl. tax):</span>
+            <strong class="text-main font-heading text-xl" id="conf-total-price">$118.80</strong>
+          </div>
+        </div>
+
+        <!-- Arrival & Sanctuary Guidelines -->
+        <div class="confirmation-guidelines">
+          <h3 class="font-heading text-sm font-bold mb-2 text-main">Arrival & Sanctuary Guidelines</h3>
+          <ul class="flex flex-col gap-2 text-xs text-secondary pl-0 mb-0 list-none">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-custom font-bold">✓</span>
+              <span>Wear loose, comfortable trousers that easily roll above the knee line.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-custom font-bold">✓</span>
+              <span>Enjoy a complimentary warm organic herbal tea upon arrival at reception.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-custom font-bold">✓</span>
+              <span>Reserved guest parking is available directly behind the sanctuary on Harmony Way.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="confirmation-actions">
+          <a href="index.html" class="btn-wellness btn-primary-custom btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Return to Homepage</span>
+          </a>
+
+          <button type="button" onclick="window.print()" class="btn-wellness btn-secondary-custom btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span data-i18n="btn_print">Print Summary</span>
+          </button>
+
+          <button type="button" id="add-to-cal-btn" class="btn-wellness btn-outline-custom btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span data-i18n="btn_add_cal">Add to Calendar (.ics)</span>
+          </button>
+
+          <a href="booking.html" class="btn-wellness btn-secondary-custom btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Book Another Session</span>
+          </a>
+        </div>
+
       </div>
 
     </div>
@@ -310,47 +311,130 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Load latest booking from localStorage
-      let booking = null;
-      try {
-        const raw = localStorage.getItem('wellness_latest_booking');
-        if (raw) booking = JSON.parse(raw);
-      } catch (e) {}
+      // 1. Retrieve booking record from localStorage and URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const refParam = urlParams.get('ref');
 
-      if (booking) {
-        if (booking.id) document.getElementById('conf-ref-id').textContent = booking.id;
-        if (booking.serviceName) document.getElementById('conf-service-name').textContent = booking.serviceName;
-        if (booking.durationMinutes) document.getElementById('conf-duration').textContent = `${booking.durationMinutes} Minutes Session`;
-        if (booking.therapistName) document.getElementById('conf-therapist-name').textContent = booking.therapistName;
-        if (booking.dateFormatted || booking.date) {
-          const dateStr = booking.dateFormatted || booking.date;
-          document.getElementById('conf-datetime').textContent = `${dateStr} • ${booking.time || '10:00 AM'}`;
+      let booking = null;
+
+      // First check wellness_latest_booking
+      try {
+        const rawLatest = localStorage.getItem('wellness_latest_booking');
+        if (rawLatest) {
+          const parsed = JSON.parse(rawLatest);
+          if (!refParam || parsed.referenceId === refParam || parsed.id === refParam) {
+            booking = parsed;
+          }
         }
-        if (booking.guestName) document.getElementById('conf-guest-name').textContent = booking.guestName;
-        if (booking.guestEmail) document.getElementById('conf-guest-email').textContent = `${booking.guestEmail} • ${booking.guestPhone || ''}`;
-        if (booking.totalPrice) document.getElementById('conf-total-price').textContent = `$${booking.totalPrice.toFixed(2)}`;
+      } catch (e) {
+        console.warn('Error reading wellness_latest_booking', e);
       }
 
-      // Add to calendar (.ics download)
+      // If not matched or null, check persistent bookings list
+      if (!booking) {
+        try {
+          const rawList = localStorage.getItem('wellness_studio_bookings');
+          if (rawList) {
+            const list = JSON.parse(rawList);
+            if (Array.isArray(list) && list.length > 0) {
+              if (refParam) {
+                booking = list.find(b => b.referenceId === refParam || b.id === refParam) || list[list.length - 1];
+              } else {
+                booking = list[list.length - 1];
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Error reading wellness_studio_bookings', e);
+        }
+      }
+
+      // 2. Populate booking details into DOM
+      if (booking) {
+        const refId = booking.referenceId || booking.id || refParam || 'REF-84912';
+        const serviceName = booking.serviceName || 'Traditional Foot Reflexology';
+        const duration = booking.duration || booking.durationMinutes || 60;
+        const therapist = booking.therapistName || 'Master Mei-Ling Chen';
+        const timeSlot = booking.timeSlot || booking.time || '10:00 AM';
+
+        // Format Date
+        let dateDisplay = booking.dateFormatted;
+        if (!dateDisplay && booking.date) {
+          const parts = booking.date.split('-');
+          if (parts.length === 3) {
+            const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+            dateDisplay = d.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+          } else {
+            dateDisplay = booking.date;
+          }
+        }
+        if (!dateDisplay) dateDisplay = 'Upcoming Sanctuary Reservation';
+
+        // Guest info
+        const guestName = booking.guestName || (booking.client && booking.client.name) || 'Valued Guest';
+        const guestEmail = booking.guestEmail || (booking.client && booking.client.email) || 'guest@wellness.com';
+        const guestPhone = booking.guestPhone || (booking.client && booking.client.phone) || '';
+
+        // Price
+        let totalPrice = booking.totalWithTax || booking.totalPrice;
+        if (totalPrice !== undefined && totalPrice !== null) {
+          const numPrice = Number(totalPrice);
+          totalPrice = !isNaN(numPrice) ? `$${numPrice.toFixed(2)}` : `$${totalPrice}`;
+        } else {
+          totalPrice = '$118.80';
+        }
+
+        const refEl = document.getElementById('conf-ref-id');
+        if (refEl) refEl.textContent = refId;
+
+        const srvEl = document.getElementById('conf-service-name');
+        if (srvEl) srvEl.textContent = serviceName;
+
+        const durEl = document.getElementById('conf-duration');
+        if (durEl) durEl.textContent = `${duration} Minutes Comprehensive Session`;
+
+        const thEl = document.getElementById('conf-therapist-name');
+        if (thEl) thEl.textContent = therapist;
+
+        const dtEl = document.getElementById('conf-datetime');
+        if (dtEl) dtEl.textContent = `${dateDisplay} • ${timeSlot}`;
+
+        const gNameEl = document.getElementById('conf-guest-name');
+        if (gNameEl) gNameEl.textContent = guestName;
+
+        const gContactEl = document.getElementById('conf-guest-email');
+        if (gContactEl) {
+          gContactEl.textContent = guestPhone ? `${guestEmail} • ${guestPhone}` : guestEmail;
+        }
+
+        const priceEl = document.getElementById('conf-total-price');
+        if (priceEl) priceEl.textContent = totalPrice;
+      }
+
+      // 3. Add to Calendar (.ics download)
       const calBtn = document.getElementById('add-to-cal-btn');
       if (calBtn) {
         calBtn.addEventListener('click', () => {
           const b = booking || {
+            referenceId: 'REF-84912',
             serviceName: 'Traditional Foot Reflexology',
             date: new Date().toISOString().split('T')[0],
-            time: '10:00 AM',
-            durationMinutes: 60
+            timeSlot: '10:00 AM',
+            duration: 60
           };
+          const refCode = b.referenceId || b.id || 'Session';
+          const sName = b.serviceName || 'Integrative Foot Reflexology';
+          const dStr = (b.date || new Date().toISOString().split('T')[0]).replace(/-/g, '');
           const icsContent = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
             'PRODID:-//Sole Harmony//Sanctuary Scheduler//EN',
             'BEGIN:VEVENT',
-            `SUMMARY:${b.serviceName} at Sole Harmony`,
+            `SUMMARY:${sName} at Sole Harmony`,
             'DESCRIPTION:Your restorative holistic reflexology appointment at Sole Harmony sanctuary.',
             'LOCATION:482 Harmony Way, Suite 100, San Francisco, CA 94102',
-            `DTSTART:${b.date.replace(/-/g, '')}T100000Z`,
-            `DTEND:${b.date.replace(/-/g, '')}T110000Z`,
+            `DTSTART:${dStr}T100000Z`,
+            `DTEND:${dStr}T110000Z`,
             'STATUS:CONFIRMED',
             'END:VEVENT',
             'END:VCALENDAR'
@@ -359,13 +443,12 @@
           const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
           const link = document.createElement('a');
           link.href = window.URL.createObjectURL(blob);
-          link.setAttribute('download', `Sole_Harmony_Appointment_${b.id || 'Session'}.ics`);
+          link.setAttribute('download', `Sole_Harmony_Appointment_${refCode}.ics`);
           document.body.appendChild(link);
           link.click();
           link.remove();
         });
       }
-    });
-  </script>
+    });  </script>
 </body>
 </html>

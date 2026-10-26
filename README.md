@@ -46,18 +46,9 @@ Reflexology & Foot Massage Studio/
 ├── contact.html                 # Contact Page – Working enquiry form, inline confirmation, WhatsApp & Map
 ├── booking.html                 # 5-Step Multi-Step Booking Interface with preselection & validation
 ├── booking-confirmation.html    # Booking Confirmation Card – Reference code, summary, print & .ics export
-├── login.html                   # Client Sign In – Redirects to Customer Portal (user/dashboard.html)
-├── register.html                # Guest Registration – Instant account creation and dashboard entry
+├── login.html                   # Client Sign In – Guest account sign-in
+├── register.html                # Guest Registration – Account creation for streamlined booking
 ├── forgot-password.html         # Password Reset interface with notifications
-│
-├── user/
-│   └── dashboard.html           # Customer Sanctuary Portal – Upcoming sessions, treatment history,
-│                                # booking details modal, reschedule modal, cancel modal, and profile
-│
-├── admin/
-│   ├── login.html               # Staff & Admin Login – Isolated prototype authentication with disclaimer
-│   └── dashboard.html           # Admin Operational Dashboard – Live KPIs, appointment status manager,
-│                                # service catalog CRUD, customer enquiries review, studio settings, JSON export
 │
 ├── assets/
 │   ├── icons/                   # Scalable SVG wellness icons & Sole Harmony official brand assets
@@ -93,7 +84,6 @@ Reflexology & Foot Massage Studio/
 │   ├── services.css             # Service card layout, category pills, duration chips
 │   ├── booking.css              # Multi-step progress bar, calendar grid, time pills
 │   ├── forms.css                # Accessible inputs, floating labels, validation states
-│   ├── dashboard.css            # User and Admin dashboard responsive layouts, sidebars, stats
 │   ├── responsive.css           # Breakpoints for mobile (<768px), tablet, and desktop
 │   ├── themes.css               # Light & Dark theme color variables and card styles
 │   └── rtl.css                  # Right-to-Left (RTL) mirroring, Arabic typography & logical margins
@@ -106,8 +96,6 @@ Reflexology & Foot Massage Studio/
 │   ├── navigation.js            # Sticky navbar and mobile off-canvas drawer
 │   ├── validation.js            # Client-side form validation with accessible error cues
 │   ├── authentication.js        # Client & Admin session manager (localStorage / sessionStorage)
-│   ├── user-dashboard.js        # Powers Customer Sanctuary Portal logic and cancellations
-│   ├── admin-dashboard.js       # Powers Admin Operations, live KPIs, status updates, and service CRUD
 │   ├── services.js              # Services catalog search, category filter, and dynamic details
 │   ├── booking.js               # 5-step booking flow, duration recalculation, and appointment saving
 │   ├── home.js                  # Interactive foot meridian map and zone preview logic
@@ -121,7 +109,7 @@ Reflexology & Foot Massage Studio/
     ├── services.json            # 6 core proposed service categories with durations & benefits
     ├── pricing.json             # Pricing tiers (30/45/60/90m), packages (3/5/10), and studio policies
     ├── therapists.json          # Master practitioner bios, qualifications, and specialties
-    └── demo-appointments.json   # Seed appointment records for user and admin dashboards
+    └── demo-appointments.json   # Seed appointment records for studio reservation testing
 ```
 
 ---
@@ -158,28 +146,7 @@ All studio details are managed from a single file:
 - **Step 5: Review & Confirm** — Itemized fee breakdown ($0 advance card deposit required).
 - Generates a persistent booking record in `localStorage.getItem('wellness_studio_bookings')` and forwards to `booking-confirmation.html` with printable summary card and `.ics` calendar export.
 
-### 5. Customer Sanctuary Portal (`user/dashboard.html` & `js/user-dashboard.js`)
-- Accessible from the header account dropdown or `user/dashboard.html`.
-- **Overview:** Active appointment highlight, personal stats (upcoming sessions, completed visits, preferred pressure).
-- **Upcoming Sessions:** Detailed appointment cards with practitioner, room, and status badges (`Confirmed`, `Pending`).
-- **Actions:**
-  - **View Booking Details Modal**
-  - **Reschedule Appointment Modal** (updates date and time directly in `localStorage`)
-  - **Cancel Appointment Modal** (updates status to `Cancelled` subject to 24-hour studio policy)
-- **Treatment History:** Past session logs and therapist notes.
-- **Profile & Preferences:** Update contact details, preferred pressure, room aromatherapy, and reminder preferences.
-
-### 6. Admin Operational Dashboard (`admin/dashboard.html` & `js/admin-dashboard.js`)
-- Dedicated staff portal accessed via `admin/login.html` (demo credentials: `admin` / `soleharmony2026`).
-- **Live Dynamic KPIs:** Total Bookings, Today's Appointments, Active Service Offerings, and New Customer Inquiries (calculated live from real data).
-- **Today's Sanctuary Schedule:** Real-time timetable of today's appointments.
-- **All Bookings Management:** Filterable, searchable data table with live status changer (`Pending`, `Confirmed`, `Completed`, `Cancelled`).
-- **Service Catalog Management:** Add new treatments, edit prices and durations, or toggle service active/inactive status.
-- **Customer Enquiries:** View messages submitted via `contact.html`, inspect details, and mark as replied.
-- **Studio Configuration:** Update operating hours, booking lead times, and cancellation policies.
-- **Data Export:** Instant JSON export of all studio records (`sole-harmony-backup.json`).
-
-### 7. Proposed 6 Core Service Offerings (`data/services.json`)
+### 5. Proposed 6 Core Service Offerings (`data/services.json`)
 1. **Traditional Foot Reflexology** — From $45 (30m) / $75 (60m)
 2. **Relaxing Foot Massage** — From $40 (30m) / $68 (60m)
 3. **Full-Body Reflexology** — From $65 (45m) / $85 (60m)
@@ -189,16 +156,11 @@ All studio details are managed from a single file:
 
 ---
 
-## 🔒 Security & Prototype Disclosure
+## 🔒 Data & Booking Storage
 
-> [!IMPORTANT]
-> The Client Portal (`user/dashboard.html`) and Administrative Portal (`admin/dashboard.html`) are delivered as **frontend prototypes** utilizing browser `localStorage` and `sessionStorage` for cross-component state.
-> 
-> In a live production environment:
-> 1. Frontend JavaScript cannot guarantee administrative authorization.
-> 2. Admin credentials must be verified on a secure server using hashed passwords and HTTP-only JWTs/session cookies.
-> 3. Booking records, customer enquiries, and service pricing must be stored in a production database (e.g., PostgreSQL, Cloud Firestore).
-> 4. Emails and SMS reminders must be dispatched via transactional mail services (e.g., SendGrid, Postmark, Twilio).
+> [!NOTE]
+> Appointment records and customer contact inquiries are stored persistently in browser `localStorage`.
+> In a production deployment, these records can be dispatched directly to a backend API or cloud database.
 
 ---
 
@@ -219,22 +181,6 @@ npx serve .
 
 ### Option 3: Direct File Opening
 Double-click `index.html` to open directly in Google Chrome, Microsoft Edge, Firefox, or Safari. All scripts include built-in fallback data arrays to ensure complete functionality even over the local `file:///` protocol.
-
----
-
-## 🔑 Demo Prototype Credentials
-
-- **Client Portal:**
-  - Login URL: `login.html`
-  - Demo Email: `guest@wellness.com`
-  - Demo Password: `peace123` (or any email with 6+ character password)
-  - Post-login destination: `user/dashboard.html`
-
-- **Staff / Admin Portal:**
-  - Login URL: `admin/login.html`
-  - Username: `admin` (or `manager@soleharmony.com`)
-  - Password: `soleharmony2026`
-  - Post-login destination: `admin/dashboard.html`
 
 ---
 
