@@ -28,6 +28,11 @@ window.StudioTranslations = (function() {
     nav_book: "Book Appointment",
     nav_signin: "Client Sign In",
     nav_signout: "Sign Out",
+    menu_my_profile: "My Profile",
+    menu_my_bookings: "My Bookings",
+    menu_settings: "Settings",
+    profile_guest_title: "Guest Client",
+    profile_welcome_msg: "Welcome to Sole Harmony",
     
     // Breadcrumbs
     breadcrumb_home: "Home",
