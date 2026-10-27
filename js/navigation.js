@@ -9,6 +9,7 @@ const Navigation = {
     this.highlightActivePage();
     this.initAccordions();
     this.initDropdowns();
+    this.initFooterLogo();
     window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
   },
 
@@ -176,6 +177,20 @@ const Navigation = {
         setTimeout(() => {
           document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
         }, 150);
+      });
+    });
+  },
+
+  initFooterLogo() {
+    document.querySelectorAll('a.footer-logo, .site-footer a.site-logo').forEach(logo => {
+      logo.addEventListener('click', (e) => {
+        const path = window.location.pathname;
+        const isHomePage = path.endsWith('index.html') || path.endsWith('/') || path === '' || path.split('/').pop() === '';
+        // If user is already on the homepage without query or hash, smooth scroll to the top
+        if (isHomePage && !window.location.hash && !window.location.search) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
   }

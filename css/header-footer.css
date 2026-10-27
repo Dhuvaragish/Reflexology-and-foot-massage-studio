@@ -1176,6 +1176,50 @@
   }
 }
 
+/* Footer Brand Logo Link */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+  max-width: 100%;
+  transition: opacity var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+}
+
+.footer-logo:hover {
+  text-decoration: none;
+}
+
+.footer-logo:hover .logo-icon {
+  transform: rotate(4deg) scale(1.06);
+  box-shadow: 0 4px 16px rgba(49, 91, 67, 0.2);
+}
+
+.footer-logo:hover .logo-title,
+.footer-logo:hover .font-heading {
+  color: var(--color-primary);
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.footer-logo .logo-subtitle {
+  display: block !important;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm, 6px);
+}
+
+[dir="rtl"] .footer-logo {
+  text-align: right;
+}
+
 /* ==========================================================================
    Profile Account Dropdown & Header Profile Icon
    ========================================================================== */
